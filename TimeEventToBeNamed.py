@@ -1,17 +1,24 @@
 import requests
 import datetime
-import numpy as np
 from bs4 import BeautifulSoup
-import pandas as pd
-from datetime import timedelta
-import shutil
 from tabulate import tabulate
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
-#PSN_IDS = ["slammajamma28", "staytrue1985", "XxDecieverxX", "Zetberg" ]
 PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-EVENT_START = datetime.datetime.strptime('2023/02/20', "%Y/%m/%d")
-EVENT_END = datetime.datetime.strptime('2023/02/28', "%Y/%m/%d")
+#PSN_IDS = ["slammajamma28"]
+EVENT_START = datetime.datetime.strptime('2023/03/01', "%Y/%m/%d")
+EVENT_END = datetime.datetime.strptime('2023/04/01', "%Y/%m/%d")
+
+ff_profile = "C:\\Users\\dillo\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\8lk0om2z.default"
+options = Options()
+options.add_argument("-profile")
+options.add_argument(ff_profile)
+driver = webdriver.Firefox(options=options)
 
 filetime = datetime.datetime.now().strftime("%b-%d-%H%M")
 file_out = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\output\\{filetime}.html', "w", encoding='utf-8')
@@ -78,10 +85,28 @@ class TimeItem():
 trophyList = []
 
 for psn in PSN_IDS:
+
+    ## Get Hidden Trophy count
+    url = f"https://psnprofiles.com/{psn}"
+    try:
+        driver.get(url)
+        m = driver.find_element(By.ID, "hidden-trophies")
+        #hover over element
+        actions = ActionChains(driver)
+        actions.move_to_element(m).perform()
+        html = driver.page_source
+        soup = BeautifulSoup(html, "html.parser")
+        hiddenTrophies = int(soup.find("div", id="tiptip_content").find("b").text)
+    except Exception as err:
+        hiddenTrophies = int(0)
+    finally:
+        driver.quit()
+
     end_of_event = 0
     page = 1
     plat_count = 0
     while end_of_event < 1:
+        ## Get Log
         url = f"https://psnprofiles.com/{psn}/log?page={page}"
         headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
         #print(f'Now on {url}')
@@ -93,7 +118,7 @@ for psn in PSN_IDS:
             end_of_event = 1
         for i in trophyLogRows:
             row_info=i.find_all('td')
-            log_num=row_info[4].get_text().replace("#","").replace(",","").strip()
+            log_num = hiddenTrophies + int(row_info[4].get_text().replace("#","").replace(",","").strip())
             trophy_date=row_info[5].find("span", "typo-top-date").get_text()
             trophy_date=datetime.datetime.strptime(trophy_date.replace('st ', ' ').replace('nd ', ' ').replace('rd ', ' ').replace('th ', ' '), '%d %b %Y')
             trophy_time=datetime.datetime.strptime(row_info[5].find("span", "typo-bottom-date").get_text().strip(), '%I:%M:%S %p' ) # 2:00:59 AM
