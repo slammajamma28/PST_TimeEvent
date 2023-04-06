@@ -4,14 +4,18 @@ import numpy as np
 from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import timedelta
+import shutil
+from tabulate import tabulate
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
 #PSN_IDS = ["slammajamma28", "staytrue1985", "XxDecieverxX", "Zetberg" ]
 PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-EVENT_START = datetime.datetime.strptime('2023/02/01', "%Y/%m/%d")
+EVENT_START = datetime.datetime.strptime('2023/02/20', "%Y/%m/%d")
 EVENT_END = datetime.datetime.strptime('2023/02/28', "%Y/%m/%d")
 
-file_out = open(f'C:\\Users\\dillo\\Documents\\Python\\RATAS\\output\\users-{filetime}.csv', "w", encoding='utf-8')
+filetime = datetime.datetime.now().strftime("%b-%d-%H%M")
+file_out = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\output\\{filetime}.html', "w", encoding='utf-8')
+current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\current.html', "w", encoding='utf-8')
 file_out.write("sep=|\n")
 
 TIME_ARRAY = []
@@ -27,17 +31,17 @@ for i in range(24):
 CLAIMED_TIME = []
 
 class Trophy:
-    def __init__(self, pst, logNum, tDate, tTime) -> None:
-        self.pst = pst
+    def __init__(self, psn, logNum, tDate, tTime) -> None:
+        self.psn = psn
         self.logNum = logNum
         self.tDate = tDate
         self.tTime = tTime
     
-    def setPST(self, pst):
-        self.pst = pst
+    def setPSN(self, psn):
+        self.psn = psn
     
-    def getPst(self):
-        return self.pst
+    def getPSN(self):
+        return self.psn
     
     def setLogNum(self, logNum):
         self.logNum = logNum
@@ -56,6 +60,9 @@ class Trophy:
     
     def getTTime(self):
         return self.tTime
+
+    def getPSTLogHtml(self):
+        return f'<a href="https://www.playstationtrophies.org/profiles/{self.psn}/log?id={self.logNum}">{self.logNum}</a>'
 
     def printTrophy(self):
         tString = self.tTime.strftime('%I:%M:%S %p')
@@ -102,10 +109,20 @@ trophyList.sort(key=lambda r: r.tTime)
 
 for troph in trophyList:
     #print(troph.printTrophy())
-    #print (troph.getPst() + "," + troph.getTTime().strftime('%H:%M'))
-    psid = troph.getPst()
+    #print (troph.getPSN() + "," + troph.getTTime().strftime('%H:%M'))
+    psid = troph.getPSN()
     cTime = troph.getTTime().strftime("%H:%M")
     if cTime in TIME_ARRAY:
-        print(f"{cTime},{psid}!")
-        CLAIMED_TIME.append([troph, cTime])
+        #print(f"{cTime},{psid}!")
+        file_out.write(f"{cTime}|{psid}\n")
+        CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
         TIME_ARRAY.remove(cTime)
+
+current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n")
+current_file.write("<table><tr><td><h1>REMAINING TIMES</h1>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+#current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
+for ttime in TIME_ARRAY:
+    current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+current_file.write("</tbody>\n</table></td><td>\n<h1>CLAIMED TIMES</h1>\n")
+current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log Num"], tablefmt='unsafehtml'))
+current_file.write("\n</td></tr></body>")
