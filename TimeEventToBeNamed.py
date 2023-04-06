@@ -24,7 +24,7 @@ driver = webdriver.Firefox(options=options)
 
 filetime = datetime.datetime.now().strftime("%b-%d-%H%M")
 file_out = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\output\\{filetime}.html', "w", encoding='utf-8')
-current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\current.html', "w", encoding='utf-8')
+current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\tracker.html', "w", encoding='utf-8')
 file_out.write("sep=|\n")
 
 TIME_ARRAY = []
