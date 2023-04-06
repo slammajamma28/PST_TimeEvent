@@ -153,7 +153,7 @@ current_file.write("<table><tr><td><h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<
 for ttime in TIME_ARRAY:
     current_file.write(f"<tr><td>{ttime}</tr></td>\n")
 current_file.write("</tbody>\n</table></td><td>\n<h2>CLAIMED TIMES</h2>\n")
-current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log Num"], tablefmt='unsafehtml'))
+current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#"], tablefmt='unsafehtml'))
 current_file.write("\n</td></tr></body>")
 
 print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))

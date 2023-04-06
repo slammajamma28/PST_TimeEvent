@@ -1,25 +1,40 @@
 /*https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l*/
+body {
+    background-color: black;
+    color: white;
+    margin: auto;
+    width: auto;
+    padding: 10px;
+    text-align: center;
+}
+
 table {
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
+    margin: auto;
+    font-size: 1em;
     font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    min-width: 250px;
 }
+
 thead tr {
-    background-color: #009879;
+    background-color: blue;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
 }
+
 th, td {
     padding: 12px 15px;
     vertical-align: top;
 }
+
 tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
 tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #696969;
+}
+
+a {
+    color: lightblue
 }
