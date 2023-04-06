@@ -8,7 +8,8 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-print("Process started at " + datetime.datetime.now().strftime("%H:%M:%S"))
+startTS = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print("Process started at " + startTS)
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
 PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
@@ -145,7 +146,7 @@ for troph in trophyList:
         CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
         TIME_ARRAY.remove(cTime)
 
-current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n<h1>PST TIME EVENT</h1>\n")
+current_file.write(f"<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS}</h3>\n")
 current_file.write("<table><tr><td><h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
 #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
 for ttime in TIME_ARRAY:
