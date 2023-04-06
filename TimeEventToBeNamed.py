@@ -145,14 +145,19 @@ for troph in trophyList:
         CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
         TIME_ARRAY.remove(cTime)
 
-current_file.write(f"<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS} UTC</h3>\n")
-current_file.write("<table><tr><td><h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
+                    + f"<body>\n<script src='js/script.js'></script>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS} UTC</h3>\n"
+                    + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
+                    + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
+                    + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button></div>\n"
+                    + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">"
+                    + "<h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
 #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
 for ttime in TIME_ARRAY:
     current_file.write(f"<tr><td>{ttime}</tr></td>\n")
-current_file.write("</tbody>\n</table></td><td>\n<h2>CLAIMED TIMES</h2>\n")
+current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
 current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#"], tablefmt='unsafehtml'))
-current_file.write("\n</td></tr></body>")
+current_file.write("\n</div></body>")
 
 print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
 driver.quit()
