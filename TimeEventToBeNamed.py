@@ -118,11 +118,11 @@ for troph in trophyList:
         CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
         TIME_ARRAY.remove(cTime)
 
-current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n")
-current_file.write("<table><tr><td><h1>REMAINING TIMES</h1>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n<body>\n<h1>PST TIME EVENT</h1>\n")
+current_file.write("<table><tr><td><h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
 #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
 for ttime in TIME_ARRAY:
     current_file.write(f"<tr><td>{ttime}</tr></td>\n")
-current_file.write("</tbody>\n</table></td><td>\n<h1>CLAIMED TIMES</h1>\n")
+current_file.write("</tbody>\n</table></td><td>\n<h2>CLAIMED TIMES</h2>\n")
 current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log Num"], tablefmt='unsafehtml'))
 current_file.write("\n</td></tr></body>")
