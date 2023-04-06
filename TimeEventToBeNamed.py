@@ -103,8 +103,6 @@ for psn in PSN_IDS:
         hiddenTrophies = int(soup.find("div", id="tiptip_content").find("b").text)
     except Exception as err:
         hiddenTrophies = int(0)
-    finally:
-        driver.quit()
 
     end_of_event = 0
     page = 1
@@ -157,3 +155,4 @@ current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#"], tablef
 current_file.write("\n</td></tr></body>")
 
 print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
+driver.quit()
