@@ -8,6 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from collections import Counter
 
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 print("Process started at " + startTS)
@@ -40,6 +41,7 @@ for i in range(24):
         TIME_ARRAY.append(f"{i}:{y}")
 
 CLAIMED_TIME = []
+LEADERBOARD = []
 
 class Trophy:
     def __init__(self, psn, logNum, tDate, tTime) -> None:
@@ -121,6 +123,7 @@ for psn in PSN_IDS:
         for i in trophyLogRows:
             row_info=i.find_all('td')
             log_num = hiddenTrophies + int(row_info[4].get_text().replace("#","").replace(",","").strip())
+            trophy_rarity = row_info[8].find("span", "typo-top").get_text().replace('%', '')
             trophy_date=row_info[5].find("span", "typo-top-date").get_text()
             trophy_date=datetime.datetime.strptime(trophy_date.replace('st ', ' ').replace('nd ', ' ').replace('rd ', ' ').replace('th ', ' '), '%d %b %Y')
             trophy_time=datetime.datetime.strptime(row_info[5].find("span", "typo-bottom-date").get_text().strip(), '%I:%M:%S %p' ) # 2:00:59 AM
@@ -143,10 +146,18 @@ for troph in trophyList:
         #print(f"{cTime},{psid}!")
         file_out.write(f"{cTime}|{psid}\n")
         CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
+        LEADERBOARD.append(psid)
         TIME_ARRAY.remove(cTime)
+
+cnt = Counter()
+for lb in LEADERBOARD:
+    cnt[lb] += 1
 
 current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
                     + f"<body>\n<script src='js/script.js'></script>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS} UTC</h3>\n"
+                    + "<div>Times are tracked and claimed automatically.<br>"
+                    + "Post in the <a href='https://www.playstationtrophies.org'>discussion thread</a> "
+                    + "if you see any discrepancies and for further rules.</div><br>"
                     + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button></div>\n"
@@ -157,7 +168,9 @@ for ttime in TIME_ARRAY:
     current_file.write(f"<tr><td>{ttime}</tr></td>\n")
 current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
 current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#"], tablefmt='unsafehtml'))
-current_file.write("\n</div></body>")
+current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
+current_file.write(tabulate(cnt.items(), headers=["User","Count"], tablefmt='unsafehtml'))
+current_file.write("\n</div>\n</body>")
 
-print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
+print("Process complete at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
 driver.quit()
