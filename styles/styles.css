@@ -6,13 +6,15 @@ body {
     width: auto;
     padding: 10px;
     text-align: center;
+    font-size: x-large;
 }
 
 table {
     border-collapse: collapse;
     margin: auto;
     font-family: sans-serif;
-    min-width: 250px;
+    font-size: larger;
+    min-width: 75%;
 }
 
 thead tr {
@@ -52,6 +54,7 @@ a {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
+    font-size: larger;
 }
   
 /* Change background color of buttons on hover */
