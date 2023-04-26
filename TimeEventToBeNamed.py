@@ -228,7 +228,7 @@ for user in USERS_TROPHIES:
     user.calculateIndividualGoal()
 
 current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
-                    + f"<body>\n<script src='js/script.js'></script>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS} UTC</h3>\n"
+                    + f"<body>\n<script src='js/script.js'></script>\n<img src=\"banner.png\" alt=\"PST TIME EVENT\">\n<h3>as of {startTS} UTC</h3>\n"
                     + "<div>Times are tracked and claimed automatically.<br>"
                     + "Post in the <a href='https://www.playstationtrophies.org'>discussion thread</a> "
                     + "if you see any discrepancies and for further rules.</div><br>"
