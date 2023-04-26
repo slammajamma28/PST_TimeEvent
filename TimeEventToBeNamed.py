@@ -231,12 +231,12 @@ current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles
                     + f"<body>\n<script src='js/script.js'></script>\n<img src=\"banner.png\" alt=\"PST TIME EVENT\">\n<h3>as of {startTS} UTC</h3>\n"
                     + "<div>Times are tracked and claimed automatically.<br>"
                     + "Post in the <a href='https://www.playstationtrophies.org'>discussion thread</a> "
-                    + "if you see any discrepancies and for further rules.</div><br>"
+                    + "if you see any discrepancies and for further rules.</div><br>\n"
                     + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'individual')\">Individual</button></div>\n"
-                    + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">"
+                    + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">\n"
                     + "<h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
 #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
 for ttime in TIME_ARRAY:
@@ -244,10 +244,10 @@ for ttime in TIME_ARRAY:
 current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
 current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
 current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
-current_file.write(tabulate(cnt.items(), headers=["User","Count"], tablefmt='unsafehtml'))
-current_file.write("\n</div>")
-current_file.write("<div id=\"individual\" class=\"tabcontent\"><div class=\"dropdown\">")
-current_file.write("<button class=\"dropbtn\">Select a PSN ID</button><div class=\"dropdown-content\">\n")
+current_file.write(tabulate(cnt.most_common(), headers=["User","Count"], tablefmt='unsafehtml'))
+current_file.write("\n</div>\n")
+current_file.write("<div id=\"individual\" class=\"tabcontent\">\n<div class=\"dropdown\">")
+current_file.write("<button class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
 for user in USERS_TROPHIES:
     current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()}</button><br>\n")
 current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
