@@ -9,13 +9,14 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from collections import Counter
+import numpy
 
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 print("Process started at " + startTS)
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
 PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-#PSN_IDS = ["slammajamma28"]
+#PSN_IDS = ["slammajamma28", "Blood_Velvet"]
 EVENT_START = datetime.datetime.strptime('2023/03/01', "%Y/%m/%d")
 EVENT_END = datetime.datetime.strptime('2023/04/01', "%Y/%m/%d")
 
@@ -44,11 +45,12 @@ CLAIMED_TIME = []
 LEADERBOARD = []
 
 class Trophy:
-    def __init__(self, psn, logNum, tDate, tTime) -> None:
+    def __init__(self, psn, logNum, tDate, tTime, tRarity) -> None:
         self.psn = psn
         self.logNum = logNum
         self.tDate = tDate
         self.tTime = tTime
+        self.tRarity = tRarity
     
     def setPSN(self, psn):
         self.psn = psn
@@ -73,6 +75,12 @@ class Trophy:
     
     def getTTime(self):
         return self.tTime
+
+    def setTRarity(self, tRarity):
+        self.tRarity = tRarity
+    
+    def getTRarity(self):
+        return self.tRarity
 
     def getPSTLogHtml(self):
         return f'<a href="https://www.playstationtrophies.org/profiles/{self.psn}/log?id={self.logNum}">{self.logNum}</a>'
@@ -130,7 +138,7 @@ for psn in PSN_IDS:
             if trophy_date >= EVENT_END:
                 continue
             elif trophy_date >= EVENT_START:
-                trophyList.append(Trophy(psn, log_num, trophy_date.date(), trophy_time))
+                trophyList.append(Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity))
             else:
                 end_of_event = 1
         page = page + 1
@@ -143,9 +151,16 @@ for troph in trophyList:
     psid = troph.getPSN()
     cTime = troph.getTTime().strftime("%H:%M")
     if cTime in TIME_ARRAY:
+        # Check the rest of the times for the rarest trophy
+        TMP_LIST= []
+        for x in trophyList:
+            if x.getTTime().strftime('%H:%M') == cTime:
+                TMP_LIST.append(x)
+        TMP_LIST.sort(key=lambda r: r.tRarity)
         #print(f"{cTime},{psid}!")
+        psid = TMP_LIST[0].getPSN()
         file_out.write(f"{cTime}|{psid}\n")
-        CLAIMED_TIME.append([cTime, psid, troph.getPSTLogHtml()])
+        CLAIMED_TIME.append([cTime, psid, TMP_LIST[0].getPSTLogHtml(), TMP_LIST[0].getTRarity()])
         LEADERBOARD.append(psid)
         TIME_ARRAY.remove(cTime)
 
@@ -167,7 +182,7 @@ current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles
 for ttime in TIME_ARRAY:
     current_file.write(f"<tr><td>{ttime}</tr></td>\n")
 current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
-current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#"], tablefmt='unsafehtml'))
+current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
 current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
 current_file.write(tabulate(cnt.items(), headers=["User","Count"], tablefmt='unsafehtml'))
 current_file.write("\n</div>\n</body>")
