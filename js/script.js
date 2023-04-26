@@ -21,7 +21,7 @@ function openTab(evt, tabName) {
 
 function showUser(evt, userName) {
   // Declare all variables
-  var i, user_table;
+  var i, user_table, columns, activeTable, activeRows, btn;
   
   // Get all elements with class="user_table" and hide them
   user_table = document.getElementsByClassName("user_table");
@@ -30,7 +30,18 @@ function showUser(evt, userName) {
   }
 
   // Show the selected table
-  document.getElementById(userName).style.display = "block";
+  activeTable = document.getElementById(userName);
+  activeTable.style.display = "block";
+  thisTable = activeTable.getElementsByTagName('tbody')
+  activeRows = thisTable[0].getElementsByTagName('tr')
+  for (i = 0; i < activeRows.length; i++){
+    columns = activeRows[i].getElementsByTagName('td');
+    console.log(columns[0].innerText);
+    if (columns[0].innerText == "MISSING") {
+      activeRows[i].style.background = "red";
+    }
+  }
+    
   btn = document.getElementsByClassName("dropbtn");
   for (i = 0; i < btn.length; i++) {
     btn[i].innerHTML = userName;
