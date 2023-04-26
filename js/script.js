@@ -18,3 +18,21 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
   } 
+
+function showUser(evt, userName) {
+  // Declare all variables
+  var i, user_table;
+  
+  // Get all elements with class="user_table" and hide them
+  user_table = document.getElementsByClassName("user_table");
+  for (i = 0; i < user_table.length; i++) {
+    user_table[i].style.display = "none";
+  }
+
+  // Show the selected table
+  document.getElementById(userName).style.display = "block";
+  btn = document.getElementsByClassName("dropbtn");
+  for (i = 0; i < btn.length; i++) {
+    btn[i].innerHTML = userName;
+  }
+}

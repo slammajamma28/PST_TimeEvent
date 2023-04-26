@@ -15,8 +15,8 @@ startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 print("Process started at " + startTS)
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
-PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-#PSN_IDS = ["slammajamma28", "Blood_Velvet"]
+#PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
+PSN_IDS = ["slammajamma28", "Blood_Velvet", "Asher1985"]
 EVENT_START = datetime.datetime.strptime('2023/03/01', "%Y/%m/%d")
 EVENT_END = datetime.datetime.strptime('2023/04/01', "%Y/%m/%d")
 
@@ -43,6 +43,7 @@ for i in range(24):
 
 CLAIMED_TIME = []
 LEADERBOARD = []
+USERS_TROPHIES = []
 
 class Trophy:
     def __init__(self, psn, logNum, tDate, tTime, tRarity) -> None:
@@ -90,6 +91,56 @@ class Trophy:
         retStr = f'{self.pst},{self.logNum},{self.tDate},{tString}'
         return retStr
 
+class User:
+    def __init__(self, psn) -> None:
+        self.psn = psn
+        self.trophies = []
+        self.individualProgress = []
+        self.individualTimes = []
+        for i in range(60):
+            if i < 10:
+                i = f"0{i}"
+                self.individualTimes.append(f"{i}")
+            else:
+                self.individualTimes.append(f"{i}")
+
+    def setPSN(self, psn):
+        self.psn = psn
+    
+    def getPSN(self):
+        return self.psn
+    
+    def getTrophies(self):
+        return self.trophies
+    
+    def getIndividualProgress(self):
+        return self.individualProgress
+
+    def addTrophy(self, trophy):
+        self.trophies.append(trophy)
+    
+
+
+    def calculateIndividualGoal(self):
+        self.trophies.sort(key=lambda r: r.tRarity)
+        for troph in self.trophies:
+            cTime = troph.getTTime().strftime("%S")
+            if cTime in self.individualTimes:
+                self.individualProgress.append([troph.getPSTLogHtml(), troph.getTRarity(), cTime])
+                self.individualTimes.remove(cTime)
+        if len(self.individualProgress) < 60:
+            for ip in range(60):
+                if ip < 10:
+                    ip = f"0{ip}"
+                else:
+                    ip = f"{ip}"
+                if ip in self.individualTimes:
+                    self.individualProgress.append(["MISSING","MISSING",str(ip)])
+        def sortByThirdIndex(a):
+            return a[2]
+        self.individualProgress.sort(key=sortByThirdIndex)
+
+
 class TimeItem():
     def __init__(self, tHour, tMinute, tTrophy) -> None:
         self.tHour = tHour
@@ -99,7 +150,7 @@ class TimeItem():
 trophyList = []
 
 for psn in PSN_IDS:
-
+    user = User(psn)
     ## Get Hidden Trophy count
     url = f"https://psnprofiles.com/{psn}"
     try:
@@ -138,10 +189,13 @@ for psn in PSN_IDS:
             if trophy_date >= EVENT_END:
                 continue
             elif trophy_date >= EVENT_START:
-                trophyList.append(Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity))
+                trophy = Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity)
+                trophyList.append(trophy)
+                user.addTrophy(trophy)
             else:
                 end_of_event = 1
         page = page + 1
+    USERS_TROPHIES.append(user)
 
 trophyList.sort(key=lambda r: r.tTime)
 
@@ -168,6 +222,11 @@ cnt = Counter()
 for lb in LEADERBOARD:
     cnt[lb] += 1
 
+USERS_TROPHIES.sort(key=lambda r: r.psn)
+for user in USERS_TROPHIES:
+    #print(f"{user.getPSN()} has earned {len(user.getTrophies())} trophies")
+    user.calculateIndividualGoal()
+
 current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
                     + f"<body>\n<script src='js/script.js'></script>\n<h1>PST TIME EVENT</h1>\n<h3>as of {startTS} UTC</h3>\n"
                     + "<div>Times are tracked and claimed automatically.<br>"
@@ -175,7 +234,8 @@ current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles
                     + "if you see any discrepancies and for further rules.</div><br>"
                     + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                     + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
-                    + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button></div>\n"
+                    + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button>\n"
+                    + "<button class=\"tablinks\" onclick=\"openTab(event, 'individual')\">Individual</button></div>\n"
                     + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">"
                     + "<h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
 #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
@@ -185,7 +245,18 @@ current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabc
 current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
 current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
 current_file.write(tabulate(cnt.items(), headers=["User","Count"], tablefmt='unsafehtml'))
-current_file.write("\n</div>\n</body>")
+current_file.write("\n</div>")
+current_file.write("<div id=\"individual\" class=\"tabcontent\"><div class=\"dropdown\">")
+current_file.write("<button class=\"dropbtn\">Select a PSN ID</button><div class=\"dropdown-content\">\n")
+for user in USERS_TROPHIES:
+    current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()}</button>\n")
+current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
+for user in USERS_TROPHIES:
+    current_file.write(f"<div id=\"{user.getPSN()}\" class=\"user_table\" style=\"display:none\">\n")
+    current_file.write(tabulate(user.getIndividualProgress(), headers=["Log#","Rariity","Seconds"], tablefmt='unsafehtml'))
+    current_file.write("</div>\n")
+
+current_file.write("\n</div></body>")
 
 print("Process complete at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
 driver.quit()
