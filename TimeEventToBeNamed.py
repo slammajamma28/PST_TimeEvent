@@ -222,7 +222,7 @@ cnt = Counter()
 for lb in LEADERBOARD:
     cnt[lb] += 1
 
-USERS_TROPHIES.sort(key=lambda r: r.psn)
+USERS_TROPHIES.sort(key=lambda r: r.psn.lower())
 for user in USERS_TROPHIES:
     #print(f"{user.getPSN()} has earned {len(user.getTrophies())} trophies")
     user.calculateIndividualGoal()
@@ -249,7 +249,7 @@ current_file.write("\n</div>")
 current_file.write("<div id=\"individual\" class=\"tabcontent\"><div class=\"dropdown\">")
 current_file.write("<button class=\"dropbtn\">Select a PSN ID</button><div class=\"dropdown-content\">\n")
 for user in USERS_TROPHIES:
-    current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()}</button>\n")
+    current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()}</button><br>\n")
 current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
 for user in USERS_TROPHIES:
     current_file.write(f"<div id=\"{user.getPSN()}\" class=\"user_table\" style=\"display:none\">\n")
