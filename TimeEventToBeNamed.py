@@ -245,7 +245,7 @@ try:
     current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
     current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
     current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
-    current_file.write(tabulate(cnt.most_common().list(), headers=["User","Count"], tablefmt='unsafehtml'))
+    current_file.write(tabulate(cnt.most_common(), headers=["User","Count"], tablefmt='unsafehtml'))
     current_file.write("\n</div>\n")
     current_file.write("<div id=\"individual\" class=\"tabcontent\">\n<div class=\"dropdown\">")
     current_file.write("<button class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
