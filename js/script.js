@@ -56,8 +56,8 @@ function swapTime(evt) {
   timestr = time.substring(index-4, time.length);
   
   zone = document.getElementsByTagName("h3");
-  if (zone[0].value == "utc") {
-    zone[0].value = "local";
+  if (zone[0].getAttribute("value") == "utc") {
+    zone[0].setAttribute("value", "local");
     date_year = new Date(timestr).getFullYear();
     date_month = new Date(timestr).getMonth() + 1;
     date_day = new Date(timestr).getDate();
@@ -75,7 +75,7 @@ function swapTime(evt) {
     console.log(date);
     document.getElementsByTagName("h3")[0].innerHTML = "as of " + date;
   } else {
-    zone[0].value = "utc";
+    zone[0].setAttribute("value", "utc");
     document.getElementsByTagName("h3")[0].innerHTML = time;
   }
 }
