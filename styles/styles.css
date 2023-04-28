@@ -36,6 +36,15 @@ tbody tr:nth-of-type(even) {
     background-color: #696969;
 }
 
+h3 {
+    line-height: 0em;
+    cursor: pointer;
+}
+
+h4 {
+    display: none;
+}
+
 a {
     color: lightblue
 }

@@ -11,12 +11,13 @@ from selenium.webdriver.common.by import By
 from collections import Counter
 import numpy
 
-startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+#startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
 print("Process started at " + startTS)
 
 #PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
 PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-#PSN_IDS = ["slammajamma28", "Blood_Velvet", "Asher1985"]
+PSN_IDS = ["Asher1985"]
 EVENT_START = datetime.datetime.strptime('2023/03/01', "%Y/%m/%d")
 EVENT_END = datetime.datetime.strptime('2023/04/01', "%Y/%m/%d")
 
@@ -229,7 +230,9 @@ try:
         user.calculateIndividualGoal()
 
     current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
-                        + f"<body>\n<script src='js/script.js'></script>\n<img src=\"banner.png\" alt=\"PST TIME EVENT\">\n<h3>as of {startTS} UTC</h3>\n"
+                        + "<body>\n<script src='js/script.js'></script>\n<img src=\"banner.png\" alt=\"PST TIME EVENT\">\n"
+                        + f"<h3 value=\"utc\" onClick=\"swapTime(event)\">as of {startTS}</h3>\n"
+                        + f"<h4>as of {startTS}</h3>\n"
                         + "<div>Times are tracked and claimed automatically.<br>"
                         + "Post in the <a href='https://www.playstationtrophies.org'>discussion thread</a> "
                         + "if you see any discrepancies and for further rules.</div><br>\n"
