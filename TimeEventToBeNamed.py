@@ -15,11 +15,12 @@ import numpy
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
 print("Process started at " + startTS)
 
-#PSN_IDS = [ "Adorabears", "AffectatiousDonk", "Alindawyl", "AlterArchuria", "AppleKratue", "Asher1985", "Barra333", "BinkUncia", "Blood_Velvet", "BUYDJMAXRESPECT", "cbchaos67", "clayser", "daco_1979", "Da-Eastside", "dagobahhh", "danc97-", "Dark_Adonis", "Darth_Krid", "Dino_Roar", "Dipsy_Doodle_", "diskdocx", "Dolken_swe", "ff_pennysticks", "fisty123", "guylian", "HaoleDave", "hBLOXs", "Hemming87", "ImStylinOnYaBro", "Izularia", "Jerry_Appleby", "JMeeks1875", "jvaferreira", "kinjall", "Laburnski", "lion1325478", "Martz4040", "mattigummi45", "Meikoro", "Mikel93", "NewYorkUgly", "Nox123", "NyarlathQtep", "olsen77", "pathtoninja", "PayneKillerTears", "Pokkit_", "RemingtonInk", "Road2unner", "russelguppy", "Savenger", "ShadowEpyon10", "Shady_Wombat", "slammajamma28", "staytrue1985", "stgermain", "stpatty", "sum1_worsethan_u", "SylarTheNinja", "THE--ALCHEMlST", "themindisacity", "TheRealClayman", "Tuffinz_", "Vapion", "Vo1cl", "Wdog-999", "XxDecieverxX", "Zetberg" ]
-PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
+PSN_IDS = ["slammajamma28"
+           ]
+#PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
 #PSN_IDS = ["Asher1985"]
-EVENT_START = datetime.datetime.strptime('2023/03/01', "%Y/%m/%d")
-EVENT_END = datetime.datetime.strptime('2023/04/01', "%Y/%m/%d")
+EVENT_START = datetime.datetime.strptime('2023/05/01', "%Y/%m/%d")
+EVENT_END = datetime.datetime.strptime('2023/06/01', "%Y/%m/%d")
 
 ff_profile = "C:\\Users\\dillo\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\8lk0om2z.default"
 options = Options()
