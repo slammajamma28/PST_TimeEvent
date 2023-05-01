@@ -23,6 +23,7 @@ PSN_IDS = ["Barra333",
            "Road2unner",
            "slammajamma28",
            "THE--ALCHEMlST",
+           "XxDecieverxX",
            "Zetberg"
            ]
 #PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
