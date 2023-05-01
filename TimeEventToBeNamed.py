@@ -18,6 +18,7 @@ print("Process started at " + startTS)
 PSN_IDS = ["Barra333",
            "Blood_Velvet",
            "danc97-",
+           "Dino_Roar",
            "diskdocx",
            "mattigummi",
            "Road2unner",
