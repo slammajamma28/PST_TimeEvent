@@ -32,7 +32,7 @@ $(document).ready(function () {
       "background":    `-moz-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
       "background":     `-ms-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
       "background":      `-o-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
-      "background":         `linear-gradient(to right, blue ${currentVal}, white ${currentVal}`})
+      "background":      `linear-gradient(to right, blue ${currentVal}, white ${currentVal}`})
 });
 
 function openTab(evt, tabName) {
