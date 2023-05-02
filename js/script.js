@@ -54,7 +54,7 @@ function swapTime(evt) {
   time = document.getElementsByTagName("h4")[0].innerHTML;
   index = time.search("/");
   timestr = time.substring(index-4, time.length);
-  
+  console.log(timestr);
   zone = document.getElementsByTagName("h3");
   if (zone[0].getAttribute("value") == "utc") {
     zone[0].setAttribute("value", "local");
@@ -62,10 +62,16 @@ function swapTime(evt) {
     date_month = new Date(timestr).getMonth() + 1;
     date_day = new Date(timestr).getDate();
     date_hour = new Date(timestr).getHours();
-    if (date_hour > 11 ) {
+    if (date_hour > 13 ) {
       ampm = "PM";
       date_hour = date_hour - 12;
-    } else {
+    } else if (date_hour == 12) { 
+      ampm = "PM";
+    } else if (date_hour == 0) {
+      ampm = "AM";
+      date_hour = 12;
+    }
+     else {
       ampm = "AM";
     }
     date_minute = new Date(timestr).getMinutes();
