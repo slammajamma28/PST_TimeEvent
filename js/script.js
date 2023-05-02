@@ -24,15 +24,15 @@
 
 $(document).ready(function () {
   console.log("Jquery is a go!");
-  const currentVal = document.getElementById("currentCount").innerText;
+  const currentVal = document.getElementById("goalPercentage").innerText;
   $(".percentageFill").css(
       {"color": "black",
       "border": "1px solid black",
-      "background": "-webkit-linear-gradient(left, blue ${currentVal}%, white ${currentVal}%)",
-      "background":    "-moz-linear-gradient(left, blue ${currentVal}%, white ${currentVal}%)",
-      "background":     "-ms-linear-gradient(left, blue ${currentVal}%, white ${currentVal}%)",
-      "background":      "-o-linear-gradient(left, blue ${currentVal}%, white ${currentVal}%)",
-      "background":         "linear-gradient(to right, blue ${currentVal}%, white ${currentVal}%"})
+      "background": `-webkit-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
+      "background":    `-moz-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
+      "background":     `-ms-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
+      "background":      `-o-linear-gradient(left, blue ${currentVal}, white ${currentVal})`,
+      "background":      `linear-gradient(to right, blue ${currentVal}, white ${currentVal}`})
 });
 
 function openTab(evt, tabName) {
