@@ -138,3 +138,8 @@ a {
     min-width: 300px;
     font-size: larger;
   }
+
+.percentageFill {
+    color: black;
+    border:1px solid black;
+}

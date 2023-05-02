@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Update the css percentages for progress bar
+  //background: -webkit-linear-gradient(left, blue 72%, white 72%);
+  //background:    -moz-linear-gradient(left, blue 72%, white 72%);
+  //background:     -ms-linear-gradient(left, blue 72%, white 72%);
+  //background:      -o-linear-gradient(left, blue 72%, white 72%);
+  //background:         linear-gradient(to right, blue 72%, white 72%);
+  const currentVal = document.getElementById("currentCount").innerText;
+  console.log(currentVal);
+  const progressBarStyle = `
+    color: black;
+    border:1px solid black;  
+    background: -webkit-linear-gradient(left, blue 72%, white 72%);
+    background:    -moz-linear-gradient(left, blue 72%, white 72%);
+    background:     -ms-linear-gradient(left, blue 72%, white 72%);
+    background:      -o-linear-gradient(left, blue 72%, white 72%);
+    background:         linear-gradient(to right, blue 72%, white 72%);
+  `
+  document.getElementsByClassName("percentageFill").style.cssText = progressBarStyle;
+}, false);
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
