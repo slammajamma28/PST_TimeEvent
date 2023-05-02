@@ -262,7 +262,7 @@ try:
                         + f"<h3 value=\"utc\" onClick=\"swapTime(event)\">as of {startTS}</h3>\n"
                         + f"<h4>as of {startTS}</h3>\n"
                         + "<div>Times are tracked and claimed automatically.<br>"
-                        + "Post in the <a href='https://www.playstationtrophies.org'>discussion thread</a> "
+                        + "Post in the <a href='https://www.playstationtrophies.org/forum/topic/334336-wait-a-minute-~-discussion/'>discussion thread</a> "
                         + "if you see any discrepancies and for further rules.</div><br>\n"
                         + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
