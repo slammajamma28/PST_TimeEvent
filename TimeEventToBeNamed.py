@@ -269,7 +269,7 @@ try:
                         + "Post in the <a href='https://www.playstationtrophies.org/forum/topic/334336-wait-a-minute-~-discussion/'>discussion thread</a> "
                         + "if you see any discrepancies and for further rules.</div><br>\n"
                         + "<div id=\"goal-count\"><table><thead><tr class='percentageFill'><th>Current</th><th>Remaining</th><th>Progress</th></tr></thead>\n"
-                        + f"<tbody><tr class='percentageFill'><td>{len(CLAIMED_TIME)}</td><td>{1400-len(CLAIMED_TIME)}</td><td id=\"goalPercentage\">{round(len(CLAIMED_TIME)/1400 * 100,2)}%</td></tr></tbody></table></div><br>\n"
+                        + f"<tbody><tr class='percentageFill'><td>{len(CLAIMED_TIME)}</td><td>{1440-len(CLAIMED_TIME)}</td><td id=\"goalPercentage\">{round(len(CLAIMED_TIME)/1440 * 100,2)}%</td></tr></tbody></table></div><br>\n"
                         + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button>\n"
