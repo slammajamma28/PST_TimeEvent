@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log("Jquery is a go!");
   const currentVal = document.getElementById("goalPercentage").innerText;
   $(".percentageFill").css(
       {"color": "white",
@@ -111,7 +110,6 @@ function showHourSummary(evt, hourNum) {
   for (i = 0; i < tables.length; i++) {
     tables[i].style.display = "none";
   }
-  console.log("Pushed " + hourNum);
   document.getElementById(hourNum).style.display = "block";
   evt.currentTarget.className += " active";
 }
