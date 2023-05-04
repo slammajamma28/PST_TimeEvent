@@ -15,7 +15,8 @@ import numpy
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
 print("Process started at " + startTS)
 
-PSN_IDS = ["Barra333",
+PSN_IDS = ["Asher1985",
+           "Barra333",
            "Blood_Velvet",
            "clayser",
            "Da-Eastside",
@@ -41,6 +42,7 @@ PSN_IDS = ["Barra333",
            "stgermain",
            "stpatty",
            "sum1_worsethan_u",
+           "SWEDISH_PIRATE",
            "THE--ALCHEMlST",
            "VazzVegas",
            "wrestlefanatic77",
