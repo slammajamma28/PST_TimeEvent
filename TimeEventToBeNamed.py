@@ -77,6 +77,31 @@ for i in range(24):
 CLAIMED_TIME = []
 LEADERBOARD = []
 USERS_TROPHIES = []
+HOUR_BREAKDOWN = []
+HOUR_0 = []
+HOUR_1 = []
+HOUR_2 = []
+HOUR_3 = []
+HOUR_4 = []
+HOUR_5 = []
+HOUR_6 = []
+HOUR_7 = []
+HOUR_8 = []
+HOUR_9 = []
+HOUR_10 = []
+HOUR_11 = []
+HOUR_12 = []
+HOUR_13 = []
+HOUR_14 = []
+HOUR_15 = []
+HOUR_16 = []
+HOUR_17 = []
+HOUR_18 = []
+HOUR_19 = []
+HOUR_20 = []
+HOUR_21 = []
+HOUR_22 = []
+HOUR_23 = []
 
 class Trophy:
     def __init__(self, psn, logNum, tDate, tTime, tRarity) -> None:
@@ -252,6 +277,60 @@ try:
             LEADERBOARD.append(psid)
             TIME_ARRAY.remove(cTime)
 
+
+    # Split apart time array
+    for i in TIME_ARRAY:
+        if i.startswith("00:"):
+            HOUR_0.append(i)
+        elif i.startswith("01:"):
+            HOUR_1.append(i)
+        elif i.startswith("02:"):
+            HOUR_2.append(i)
+        elif i.startswith("03:"):
+            HOUR_3.append(i)
+        elif i.startswith("04:"):
+            HOUR_4.append(i)
+        elif i.startswith("05:"):
+            HOUR_5.append(i)
+        elif i.startswith("06:"):
+            HOUR_6.append(i)
+        elif i.startswith("07:"):
+            HOUR_7.append(i)
+        elif i.startswith("08:"):
+            HOUR_8.append(i)
+        elif i.startswith("09:"):
+            HOUR_9.append(i)
+        elif i.startswith("10:"):
+            HOUR_10.append(i)
+        elif i.startswith("11:"):
+            HOUR_11.append(i)
+        elif i.startswith("12:"):
+            HOUR_12.append(i)
+        elif i.startswith("13:"):
+            HOUR_13.append(i)
+        elif i.startswith("14:"):
+            HOUR_14.append(i)
+        elif i.startswith("15:"):
+            HOUR_15.append(i)
+        elif i.startswith("16:"):
+            HOUR_16.append(i)
+        elif i.startswith("17:"):
+            HOUR_17.append(i)
+        elif i.startswith("18:"):
+            HOUR_18.append(i)
+        elif i.startswith("19:"):
+            HOUR_19.append(i)
+        elif i.startswith("20:"):
+            HOUR_20.append(i)
+        elif i.startswith("21:"):
+            HOUR_21.append(i)
+        elif i.startswith("22:"):
+            HOUR_22.append(i)
+        elif i.startswith("23:"):
+            HOUR_23.append(i)
+        else:
+            print("We should not have gotten here, oh dear...")
+
     cnt = Counter()
     for lb in LEADERBOARD:
         cnt[lb] += 1
@@ -275,11 +354,155 @@ try:
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'individual')\">Individual</button></div>\n"
                         + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">\n"
-                        + "<h2>REMAINING TIMES</h2>\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
-    #current_file.write(tabulate(TIME_ARRAY, headers=["Time"], tablefmt='unsafehtml'))
-    for ttime in TIME_ARRAY:
+                        + "<h2>REMAINING TIMES</h2>\n")
+    
+    current_file.write("<div id=\"hourly_total_summary\"><table><tbody>\n")
+    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_0')\">Hour 00: {len(HOUR_0)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_1')\">Hour 01: {len(HOUR_1)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_2')\">Hour 02: {len(HOUR_2)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_3')\">Hour 03: {len(HOUR_3)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_4')\">Hour 04: {len(HOUR_4)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_5')\">Hour 05: {len(HOUR_5)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_6')\">Hour 06: {len(HOUR_6)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_7')\">Hour 07: {len(HOUR_7)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_8')\">Hour 08: {len(HOUR_8)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_9')\">Hour 09: {len(HOUR_9)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_10')\">Hour 10: {len(HOUR_10)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_11')\">Hour 11: {len(HOUR_11)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_12')\">Hour 12: {len(HOUR_12)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_13')\">Hour 13: {len(HOUR_13)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_14')\">Hour 14: {len(HOUR_14)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_15')\">Hour 15: {len(HOUR_15)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_16')\">Hour 16: {len(HOUR_16)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_17')\">Hour 17: {len(HOUR_17)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_18')\">Hour 18: {len(HOUR_18)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_19')\">Hour 19: {len(HOUR_19)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_20')\">Hour 20: {len(HOUR_20)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_21')\">Hour 21: {len(HOUR_21)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_22')\">Hour 22: {len(HOUR_22)}</td>\n")
+    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_23')\">Hour 23: {len(HOUR_23)}</td>\n")
+    current_file.write("</tbody></table></div>\n<br>")
+
+    current_file.write("<div id=\"hour_0\" class=\"hour_summary\">\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_0:
         current_file.write(f"<tr><td>{ttime}</tr></td>\n")
-    current_file.write("</tbody>\n</table>\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+    current_file.write("<div id=\"hour_1\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_1:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_2\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_2:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_3\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_3:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_4\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_4:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_5\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_5:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_6\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_6:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_7\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_7:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_8\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_8:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_9\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_9:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_10\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_10:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_11\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_11:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_12\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_12:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_13\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_13:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_14\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_14:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_15\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_15:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_16\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_16:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_17\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_17:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_18\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_18:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_19\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_19:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_20\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_20:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_21\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_21:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_22\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_22:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("<div id=\"hour_23\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
+    for ttime in HOUR_23:
+        current_file.write(f"<tr><td>{ttime}</tr></td>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n")
+
+    current_file.write("\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
     current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
     current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
     current_file.write(tabulate(cnt.most_common(), headers=["User","Count"], tablefmt='unsafehtml'))

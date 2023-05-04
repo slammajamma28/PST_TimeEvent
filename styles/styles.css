@@ -6,7 +6,11 @@ body {
     width: auto;
     padding: 10px;
     text-align: center;
-    font-size: x-large;
+    font-size: large;
+}
+
+img {
+    max-width: 400px;
 }
 
 table {
@@ -24,7 +28,7 @@ thead tr {
 }
 
 th, td {
-    padding: 12px 15px;
+    padding: 10px 12px;
     vertical-align: top;
 }
 
@@ -138,3 +142,43 @@ a {
     min-width: 300px;
     font-size: larger;
   }
+
+.hour_summary {
+    display: none;
+}
+
+#hourly_total_summary table {
+    border-collapse: collapse;
+    margin: auto;
+    min-width: 75%;
+}
+
+#hourly_total_summary thead tr {
+    background-color: blue;
+    color: #ffffff;
+    text-align: center;
+}
+
+#hourly_total_summary th, td {
+    padding: 12px 15px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+#hourly_total_summary td:hover {
+    background-color: white;
+    color: blue;
+}
+
+#hourly_total_summary tbody tr {
+    border: black;
+    background-color: black;
+}
+
+#hourly_total_summary .complete {
+    color: blue;
+}
+
+.sum_cell.active {
+    background-color: grey;   
+}

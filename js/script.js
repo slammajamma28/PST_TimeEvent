@@ -1,27 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", function () {
-  // Update the css percentages for progress bar
-  //background: -webkit-linear-gradient(left, blue 72%, white 72%);
-  //background:    -moz-linear-gradient(left, blue 72%, white 72%);
-  //background:     -ms-linear-gradient(left, blue 72%, white 72%);
-  //background:      -o-linear-gradient(left, blue 72%, white 72%);
-  //background:         linear-gradient(to right, blue 72%, white 72%);
-  const currentVal = document.getElementById("currentCount").innerText;
-  console.log(currentVal);
-  const progressBarStyle = `
-    color: black;
-    border:1px solid black;  
-    background: -webkit-linear-gradient(left, blue 72%, white 72%);
-    background:    -moz-linear-gradient(left, blue 72%, white 72%);
-    background:     -ms-linear-gradient(left, blue 72%, white 72%);
-    background:      -o-linear-gradient(left, blue 72%, white 72%);
-    background:         linear-gradient(to right, blue 72%, white 72%);
-  `
-  var rows = document.getElementsByClassName("percentageFill");
-  for (row in rows) {
-    row.style = progressBarStyle;
-  }
-}, false);*/
-
 $(document).ready(function () {
   console.log("Jquery is a go!");
   const currentVal = document.getElementById("goalPercentage").innerText;
@@ -121,4 +97,21 @@ function swapTime(evt) {
     zone[0].setAttribute("value", "utc");
     document.getElementsByTagName("h3")[0].innerHTML = time;
   }
+}
+
+function showHourSummary(evt, hourNum) {
+  var tableLinks;
+
+  tables = document.getElementsByClassName("hour_summary");
+  tableLinks = document.getElementsByClassName("sum_cell");
+  for (i = 0; i < tableLinks.length; i++) {
+    tableLinks[i].className = tableLinks[i].className.replace(" active", "");
+  }
+
+  for (i = 0; i < tables.length; i++) {
+    tables[i].style.display = "none";
+  }
+  console.log("Pushed " + hourNum);
+  document.getElementById(hourNum).style.display = "block";
+  evt.currentTarget.className += " active";
 }
