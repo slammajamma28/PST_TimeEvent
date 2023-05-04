@@ -48,7 +48,6 @@ function showUser(evt, userName) {
   activeRows = thisTable[0].getElementsByTagName('tr')
   for (i = 0; i < activeRows.length; i++){
     columns = activeRows[i].getElementsByTagName('td');
-    console.log(columns[0].innerText);
     if (columns[0].innerText == "MISSING") {
       activeRows[i].style.background = "red";
     }
@@ -66,7 +65,6 @@ function swapTime(evt) {
   time = document.getElementsByTagName("h4")[0].innerHTML;
   index = time.search("/");
   timestr = time.substring(index-4, time.length);
-  console.log(timestr);
   zone = document.getElementsByTagName("h3");
   if (zone[0].getAttribute("value") == "utc") {
     zone[0].setAttribute("value", "local");
