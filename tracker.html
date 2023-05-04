@@ -6,17 +6,44 @@
 <script src='js/jquery.js'></script>
 <script src='js/script.js'></script>
 <img src="banner.png" alt="PST TIME EVENT">
-<h3 value="utc" onClick="swapTime(event)">as of 2023/05/04 06:25:14 PM UTC</h3>
-<h4>as of 2023/05/04 06:25:14 PM UTC</h3>
+<h3 value="utc" onClick="swapTime(event)">as of 2023/05/04 07:19:09 PM UTC</h3>
+<h4>as of 2023/05/04 07:19:09 PM UTC</h3>
 <div>Times are tracked and claimed automatically.<br>Post in the <a href='https://www.playstationtrophies.org/forum/topic/334336-wait-a-minute-~-discussion/'>discussion thread</a> if you see any discrepancies and for further rules.</div><br>
 <div id="goal-count"><table><thead><tr class='percentageFill'><th>Current</th><th>Remaining</th><th>Progress</th></tr></thead>
-<tbody><tr class='percentageFill'><td>644</td><td>796</td><td id="goalPercentage">44.72%</td></tr></tbody></table></div><br>
+<tbody><tr class='percentageFill'><td>646</td><td>794</td><td id="goalPercentage">44.86%</td></tr></tbody></table></div><br>
 <div class="tab"><button class="tablinks active" onclick="openTab(event, 'remaining')">Remaining</button>
 <button class="tablinks" onclick="openTab(event, 'claimed')">Claimed</button>
 <button class="tablinks" onclick="openTab(event, 'leaderboard')">LB</button>
 <button class="tablinks" onclick="openTab(event, 'individual')">Individual</button></div>
 <div id="remaining" class="tabcontent" style="display:block">
 <h2>REMAINING TIMES</h2>
+<div id="hourly_total_summary"><table><tbody>
+<tr><td class='sum_cell' onClick="showHourSummary(event, 'hour_0')">Hour 00: 33</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_1')">Hour 01: 44</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_2')">Hour 02: 15</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_3')">Hour 03: 54</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_4')">Hour 04: 51</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_5')">Hour 05: 50</td></tr>
+<tr><td class='sum_cell' onClick="showHourSummary(event, 'hour_6')">Hour 06: 52</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_7')">Hour 07: 52</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_8')">Hour 08: 39</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_9')">Hour 09: 50</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_10')">Hour 10: 30</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_11')">Hour 11: 45</td></tr>
+<tr><td class='sum_cell' onClick="showHourSummary(event, 'hour_12')">Hour 12: 34</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_13')">Hour 13: 20</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_14')">Hour 14: 10</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_15')">Hour 15: 11</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_16')">Hour 16: 24</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_17')">Hour 17: 29</td></tr>
+<tr><td class='sum_cell' onClick="showHourSummary(event, 'hour_18')">Hour 18: 14</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_19')">Hour 19: 26</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_20')">Hour 20: 34</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_21')">Hour 21: 32</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_22')">Hour 22: 20</td>
+<td class='sum_cell' onClick="showHourSummary(event, 'hour_23')">Hour 23: 25</td>
+</tbody></table></div>
+<br><div id="hour_0" class="hour_summary">
 <table>
 <thead>
 <tr><th>Time</th></tr>
@@ -55,6 +82,14 @@
 <tr><td>00:57</tr></td>
 <tr><td>00:58</tr></td>
 <tr><td>00:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_1" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>01:00</tr></td>
 <tr><td>01:01</tr></td>
 <tr><td>01:02</tr></td>
@@ -99,6 +134,14 @@
 <tr><td>01:56</tr></td>
 <tr><td>01:57</tr></td>
 <tr><td>01:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_2" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>02:30</tr></td>
 <tr><td>02:40</tr></td>
 <tr><td>02:41</tr></td>
@@ -114,6 +157,14 @@
 <tr><td>02:54</tr></td>
 <tr><td>02:55</tr></td>
 <tr><td>02:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_3" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>03:00</tr></td>
 <tr><td>03:01</tr></td>
 <tr><td>03:02</tr></td>
@@ -168,6 +219,14 @@
 <tr><td>03:57</tr></td>
 <tr><td>03:58</tr></td>
 <tr><td>03:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_4" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>04:00</tr></td>
 <tr><td>04:02</tr></td>
 <tr><td>04:03</tr></td>
@@ -219,6 +278,14 @@
 <tr><td>04:57</tr></td>
 <tr><td>04:58</tr></td>
 <tr><td>04:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_5" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>05:00</tr></td>
 <tr><td>05:01</tr></td>
 <tr><td>05:02</tr></td>
@@ -269,6 +336,14 @@
 <tr><td>05:55</tr></td>
 <tr><td>05:56</tr></td>
 <tr><td>05:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_6" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>06:00</tr></td>
 <tr><td>06:01</tr></td>
 <tr><td>06:02</tr></td>
@@ -321,6 +396,14 @@
 <tr><td>06:56</tr></td>
 <tr><td>06:57</tr></td>
 <tr><td>06:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_7" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>07:00</tr></td>
 <tr><td>07:01</tr></td>
 <tr><td>07:02</tr></td>
@@ -373,6 +456,14 @@
 <tr><td>07:52</tr></td>
 <tr><td>07:53</tr></td>
 <tr><td>07:55</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_8" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>08:06</tr></td>
 <tr><td>08:08</tr></td>
 <tr><td>08:09</tr></td>
@@ -412,6 +503,14 @@
 <tr><td>08:54</tr></td>
 <tr><td>08:56</tr></td>
 <tr><td>08:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_9" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>09:00</tr></td>
 <tr><td>09:01</tr></td>
 <tr><td>09:02</tr></td>
@@ -462,6 +561,14 @@
 <tr><td>09:57</tr></td>
 <tr><td>09:58</tr></td>
 <tr><td>09:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_10" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>10:01</tr></td>
 <tr><td>10:02</tr></td>
 <tr><td>10:03</tr></td>
@@ -492,6 +599,14 @@
 <tr><td>10:54</tr></td>
 <tr><td>10:56</tr></td>
 <tr><td>10:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_11" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>11:01</tr></td>
 <tr><td>11:03</tr></td>
 <tr><td>11:04</tr></td>
@@ -537,6 +652,14 @@
 <tr><td>11:51</tr></td>
 <tr><td>11:52</tr></td>
 <tr><td>11:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_12" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>12:00</tr></td>
 <tr><td>12:03</tr></td>
 <tr><td>12:05</tr></td>
@@ -571,6 +694,14 @@
 <tr><td>12:55</tr></td>
 <tr><td>12:56</tr></td>
 <tr><td>12:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_13" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>13:01</tr></td>
 <tr><td>13:02</tr></td>
 <tr><td>13:03</tr></td>
@@ -591,6 +722,14 @@
 <tr><td>13:30</tr></td>
 <tr><td>13:53</tr></td>
 <tr><td>13:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_14" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>14:01</tr></td>
 <tr><td>14:05</tr></td>
 <tr><td>14:06</tr></td>
@@ -601,6 +740,14 @@
 <tr><td>14:41</tr></td>
 <tr><td>14:44</tr></td>
 <tr><td>14:45</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_15" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>15:01</tr></td>
 <tr><td>15:06</tr></td>
 <tr><td>15:07</tr></td>
@@ -612,6 +759,14 @@
 <tr><td>15:27</tr></td>
 <tr><td>15:28</tr></td>
 <tr><td>15:46</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_16" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>16:06</tr></td>
 <tr><td>16:20</tr></td>
 <tr><td>16:24</tr></td>
@@ -636,6 +791,14 @@
 <tr><td>16:57</tr></td>
 <tr><td>16:58</tr></td>
 <tr><td>16:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_17" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>17:02</tr></td>
 <tr><td>17:03</tr></td>
 <tr><td>17:04</tr></td>
@@ -657,7 +820,6 @@
 <tr><td>17:34</tr></td>
 <tr><td>17:40</tr></td>
 <tr><td>17:43</tr></td>
-<tr><td>17:47</tr></td>
 <tr><td>17:48</tr></td>
 <tr><td>17:49</tr></td>
 <tr><td>17:51</tr></td>
@@ -666,12 +828,19 @@
 <tr><td>17:56</tr></td>
 <tr><td>17:57</tr></td>
 <tr><td>17:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_18" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>18:00</tr></td>
 <tr><td>18:07</tr></td>
 <tr><td>18:08</tr></td>
 <tr><td>18:09</tr></td>
 <tr><td>18:10</tr></td>
-<tr><td>18:18</tr></td>
 <tr><td>18:26</tr></td>
 <tr><td>18:30</tr></td>
 <tr><td>18:35</tr></td>
@@ -681,6 +850,14 @@
 <tr><td>18:49</tr></td>
 <tr><td>18:57</tr></td>
 <tr><td>18:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_19" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>19:00</tr></td>
 <tr><td>19:11</tr></td>
 <tr><td>19:12</tr></td>
@@ -707,6 +884,14 @@
 <tr><td>19:56</tr></td>
 <tr><td>19:57</tr></td>
 <tr><td>19:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_20" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>20:00</tr></td>
 <tr><td>20:01</tr></td>
 <tr><td>20:02</tr></td>
@@ -741,6 +926,14 @@
 <tr><td>20:55</tr></td>
 <tr><td>20:58</tr></td>
 <tr><td>20:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_21" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>21:03</tr></td>
 <tr><td>21:06</tr></td>
 <tr><td>21:09</tr></td>
@@ -773,6 +966,14 @@
 <tr><td>21:57</tr></td>
 <tr><td>21:58</tr></td>
 <tr><td>21:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_22" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>22:00</tr></td>
 <tr><td>22:01</tr></td>
 <tr><td>22:02</tr></td>
@@ -793,6 +994,14 @@
 <tr><td>22:37</tr></td>
 <tr><td>22:40</tr></td>
 <tr><td>22:41</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_23" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
 <tr><td>23:21</tr></td>
 <tr><td>23:25</tr></td>
 <tr><td>23:29</tr></td>
@@ -820,6 +1029,8 @@
 <tr><td>23:59</tr></td>
 </tbody>
 </table>
+</div>
+
 </div>
 <div id="claimed" class="tabcontent">
 <h2>CLAIMED TIMES</h2>
@@ -952,7 +1163,7 @@
 <tr><td>07:27 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18887">18887</a>      </td><td style="text-align: right;">   76.92</td></tr>
 <tr><td>07:33 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18896">18896</a>      </td><td style="text-align: right;">   11.33</td></tr>
 <tr><td>07:45 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18897">18897</a>      </td><td style="text-align: right;">   68.17</td></tr>
-<tr><td>07:54 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18889">18889</a>      </td><td style="text-align: right;">   86.97</td></tr>
+<tr><td>07:54 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18889">18889</a>      </td><td style="text-align: right;">   86.98</td></tr>
 <tr><td>07:56 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28145">28145</a>         </td><td style="text-align: right;">   99.82</td></tr>
 <tr><td>07:57 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28146">28146</a>         </td><td style="text-align: right;">   99.64</td></tr>
 <tr><td>07:58 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28147">28147</a>         </td><td style="text-align: right;">   99.64</td></tr>
@@ -966,9 +1177,9 @@
 <tr><td>08:07 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18892">18892</a>      </td><td style="text-align: right;">   65   </td></tr>
 <tr><td>08:11 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13234">13234</a>       </td><td style="text-align: right;">   96.21</td></tr>
 <tr><td>08:15 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13235">13235</a>       </td><td style="text-align: right;">   96.1 </td></tr>
-<tr><td>08:17 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18898">18898</a>      </td><td style="text-align: right;">   60.93</td></tr>
+<tr><td>08:17 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18898">18898</a>      </td><td style="text-align: right;">   60.94</td></tr>
 <tr><td>08:18 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13236">13236</a>       </td><td style="text-align: right;">   95.87</td></tr>
-<tr><td>08:29 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18893">18893</a>      </td><td style="text-align: right;">   79.77</td></tr>
+<tr><td>08:29 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18893">18893</a>      </td><td style="text-align: right;">   79.78</td></tr>
 <tr><td>08:36 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18894">18894</a>      </td><td style="text-align: right;">   78.12</td></tr>
 <tr><td>08:40 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18897">18897</a>      </td><td style="text-align: right;">    4.22</td></tr>
 <tr><td>08:41 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18899">18899</a>      </td><td style="text-align: right;">   58.95</td></tr>
@@ -978,7 +1189,7 @@
 <tr><td>08:55 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14862">14862</a>    </td><td style="text-align: right;">   43.94</td></tr>
 <tr><td>08:58 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14906">14906</a>    </td><td style="text-align: right;">   19.46</td></tr>
 <tr><td>08:59 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14877">14877</a>    </td><td style="text-align: right;">   32.25</td></tr>
-<tr><td>09:04 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18900">18900</a>      </td><td style="text-align: right;">   57.1 </td></tr>
+<tr><td>09:04 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18900">18900</a>      </td><td style="text-align: right;">   57.11</td></tr>
 <tr><td>09:07 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14878">14878</a>    </td><td style="text-align: right;">   40.32</td></tr>
 <tr><td>09:09 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31478">31478</a>         </td><td style="text-align: right;">   27.19</td></tr>
 <tr><td>09:14 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14863">14863</a>    </td><td style="text-align: right;">   41   </td></tr>
@@ -1004,7 +1215,7 @@
 <tr><td>10:18 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14864">14864</a>    </td><td style="text-align: right;">   94.43</td></tr>
 <tr><td>10:19 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28168">28168</a>         </td><td style="text-align: right;">   99.39</td></tr>
 <tr><td>10:20 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28169">28169</a>         </td><td style="text-align: right;">   99.39</td></tr>
-<tr><td>10:21 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31480">31480</a>         </td><td style="text-align: right;">   14.43</td></tr>
+<tr><td>10:21 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31480">31480</a>         </td><td style="text-align: right;">   14.42</td></tr>
 <tr><td>10:22 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14865">14865</a>    </td><td style="text-align: right;">   92.2 </td></tr>
 <tr><td>10:23 </td><td>Zetberg         </td><td><a href="https://www.playstationtrophies.org/profiles/Zetberg/log?id=28172">28172</a>         </td><td style="text-align: right;">   99.39</td></tr>
 <tr><td>10:24 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12237">12237</a>         </td><td style="text-align: right;">   70.68</td></tr>
@@ -1020,24 +1231,24 @@
 <tr><td>10:59 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14889">14889</a>    </td><td style="text-align: right;">   33.28</td></tr>
 <tr><td>11:00 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18899">18899</a>      </td><td style="text-align: right;">   10.31</td></tr>
 <tr><td>11:02 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12793">12793</a>    </td><td style="text-align: right;">    9.39</td></tr>
-<tr><td>11:16 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31482">31482</a>         </td><td style="text-align: right;">   21.63</td></tr>
+<tr><td>11:16 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31482">31482</a>         </td><td style="text-align: right;">   21.65</td></tr>
 <tr><td>11:19 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12239">12239</a>         </td><td style="text-align: right;">   68.36</td></tr>
 <tr><td>11:23 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18900">18900</a>      </td><td style="text-align: right;">   12.34</td></tr>
 <tr><td>11:26 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40292">40292</a>       </td><td style="text-align: right;">   45.54</td></tr>
 <tr><td>11:32 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40294">40294</a>       </td><td style="text-align: right;">   24.37</td></tr>
-<tr><td>11:40 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40316">40316</a>       </td><td style="text-align: right;">   52.66</td></tr>
+<tr><td>11:40 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40316">40316</a>       </td><td style="text-align: right;">   53.72</td></tr>
 <tr><td>11:41 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14890">14890</a>    </td><td style="text-align: right;">   31.54</td></tr>
-<tr><td>11:53 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40317">40317</a>       </td><td style="text-align: right;">   52.39</td></tr>
+<tr><td>11:53 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40317">40317</a>       </td><td style="text-align: right;">   53.27</td></tr>
 <tr><td>11:54 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40295">40295</a>       </td><td style="text-align: right;">   98.41</td></tr>
 <tr><td>11:55 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40297">40297</a>       </td><td style="text-align: right;">   95.63</td></tr>
 <tr><td>11:56 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40300">40300</a>       </td><td style="text-align: right;">   96.78</td></tr>
 <tr><td>11:58 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40301">40301</a>       </td><td style="text-align: right;">   96.3 </td></tr>
-<tr><td>11:59 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40318">40318</a>       </td><td style="text-align: right;">   53.86</td></tr>
+<tr><td>11:59 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40318">40318</a>       </td><td style="text-align: right;">   54.8 </td></tr>
 <tr><td>12:01 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40304">40304</a>       </td><td style="text-align: right;">   96.8 </td></tr>
 <tr><td>12:02 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45226">45226</a>     </td><td style="text-align: right;">   60.29</td></tr>
 <tr><td>12:04 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40306">40306</a>       </td><td style="text-align: right;">   96.95</td></tr>
-<tr><td>12:06 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31483">31483</a>         </td><td style="text-align: right;">   19.32</td></tr>
-<tr><td>12:09 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40320">40320</a>       </td><td style="text-align: right;">   49.67</td></tr>
+<tr><td>12:06 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31483">31483</a>         </td><td style="text-align: right;">   19.33</td></tr>
+<tr><td>12:09 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40320">40320</a>       </td><td style="text-align: right;">   50.41</td></tr>
 <tr><td>12:10 </td><td>Road2unner      </td><td><a href="https://www.playstationtrophies.org/profiles/Road2unner/log?id=19118">19118</a>      </td><td style="text-align: right;">   14.39</td></tr>
 <tr><td>12:12 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12790">12790</a>    </td><td style="text-align: right;">   51.34</td></tr>
 <tr><td>12:13 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45227">45227</a>     </td><td style="text-align: right;">   59.36</td></tr>
@@ -1047,13 +1258,13 @@
 <tr><td>12:27 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18915">18915</a>      </td><td style="text-align: right;">   45.69</td></tr>
 <tr><td>12:29 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45229">45229</a>     </td><td style="text-align: right;">   59.57</td></tr>
 <tr><td>12:30 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12791">12791</a>    </td><td style="text-align: right;">   26.32</td></tr>
-<tr><td>12:32 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40310">40310</a>       </td><td style="text-align: right;">   55.32</td></tr>
+<tr><td>12:32 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40310">40310</a>       </td><td style="text-align: right;">   56.39</td></tr>
 <tr><td>12:33 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14910">14910</a>    </td><td style="text-align: right;">   88.56</td></tr>
 <tr><td>12:36 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14911">14911</a>    </td><td style="text-align: right;">   84.75</td></tr>
 <tr><td>12:37 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14912">14912</a>    </td><td style="text-align: right;">   84.32</td></tr>
 <tr><td>12:38 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12822">12822</a>    </td><td style="text-align: right;">   22.1 </td></tr>
 <tr><td>12:41 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14913">14913</a>    </td><td style="text-align: right;">   83.9 </td></tr>
-<tr><td>12:47 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18916">18916</a>      </td><td style="text-align: right;">   44.23</td></tr>
+<tr><td>12:47 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18916">18916</a>      </td><td style="text-align: right;">   44.24</td></tr>
 <tr><td>12:49 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18917">18917</a>      </td><td style="text-align: right;">   57.74</td></tr>
 <tr><td>12:50 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18918">18918</a>      </td><td style="text-align: right;">   26.36</td></tr>
 <tr><td>12:52 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31453">31453</a>         </td><td style="text-align: right;">   36.61</td></tr>
@@ -1062,8 +1273,8 @@
 <tr><td>13:00 </td><td>Road2unner      </td><td><a href="https://www.playstationtrophies.org/profiles/Road2unner/log?id=19119">19119</a>      </td><td style="text-align: right;">   26.98</td></tr>
 <tr><td>13:05 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14918">14918</a>    </td><td style="text-align: right;">   77.12</td></tr>
 <tr><td>13:08 </td><td>diskdocx        </td><td><a href="https://www.playstationtrophies.org/profiles/diskdocx/log?id=54526">54526</a>        </td><td style="text-align: right;">   58.45</td></tr>
-<tr><td>13:12 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40311">40311</a>       </td><td style="text-align: right;">   54.72</td></tr>
-<tr><td>13:13 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40312">40312</a>       </td><td style="text-align: right;">   53.66</td></tr>
+<tr><td>13:12 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40311">40311</a>       </td><td style="text-align: right;">   55.69</td></tr>
+<tr><td>13:13 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40312">40312</a>       </td><td style="text-align: right;">   54.61</td></tr>
 <tr><td>13:20 </td><td>wrestlefanatic77</td><td><a href="https://www.playstationtrophies.org/profiles/wrestlefanatic77/log?id=17553">17553</a></td><td style="text-align: right;">   93.17</td></tr>
 <tr><td>13:21 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14871">14871</a>    </td><td style="text-align: right;">   77.44</td></tr>
 <tr><td>13:22 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14872">14872</a>    </td><td style="text-align: right;">   79.94</td></tr>
@@ -1095,7 +1306,7 @@
 <tr><td>13:51 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12241">12241</a>         </td><td style="text-align: right;">   63.3 </td></tr>
 <tr><td>13:52 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12798">12798</a>    </td><td style="text-align: right;">   15.66</td></tr>
 <tr><td>13:54 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139612">139612</a>     </td><td style="text-align: right;">   83.12</td></tr>
-<tr><td>13:55 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40313">40313</a>       </td><td style="text-align: right;">   53.19</td></tr>
+<tr><td>13:55 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40313">40313</a>       </td><td style="text-align: right;">   54.1 </td></tr>
 <tr><td>13:56 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23646">23646</a>  </td><td style="text-align: right;">   35.79</td></tr>
 <tr><td>13:58 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139614">139614</a>     </td><td style="text-align: right;">   81.82</td></tr>
 <tr><td>13:59 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139535">139535</a>     </td><td style="text-align: right;">   97.76</td></tr>
@@ -1171,7 +1382,7 @@
 <tr><td>15:29 </td><td>wrestlefanatic77</td><td><a href="https://www.playstationtrophies.org/profiles/wrestlefanatic77/log?id=17653">17653</a></td><td style="text-align: right;">   69.23</td></tr>
 <tr><td>15:30 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12242">12242</a>         </td><td style="text-align: right;">   56.72</td></tr>
 <tr><td>15:31 </td><td>Road2unner      </td><td><a href="https://www.playstationtrophies.org/profiles/Road2unner/log?id=19121">19121</a>      </td><td style="text-align: right;">   29.3 </td></tr>
-<tr><td>15:32 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31454">31454</a>         </td><td style="text-align: right;">   29.02</td></tr>
+<tr><td>15:32 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31454">31454</a>         </td><td style="text-align: right;">   29   </td></tr>
 <tr><td>15:33 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18904">18904</a>      </td><td style="text-align: right;">   54.5 </td></tr>
 <tr><td>15:34 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=138996">138996</a>     </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>15:35 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=138999">138999</a>     </td><td style="text-align: right;">   99.66</td></tr>
@@ -1181,9 +1392,9 @@
 <tr><td>15:39 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23635">23635</a>  </td><td style="text-align: right;">   28.5 </td></tr>
 <tr><td>15:40 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45239">45239</a>     </td><td style="text-align: right;">   52.67</td></tr>
 <tr><td>15:41 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14931">14931</a>    </td><td style="text-align: right;">   68.64</td></tr>
-<tr><td>15:42 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139704">139704</a>     </td><td style="text-align: right;">   75.85</td></tr>
+<tr><td>15:42 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139704">139704</a>     </td><td style="text-align: right;">   75.6 </td></tr>
 <tr><td>15:43 </td><td>Lion_Squid      </td><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12846">12846</a>      </td><td style="text-align: right;">   65.41</td></tr>
-<tr><td>15:44 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139706">139706</a>     </td><td style="text-align: right;">   68.6 </td></tr>
+<tr><td>15:44 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139706">139706</a>     </td><td style="text-align: right;">   68.42</td></tr>
 <tr><td>15:45 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23636">23636</a>  </td><td style="text-align: right;">   39.59</td></tr>
 <tr><td>15:47 </td><td>wrestlefanatic77</td><td><a href="https://www.playstationtrophies.org/profiles/wrestlefanatic77/log?id=17655">17655</a></td><td style="text-align: right;">   69.23</td></tr>
 <tr><td>15:48 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139032">139032</a>     </td><td style="text-align: right;">  100   </td></tr>
@@ -1219,7 +1430,7 @@
 <tr><td>16:19 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139455">139455</a>     </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>16:21 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45242">45242</a>     </td><td style="text-align: right;">   51.03</td></tr>
 <tr><td>16:22 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139717">139717</a>     </td><td style="text-align: right;">   87.96</td></tr>
-<tr><td>16:23 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40315">40315</a>       </td><td style="text-align: right;">   51.73</td></tr>
+<tr><td>16:23 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40315">40315</a>       </td><td style="text-align: right;">   52.64</td></tr>
 <tr><td>16:25 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139718">139718</a>     </td><td style="text-align: right;">   87.96</td></tr>
 <tr><td>16:28 </td><td>Da-Eastside     </td><td><a href="https://www.playstationtrophies.org/profiles/Da-Eastside/log?id=45234">45234</a>     </td><td style="text-align: right;">   55.35</td></tr>
 <tr><td>16:29 </td><td>Dino_Roar       </td><td><a href="https://www.playstationtrophies.org/profiles/Dino_Roar/log?id=139719">139719</a>     </td><td style="text-align: right;">   87.96</td></tr>
@@ -1246,25 +1457,26 @@
 <tr><td>17:25 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30791">30791</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>17:27 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23617">23617</a>  </td><td style="text-align: right;">   79.17</td></tr>
 <tr><td>17:28 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23639">23639</a>  </td><td style="text-align: right;">   23.85</td></tr>
-<tr><td>17:29 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31455">31455</a>         </td><td style="text-align: right;">   10.42</td></tr>
+<tr><td>17:29 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31455">31455</a>         </td><td style="text-align: right;">   10.41</td></tr>
 <tr><td>17:30 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30813">30813</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>17:31 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23618">23618</a>  </td><td style="text-align: right;">   76.39</td></tr>
 <tr><td>17:32 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14899">14899</a>    </td><td style="text-align: right;">   27.83</td></tr>
 <tr><td>17:35 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30834">30834</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>17:36 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30841">30841</a>       </td><td style="text-align: right;">  100   </td></tr>
-<tr><td>17:37 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18907">18907</a>      </td><td style="text-align: right;">   52.45</td></tr>
+<tr><td>17:37 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18907">18907</a>      </td><td style="text-align: right;">   52.46</td></tr>
 <tr><td>17:38 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23620">23620</a>  </td><td style="text-align: right;">   75   </td></tr>
-<tr><td>17:39 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18908">18908</a>      </td><td style="text-align: right;">   49.03</td></tr>
+<tr><td>17:39 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18908">18908</a>      </td><td style="text-align: right;">   49.04</td></tr>
 <tr><td>17:41 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23621">23621</a>  </td><td style="text-align: right;">   75   </td></tr>
 <tr><td>17:42 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40326">40326</a>       </td><td style="text-align: right;">   64.54</td></tr>
 <tr><td>17:44 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40327">40327</a>       </td><td style="text-align: right;">   58.26</td></tr>
 <tr><td>17:45 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40328">40328</a>       </td><td style="text-align: right;">   59.88</td></tr>
-<tr><td>17:46 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9940">9940</a>           </td><td style="text-align: right;">   15.66</td></tr>
+<tr><td>17:46 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9940">9940</a>           </td><td style="text-align: right;">   16   </td></tr>
+<tr><td>17:47 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23656">23656</a>  </td><td style="text-align: right;">   18.29</td></tr>
 <tr><td>17:50 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23623">23623</a>  </td><td style="text-align: right;">   73.61</td></tr>
-<tr><td>17:53 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40331">40331</a>       </td><td style="text-align: right;">   66.97</td></tr>
+<tr><td>17:53 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23657">23657</a>  </td><td style="text-align: right;">   19.72</td></tr>
 <tr><td>17:54 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12830">12830</a>    </td><td style="text-align: right;">   18.24</td></tr>
 <tr><td>17:59 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18909">18909</a>      </td><td style="text-align: right;">   51.45</td></tr>
-<tr><td>18:01 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31487">31487</a>         </td><td style="text-align: right;">   17.5 </td></tr>
+<tr><td>18:01 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31487">31487</a>         </td><td style="text-align: right;">   17.51</td></tr>
 <tr><td>18:02 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30854">30854</a>       </td><td style="text-align: right;">   99.88</td></tr>
 <tr><td>18:03 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30924">30924</a>       </td><td style="text-align: right;">   98.94</td></tr>
 <tr><td>18:04 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12808">12808</a>    </td><td style="text-align: right;">   41.28</td></tr>
@@ -1277,8 +1489,9 @@
 <tr><td>18:15 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40334">40334</a>       </td><td style="text-align: right;">   51.77</td></tr>
 <tr><td>18:16 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30974">30974</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>18:17 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=30983">30983</a>       </td><td style="text-align: right;">  100   </td></tr>
-<tr><td>18:19 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18910">18910</a>      </td><td style="text-align: right;">   51.07</td></tr>
-<tr><td>18:20 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9941">9941</a>           </td><td style="text-align: right;">   11.07</td></tr>
+<tr><td>18:18 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23658">23658</a>  </td><td style="text-align: right;">   18.92</td></tr>
+<tr><td>18:19 </td><td>R1p3r_5000      </td><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18910">18910</a>      </td><td style="text-align: right;">   51.06</td></tr>
+<tr><td>18:20 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9941">9941</a>           </td><td style="text-align: right;">   11.29</td></tr>
 <tr><td>18:21 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13210">13210</a>       </td><td style="text-align: right;">   98.79</td></tr>
 <tr><td>18:22 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13211">13211</a>       </td><td style="text-align: right;">   98.13</td></tr>
 <tr><td>18:23 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13212">13212</a>       </td><td style="text-align: right;">   98.02</td></tr>
@@ -1286,14 +1499,14 @@
 <tr><td>18:25 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31068">31068</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>18:27 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13214">13214</a>       </td><td style="text-align: right;">   97.72</td></tr>
 <tr><td>18:28 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13215">13215</a>       </td><td style="text-align: right;">   97.61</td></tr>
-<tr><td>18:29 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23627">23627</a>  </td><td style="text-align: right;">   69.91</td></tr>
-<tr><td>18:31 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13217">13217</a>       </td><td style="text-align: right;">   97.5 </td></tr>
+<tr><td>18:29 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18913">18913</a>      </td><td style="text-align: right;">   21.44</td></tr>
+<tr><td>18:31 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18914">18914</a>      </td><td style="text-align: right;">   23.78</td></tr>
 <tr><td>18:32 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14900">14900</a>    </td><td style="text-align: right;">   32.96</td></tr>
 <tr><td>18:33 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31435">31435</a>         </td><td style="text-align: right;">   62.6 </td></tr>
 <tr><td>18:34 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14883">14883</a>    </td><td style="text-align: right;">   24.11</td></tr>
 <tr><td>18:37 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31138">31138</a>       </td><td style="text-align: right;">   99.86</td></tr>
 <tr><td>18:38 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13218">13218</a>       </td><td style="text-align: right;">   97.5 </td></tr>
-<tr><td>18:39 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31436">31436</a>         </td><td style="text-align: right;">   18.31</td></tr>
+<tr><td>18:39 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31436">31436</a>         </td><td style="text-align: right;">   18.29</td></tr>
 <tr><td>18:40 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31160">31160</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>18:41 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31169">31169</a>       </td><td style="text-align: right;">  100   </td></tr>
 <tr><td>18:42 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12233">12233</a>         </td><td style="text-align: right;">   57.99</td></tr>
@@ -1301,9 +1514,9 @@
 <tr><td>18:46 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31201">31201</a>       </td><td style="text-align: right;">   99.78</td></tr>
 <tr><td>18:47 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13223">13223</a>       </td><td style="text-align: right;">   97.33</td></tr>
 <tr><td>18:48 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40335">40335</a>       </td><td style="text-align: right;">   47.21</td></tr>
-<tr><td>18:50 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13225">13225</a>       </td><td style="text-align: right;">   97.27</td></tr>
+<tr><td>18:50 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18915">18915</a>      </td><td style="text-align: right;">   17.35</td></tr>
 <tr><td>18:51 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23641">23641</a>  </td><td style="text-align: right;">   17.19</td></tr>
-<tr><td>18:52 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31223">31223</a>       </td><td style="text-align: right;">   99.87</td></tr>
+<tr><td>18:52 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13237">13237</a>       </td><td style="text-align: right;">   95.64</td></tr>
 <tr><td>18:53 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13226">13226</a>       </td><td style="text-align: right;">   97.27</td></tr>
 <tr><td>18:54 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40336">40336</a>       </td><td style="text-align: right;">   42.45</td></tr>
 <tr><td>18:55 </td><td>THE--ALCHEMlST  </td><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23642">23642</a>  </td><td style="text-align: right;">   39.67</td></tr>
@@ -1316,20 +1529,20 @@
 <tr><td>19:05 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40338">40338</a>       </td><td style="text-align: right;">   59.68</td></tr>
 <tr><td>19:06 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31247">31247</a>       </td><td style="text-align: right;">   99.04</td></tr>
 <tr><td>19:07 </td><td>Hemming87       </td><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40339">40339</a>       </td><td style="text-align: right;">   52.28</td></tr>
-<tr><td>19:08 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31251">31251</a>       </td><td style="text-align: right;">   99.04</td></tr>
+<tr><td>19:08 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13240">13240</a>       </td><td style="text-align: right;">   95.24</td></tr>
 <tr><td>19:09 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14902">14902</a>    </td><td style="text-align: right;">   31.68</td></tr>
 <tr><td>19:10 </td><td>Martz4040       </td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13232">13232</a>       </td><td style="text-align: right;">   97.25</td></tr>
 <tr><td>19:13 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12810">12810</a>    </td><td style="text-align: right;">   43   </td></tr>
 <tr><td>19:14 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31256">31256</a>       </td><td style="text-align: right;">   99.53</td></tr>
 <tr><td>19:15 </td><td>Barra333        </td><td><a href="https://www.playstationtrophies.org/profiles/Barra333/log?id=3637">3637</a>          </td><td style="text-align: right;">   57.58</td></tr>
-<tr><td>19:16 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9942">9942</a>           </td><td style="text-align: right;">   14.99</td></tr>
+<tr><td>19:16 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9942">9942</a>           </td><td style="text-align: right;">   15.31</td></tr>
 <tr><td>19:17 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31264">31264</a>       </td><td style="text-align: right;">   99.06</td></tr>
 <tr><td>19:19 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12234">12234</a>         </td><td style="text-align: right;">   84.57</td></tr>
 <tr><td>19:20 </td><td>daco_1979       </td><td><a href="https://www.playstationtrophies.org/profiles/daco_1979/log?id=31267">31267</a>       </td><td style="text-align: right;">   98.86</td></tr>
 <tr><td>19:21 </td><td>stpatty         </td><td><a href="https://www.playstationtrophies.org/profiles/stpatty/log?id=12235">12235</a>         </td><td style="text-align: right;">   58.17</td></tr>
 <tr><td>19:23 </td><td>VazzVegas       </td><td><a href="https://www.playstationtrophies.org/profiles/VazzVegas/log?id=9858">9858</a>         </td><td style="text-align: right;">   62.93</td></tr>
 <tr><td>19:30 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14885">14885</a>    </td><td style="text-align: right;">   33.25</td></tr>
-<tr><td>19:32 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9943">9943</a>           </td><td style="text-align: right;">   12.52</td></tr>
+<tr><td>19:32 </td><td>clayser         </td><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9943">9943</a>           </td><td style="text-align: right;">   12.79</td></tr>
 <tr><td>19:34 </td><td>Meikoro         </td><td><a href="https://www.playstationtrophies.org/profiles/Meikoro/log?id=37257">37257</a>         </td><td style="text-align: right;">   86.16</td></tr>
 <tr><td>19:35 </td><td>VazzVegas       </td><td><a href="https://www.playstationtrophies.org/profiles/VazzVegas/log?id=9859">9859</a>         </td><td style="text-align: right;">   61.87</td></tr>
 <tr><td>19:41 </td><td>VazzVegas       </td><td><a href="https://www.playstationtrophies.org/profiles/VazzVegas/log?id=9860">9860</a>         </td><td style="text-align: right;">   61.57</td></tr>
@@ -1375,25 +1588,25 @@
 <tr><td>21:04 </td><td>sum1_worsethan_u</td><td><a href="https://www.playstationtrophies.org/profiles/sum1_worsethan_u/log?id=13408">13408</a></td><td style="text-align: right;">   93.91</td></tr>
 <tr><td>21:05 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30331">30331</a>      </td><td style="text-align: right;">   13.82</td></tr>
 <tr><td>21:07 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30332">30332</a>      </td><td style="text-align: right;">   13.96</td></tr>
-<tr><td>21:08 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31439">31439</a>         </td><td style="text-align: right;">   47.08</td></tr>
+<tr><td>21:08 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31439">31439</a>         </td><td style="text-align: right;">   47.05</td></tr>
 <tr><td>21:11 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30354">30354</a>      </td><td style="text-align: right;">   39.84</td></tr>
 <tr><td>21:12 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30382">30382</a>      </td><td style="text-align: right;">   40.25</td></tr>
 <tr><td>21:13 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14886">14886</a>    </td><td style="text-align: right;">   50.9 </td></tr>
 <tr><td>21:14 </td><td>VazzVegas       </td><td><a href="https://www.playstationtrophies.org/profiles/VazzVegas/log?id=9862">9862</a>         </td><td style="text-align: right;">   56.41</td></tr>
 <tr><td>21:18 </td><td>Dolken_swe      </td><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18912">18912</a>      </td><td style="text-align: right;">   91.59</td></tr>
-<tr><td>21:19 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31440">31440</a>         </td><td style="text-align: right;">   45.61</td></tr>
+<tr><td>21:19 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31440">31440</a>         </td><td style="text-align: right;">   45.58</td></tr>
 <tr><td>21:20 </td><td>Xemik           </td><td><a href="https://www.playstationtrophies.org/profiles/Xemik/log?id=27202">27202</a>           </td><td style="text-align: right;">   31.13</td></tr>
 <tr><td>21:21 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31441">31441</a>         </td><td style="text-align: right;">   29.64</td></tr>
 <tr><td>21:22 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12779">12779</a>    </td><td style="text-align: right;">   39.35</td></tr>
 <tr><td>21:24 </td><td>staytrue1985    </td><td><a href="https://www.playstationtrophies.org/profiles/staytrue1985/log?id=14888">14888</a>    </td><td style="text-align: right;">   44.79</td></tr>
-<tr><td>21:27 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31444">31444</a>         </td><td style="text-align: right;">   26.95</td></tr>
+<tr><td>21:27 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31444">31444</a>         </td><td style="text-align: right;">   26.96</td></tr>
 <tr><td>21:34 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31445">31445</a>         </td><td style="text-align: right;">   11.9 </td></tr>
-<tr><td>21:36 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31446">31446</a>         </td><td style="text-align: right;">   12.5 </td></tr>
+<tr><td>21:36 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31446">31446</a>         </td><td style="text-align: right;">   12.49</td></tr>
 <tr><td>21:38 </td><td>diskdocx        </td><td><a href="https://www.playstationtrophies.org/profiles/diskdocx/log?id=54524">54524</a>        </td><td style="text-align: right;">   66.79</td></tr>
 <tr><td>21:40 </td><td>mattigummi45    </td><td><a href="https://www.playstationtrophies.org/profiles/mattigummi45/log?id=12780">12780</a>    </td><td style="text-align: right;">   24.85</td></tr>
 <tr><td>21:41 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30384">30384</a>      </td><td style="text-align: right;">   38.01</td></tr>
-<tr><td>21:44 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31447">31447</a>         </td><td style="text-align: right;">   16.47</td></tr>
-<tr><td>21:45 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31448">31448</a>         </td><td style="text-align: right;">   16   </td></tr>
+<tr><td>21:44 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31447">31447</a>         </td><td style="text-align: right;">   16.46</td></tr>
+<tr><td>21:45 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31448">31448</a>         </td><td style="text-align: right;">   16.01</td></tr>
 <tr><td>21:48 </td><td>Road2unner      </td><td><a href="https://www.playstationtrophies.org/profiles/Road2unner/log?id=19126">19126</a>      </td><td style="text-align: right;">   12.15</td></tr>
 <tr><td>21:53 </td><td>Xemik           </td><td><a href="https://www.playstationtrophies.org/profiles/Xemik/log?id=27203">27203</a>           </td><td style="text-align: right;">   36.91</td></tr>
 <tr><td>21:56 </td><td>VazzVegas       </td><td><a href="https://www.playstationtrophies.org/profiles/VazzVegas/log?id=9863">9863</a>         </td><td style="text-align: right;">   54.86</td></tr>
@@ -1407,13 +1620,13 @@
 <tr><td>22:16 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31459">31459</a>         </td><td style="text-align: right;">   91.97</td></tr>
 <tr><td>22:17 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31460">31460</a>         </td><td style="text-align: right;">   90.22</td></tr>
 <tr><td>22:20 </td><td>Xemik           </td><td><a href="https://www.playstationtrophies.org/profiles/Xemik/log?id=27205">27205</a>           </td><td style="text-align: right;">   30.05</td></tr>
-<tr><td>22:21 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30448">30448</a>      </td><td style="text-align: right;">   17.4 </td></tr>
+<tr><td>22:21 </td><td>Darth_Krid      </td><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30448">30448</a>      </td><td style="text-align: right;">   17.43</td></tr>
 <tr><td>22:25 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31462">31462</a>         </td><td style="text-align: right;">   91.31</td></tr>
 <tr><td>22:26 </td><td>wrestlefanatic77</td><td><a href="https://www.playstationtrophies.org/profiles/wrestlefanatic77/log?id=17583">17583</a></td><td style="text-align: right;">   83.41</td></tr>
 <tr><td>22:28 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31463">31463</a>         </td><td style="text-align: right;">   84.44</td></tr>
 <tr><td>22:29 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31464">31464</a>         </td><td style="text-align: right;">   93.89</td></tr>
 <tr><td>22:31 </td><td>Ryukori_        </td><td><a href="https://www.playstationtrophies.org/profiles/Ryukori_/log?id=13726">13726</a>        </td><td style="text-align: right;">   55.31</td></tr>
-<tr><td>22:33 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31449">31449</a>         </td><td style="text-align: right;">   22.11</td></tr>
+<tr><td>22:33 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31449">31449</a>         </td><td style="text-align: right;">   22.08</td></tr>
 <tr><td>22:34 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31465">31465</a>         </td><td style="text-align: right;">   88.29</td></tr>
 <tr><td>22:35 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31466">31466</a>         </td><td style="text-align: right;">   83.07</td></tr>
 <tr><td>22:36 </td><td>danc97-         </td><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31468">31468</a>         </td><td style="text-align: right;">   89.78</td></tr>
@@ -1489,14 +1702,14 @@
 <tr><td>mattigummi45    </td><td style="text-align: right;">     45</td></tr>
 <tr><td>danc97-         </td><td style="text-align: right;">     42</td></tr>
 <tr><td>Darth_Krid      </td><td style="text-align: right;">     34</td></tr>
-<tr><td>Hemming87       </td><td style="text-align: right;">     34</td></tr>
-<tr><td>THE--ALCHEMlST  </td><td style="text-align: right;">     28</td></tr>
-<tr><td>daco_1979       </td><td style="text-align: right;">     26</td></tr>
+<tr><td>Hemming87       </td><td style="text-align: right;">     33</td></tr>
+<tr><td>THE--ALCHEMlST  </td><td style="text-align: right;">     30</td></tr>
 <tr><td>R1p3r_5000      </td><td style="text-align: right;">     25</td></tr>
+<tr><td>daco_1979       </td><td style="text-align: right;">     24</td></tr>
 <tr><td>Jerry_Appleby   </td><td style="text-align: right;">     22</td></tr>
 <tr><td>Martz4040       </td><td style="text-align: right;">     22</td></tr>
+<tr><td>Dolken_swe      </td><td style="text-align: right;">     21</td></tr>
 <tr><td>Da-Eastside     </td><td style="text-align: right;">     19</td></tr>
-<tr><td>Dolken_swe      </td><td style="text-align: right;">     18</td></tr>
 <tr><td>Barra333        </td><td style="text-align: right;">     13</td></tr>
 <tr><td>Blood_Velvet    </td><td style="text-align: right;">     12</td></tr>
 <tr><td>diskdocx        </td><td style="text-align: right;">     11</td></tr>
@@ -1700,13 +1913,13 @@
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       04</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       05</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       06</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9940">9940</a></td><td>15.66   </td><td style="text-align: right;">       07</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9940">9940</a></td><td>16.00   </td><td style="text-align: right;">       07</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       08</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       09</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       10</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       11</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       12</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9942">9942</a></td><td>14.99   </td><td style="text-align: right;">       13</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9942">9942</a></td><td>15.31   </td><td style="text-align: right;">       13</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       14</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       15</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       16</td></tr>
@@ -1718,7 +1931,7 @@
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       22</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       23</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       24</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9941">9941</a></td><td>11.07   </td><td style="text-align: right;">       25</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9941">9941</a></td><td>11.29   </td><td style="text-align: right;">       25</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       26</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       27</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       28</td></tr>
@@ -1741,7 +1954,7 @@
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       45</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       46</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       47</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9943">9943</a></td><td>12.52   </td><td style="text-align: right;">       48</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/clayser/log?id=9943">9943</a></td><td>12.79   </td><td style="text-align: right;">       48</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       49</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       50</td></tr>
 <tr><td>MISSING                                                                            </td><td>MISSING </td><td style="text-align: right;">       51</td></tr>
@@ -1899,45 +2112,45 @@
 <tbody>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31459">31459</a></td><td>91.97   </td><td style="text-align: right;">       00</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31478">31478</a></td><td>27.19   </td><td style="text-align: right;">       01</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31480">31480</a></td><td>14.43   </td><td style="text-align: right;">       02</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31454">31454</a></td><td>29.02   </td><td style="text-align: right;">       03</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31480">31480</a></td><td>14.42   </td><td style="text-align: right;">       02</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31454">31454</a></td><td>29.00   </td><td style="text-align: right;">       03</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       04</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       05</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31458">31458</a></td><td>84.10   </td><td style="text-align: right;">       06</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31435">31435</a></td><td>62.60   </td><td style="text-align: right;">       07</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31487">31487</a></td><td>17.50   </td><td style="text-align: right;">       08</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31487">31487</a></td><td>17.51   </td><td style="text-align: right;">       08</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31445">31445</a></td><td>11.90   </td><td style="text-align: right;">       09</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       10</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       11</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31473">31473</a></td><td>90.86   </td><td style="text-align: right;">       12</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31457">31457</a></td><td>95.56   </td><td style="text-align: right;">       13</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31447">31447</a></td><td>16.47   </td><td style="text-align: right;">       14</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31447">31447</a></td><td>16.46   </td><td style="text-align: right;">       14</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       15</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31449">31449</a></td><td>22.11   </td><td style="text-align: right;">       16</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31443">31443</a></td><td>47.95   </td><td style="text-align: right;">       17</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31449">31449</a></td><td>22.08   </td><td style="text-align: right;">       16</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31443">31443</a></td><td>47.93   </td><td style="text-align: right;">       17</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31481">31481</a></td><td>14.61   </td><td style="text-align: right;">       18</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       19</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       20</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31441">31441</a></td><td>29.64   </td><td style="text-align: right;">       21</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31439">31439</a></td><td>47.08   </td><td style="text-align: right;">       22</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31439">31439</a></td><td>47.05   </td><td style="text-align: right;">       22</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31463">31463</a></td><td>84.44   </td><td style="text-align: right;">       23</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31470">31470</a></td><td>81.33   </td><td style="text-align: right;">       24</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31485">31485</a></td><td>7.11    </td><td style="text-align: right;">       25</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       26</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       27</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31446">31446</a></td><td>12.50   </td><td style="text-align: right;">       28</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31446">31446</a></td><td>12.49   </td><td style="text-align: right;">       28</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       29</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31477">31477</a></td><td>8.97    </td><td style="text-align: right;">       30</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31436">31436</a></td><td>18.31   </td><td style="text-align: right;">       31</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31436">31436</a></td><td>18.29   </td><td style="text-align: right;">       31</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31437">31437</a></td><td>26.97   </td><td style="text-align: right;">       32</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       33</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       34</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31452">31452</a></td><td>34.06   </td><td style="text-align: right;">       35</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31486">31486</a></td><td>25.70   </td><td style="text-align: right;">       36</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31448">31448</a></td><td>16.00   </td><td style="text-align: right;">       37</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31486">31486</a></td><td>25.71   </td><td style="text-align: right;">       36</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31448">31448</a></td><td>16.01   </td><td style="text-align: right;">       37</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       38</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31472">31472</a></td><td>80.50   </td><td style="text-align: right;">       39</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31455">31455</a></td><td>10.42   </td><td style="text-align: right;">       40</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31455">31455</a></td><td>10.41   </td><td style="text-align: right;">       40</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       41</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       42</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       43</td></tr>
@@ -1956,7 +2169,7 @@
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       56</td></tr>
 <tr><td>MISSING                                                                              </td><td>MISSING </td><td style="text-align: right;">       57</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31453">31453</a></td><td>36.61   </td><td style="text-align: right;">       58</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31483">31483</a></td><td>19.32   </td><td style="text-align: right;">       59</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/danc97-/log?id=31483">31483</a></td><td>19.33   </td><td style="text-align: right;">       59</td></tr>
 </tbody>
 </table></div>
 <div id="Darth_Krid" class="user_table" style="display:none">
@@ -2009,7 +2222,7 @@
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30344">30344</a></td><td>60.56   </td><td style="text-align: right;">       41</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30345">30345</a></td><td>97.39   </td><td style="text-align: right;">       42</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30332">30332</a></td><td>13.96   </td><td style="text-align: right;">       43</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30448">30448</a></td><td>17.40   </td><td style="text-align: right;">       44</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30448">30448</a></td><td>17.43   </td><td style="text-align: right;">       44</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30348">30348</a></td><td>46.77   </td><td style="text-align: right;">       45</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30349">30349</a></td><td>45.55   </td><td style="text-align: right;">       46</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Darth_Krid/log?id=30325">30325</a></td><td>12.64   </td><td style="text-align: right;">       47</td></tr>
@@ -2170,8 +2383,8 @@
 </thead>
 <tbody>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       00</td></tr>
-<tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       01</td></tr>
-<tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       02</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18914">18914</a></td><td>23.78   </td><td style="text-align: right;">       01</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18913">18913</a></td><td>21.44   </td><td style="text-align: right;">       02</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       03</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       04</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18903">18903</a></td><td>94.25   </td><td style="text-align: right;">       05</td></tr>
@@ -2228,7 +2441,7 @@
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18901">18901</a></td><td>97.96   </td><td style="text-align: right;">       56</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18893">18893</a></td><td>37.96   </td><td style="text-align: right;">       57</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18886">18886</a></td><td>65.49   </td><td style="text-align: right;">       58</td></tr>
-<tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       59</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Dolken_swe/log?id=18915">18915</a></td><td>17.35   </td><td style="text-align: right;">       59</td></tr>
 </tbody>
 </table></div>
 <div id="Eticket109" class="user_table" style="display:none">
@@ -2316,26 +2529,26 @@
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       08</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40309">40309</a></td><td>94.92   </td><td style="text-align: right;">       09</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40291">40291</a></td><td>28.46   </td><td style="text-align: right;">       10</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40318">40318</a></td><td>53.86   </td><td style="text-align: right;">       11</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40318">40318</a></td><td>54.80   </td><td style="text-align: right;">       11</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40333">40333</a></td><td>54.81   </td><td style="text-align: right;">       12</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40297">40297</a></td><td>95.63   </td><td style="text-align: right;">       13</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       14</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40312">40312</a></td><td>53.66   </td><td style="text-align: right;">       15</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40312">40312</a></td><td>54.61   </td><td style="text-align: right;">       15</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       16</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       17</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       18</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       19</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40311">40311</a></td><td>54.72   </td><td style="text-align: right;">       20</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40311">40311</a></td><td>55.69   </td><td style="text-align: right;">       20</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40321">40321</a></td><td>82.30   </td><td style="text-align: right;">       21</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       22</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       23</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       24</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40314">40314</a></td><td>54.12   </td><td style="text-align: right;">       25</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40314">40314</a></td><td>55.44   </td><td style="text-align: right;">       25</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40330">40330</a></td><td>69.81   </td><td style="text-align: right;">       26</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       27</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       28</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40326">40326</a></td><td>64.54   </td><td style="text-align: right;">       29</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40315">40315</a></td><td>51.73   </td><td style="text-align: right;">       30</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40315">40315</a></td><td>52.64   </td><td style="text-align: right;">       30</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       31</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40294">40294</a></td><td>24.37   </td><td style="text-align: right;">       32</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40325">40325</a></td><td>62.72   </td><td style="text-align: right;">       33</td></tr>
@@ -2344,7 +2557,7 @@
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       36</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40336">40336</a></td><td>42.45   </td><td style="text-align: right;">       37</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40306">40306</a></td><td>96.95   </td><td style="text-align: right;">       38</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40310">40310</a></td><td>55.32   </td><td style="text-align: right;">       39</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40310">40310</a></td><td>56.39   </td><td style="text-align: right;">       39</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40288">40288</a></td><td>31.00   </td><td style="text-align: right;">       40</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40289">40289</a></td><td>31.54   </td><td style="text-align: right;">       41</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40290">40290</a></td><td>32.57   </td><td style="text-align: right;">       42</td></tr>
@@ -2360,7 +2573,7 @@
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       52</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       53</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       54</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40313">40313</a></td><td>53.19   </td><td style="text-align: right;">       55</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40313">40313</a></td><td>54.10   </td><td style="text-align: right;">       55</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Hemming87/log?id=40338">40338</a></td><td>59.68   </td><td style="text-align: right;">       56</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       57</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       58</td></tr>
@@ -2515,7 +2728,7 @@
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12838">12838</a></td><td>88.96   </td><td style="text-align: right;">       03</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       04</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       05</td></tr>
-<tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       06</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12850">12850</a></td><td>59.21   </td><td style="text-align: right;">       06</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       07</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       08</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12842">12842</a></td><td>78.84   </td><td style="text-align: right;">       09</td></tr>
@@ -2551,7 +2764,7 @@
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       39</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       40</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12840">12840</a></td><td>86.69   </td><td style="text-align: right;">       41</td></tr>
-<tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       42</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Lion_Squid/log?id=12851">12851</a></td><td>58.30   </td><td style="text-align: right;">       42</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       43</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       44</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       45</td></tr>
@@ -2577,15 +2790,15 @@
 <tr><th>Log#                                                                                   </th><th>Rarity  </th><th style="text-align: right;">  Seconds</th></tr>
 </thead>
 <tbody>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13229">13229</a></td><td>97.27   </td><td style="text-align: right;">       00</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13237">13237</a></td><td>95.64   </td><td style="text-align: right;">       00</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13235">13235</a></td><td>96.10   </td><td style="text-align: right;">       01</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       02</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13210">13210</a></td><td>98.79   </td><td style="text-align: right;">       03</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13218">13218</a></td><td>97.50   </td><td style="text-align: right;">       04</td></tr>
-<tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       05</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13238">13238</a></td><td>95.41   </td><td style="text-align: right;">       05</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       06</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13198">13198</a></td><td>93.56   </td><td style="text-align: right;">       07</td></tr>
-<tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       08</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13241">13241</a></td><td>94.84   </td><td style="text-align: right;">       08</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       09</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13209">13209</a></td><td>96.90   </td><td style="text-align: right;">       10</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13233">13233</a></td><td>94.59   </td><td style="text-align: right;">       11</td></tr>
@@ -2603,14 +2816,14 @@
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13206">13206</a></td><td>98.62   </td><td style="text-align: right;">       23</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       24</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13214">13214</a></td><td>97.72   </td><td style="text-align: right;">       25</td></tr>
-<tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       26</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13239">13239</a></td><td>95.35   </td><td style="text-align: right;">       26</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       27</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13222">13222</a></td><td>97.33   </td><td style="text-align: right;">       28</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       29</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13225">13225</a></td><td>97.27   </td><td style="text-align: right;">       30</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13204">13204</a></td><td>94.14   </td><td style="text-align: right;">       31</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13230">13230</a></td><td>97.25   </td><td style="text-align: right;">       32</td></tr>
-<tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       33</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13240">13240</a></td><td>95.24   </td><td style="text-align: right;">       33</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       34</td></tr>
 <tr><td>MISSING                                                                                </td><td>MISSING </td><td style="text-align: right;">       35</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13224">13224</a></td><td>97.30   </td><td style="text-align: right;">       36</td></tr>
@@ -2796,15 +3009,15 @@
 <tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18892">18892</a></td><td>65.00   </td><td style="text-align: right;">       12</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18906">18906</a></td><td>37.44   </td><td style="text-align: right;">       13</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       14</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18910">18910</a></td><td>51.07   </td><td style="text-align: right;">       15</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18910">18910</a></td><td>51.06   </td><td style="text-align: right;">       15</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       16</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18916">18916</a></td><td>44.23   </td><td style="text-align: right;">       17</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18916">18916</a></td><td>44.24   </td><td style="text-align: right;">       17</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       18</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       19</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       20</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18917">18917</a></td><td>57.74   </td><td style="text-align: right;">       21</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       22</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18893">18893</a></td><td>79.77   </td><td style="text-align: right;">       23</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18893">18893</a></td><td>79.78   </td><td style="text-align: right;">       23</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       24</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       25</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       26</td></tr>
@@ -2817,7 +3030,7 @@
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       33</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18902">18902</a></td><td>56.12   </td><td style="text-align: right;">       34</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       35</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18908">18908</a></td><td>49.03   </td><td style="text-align: right;">       36</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18908">18908</a></td><td>49.04   </td><td style="text-align: right;">       36</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       37</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       38</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       39</td></tr>
@@ -2833,13 +3046,13 @@
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       49</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       50</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       51</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18889">18889</a></td><td>86.97   </td><td style="text-align: right;">       52</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18889">18889</a></td><td>86.98   </td><td style="text-align: right;">       52</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       53</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       54</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       55</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18918">18918</a></td><td>26.36   </td><td style="text-align: right;">       56</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       57</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18907">18907</a></td><td>52.45   </td><td style="text-align: right;">       58</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/R1p3r_5000/log?id=18907">18907</a></td><td>52.46   </td><td style="text-align: right;">       58</td></tr>
 <tr><td>MISSING                                                                                 </td><td>MISSING </td><td style="text-align: right;">       59</td></tr>
 </tbody>
 </table></div>
@@ -3327,7 +3540,7 @@
 <tbody>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23619">23619</a></td><td>75.93   </td><td style="text-align: right;">       00</td></tr>
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       01</td></tr>
-<tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       02</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23659">23659</a></td><td>18.10   </td><td style="text-align: right;">       02</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23653">23653</a></td><td>24.10   </td><td style="text-align: right;">       03</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23654">23654</a></td><td>19.35   </td><td style="text-align: right;">       04</td></tr>
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       05</td></tr>
@@ -3362,7 +3575,7 @@
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       34</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23637">23637</a></td><td>38.70   </td><td style="text-align: right;">       35</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23651">23651</a></td><td>19.63   </td><td style="text-align: right;">       36</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23631">23631</a></td><td>22.37   </td><td style="text-align: right;">       37</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23657">23657</a></td><td>19.72   </td><td style="text-align: right;">       37</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23648">23648</a></td><td>34.96   </td><td style="text-align: right;">       38</td></tr>
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       39</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23652">23652</a></td><td>30.82   </td><td style="text-align: right;">       40</td></tr>
@@ -3372,9 +3585,9 @@
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       44</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23633">23633</a></td><td>26.03   </td><td style="text-align: right;">       45</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23643">23643</a></td><td>21.86   </td><td style="text-align: right;">       46</td></tr>
-<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23629">23629</a></td><td>68.52   </td><td style="text-align: right;">       47</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23656">23656</a></td><td>18.29   </td><td style="text-align: right;">       47</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23650">23650</a></td><td>27.93   </td><td style="text-align: right;">       48</td></tr>
-<tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       49</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23658">23658</a></td><td>18.92   </td><td style="text-align: right;">       49</td></tr>
 <tr><td><a href="https://www.playstationtrophies.org/profiles/THE--ALCHEMlST/log?id=23641">23641</a></td><td>17.19   </td><td style="text-align: right;">       50</td></tr>
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       51</td></tr>
 <tr><td>MISSING                                                                                     </td><td>MISSING </td><td style="text-align: right;">       52</td></tr>
