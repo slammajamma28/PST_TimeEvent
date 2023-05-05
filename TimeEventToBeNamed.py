@@ -15,42 +15,52 @@ import numpy
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
 print("Process started at " + startTS)
 
-PSN_IDS = ["Asher1985",
-           "Barra333",
-           "Blood_Velvet",
-           "clayser",
-           "Da-Eastside",
-           "daco_1979",
-           "danc97-",
-           "Darth_Krid",
-           "Dino_Roar",
-           "diskdocx",
-           "Dolken_swe",
-           "ejesbd",
-           "Eticket109",
-           "Hemming87",
-           "Jerry_Appleby",
-           "Lion_Squid",
-           "lion1325478",
-           "Martz4040",
-           "mattigummi45",
-           "Meikoro",
-           "R1p3r_5000",
-           "Road2unner",
-           "Ryukori_",
-           "slammajamma28",
-           "staytrue1985",
-           "stgermain",
-           "stpatty",
-           "sum1_worsethan_u",
-           "SWEDISH_PIRATE",
-           "THE--ALCHEMlST",
-           "VazzVegas",
-           "wrestlefanatic77",
-           "Xemik",
-           "XxDecieverxX",
-           "Zetberg"
-           ]
+participants = open("participants", "r")
+  
+# reading the file
+data = participants.read()
+  
+# replacing end splitting the text 
+# when newline ('\n') is seen.
+PSN_IDS = data.split("\n")
+participants.close()
+
+# PSN_IDS = ["Asher1985",
+#            "Barra333",
+#            "Blood_Velvet",
+#            "clayser",
+#            "Da-Eastside",
+#            "daco_1979",
+#            "danc97-",
+#            "Darth_Krid",
+#            "Dino_Roar",
+#            "diskdocx",
+#            "Dolken_swe",
+#            "ejesbd",
+#            "Eticket109",
+#            "Hemming87",
+#            "Jerry_Appleby",
+#            "Lion_Squid",
+#            "lion1325478",
+#            "Martz4040",
+#            "mattigummi45",
+#            "Meikoro",
+#            "R1p3r_5000",
+#            "Road2unner",
+#            "Ryukori_",
+#            "slammajamma28",
+#            "staytrue1985",
+#            "stgermain",
+#            "stpatty",
+#            "sum1_worsethan_u",
+#            "SWEDISH_PIRATE",
+#            "THE--ALCHEMlST",
+#            "VazzVegas",
+#            "wrestlefanatic77",
+#            "Xemik",
+#            "XxDecieverxX",
+#            "Zetberg"
+#            ]
 #PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
 #PSN_IDS = ["Asher1985"]
 EVENT_START = datetime.datetime.strptime('2023/05/01', "%Y/%m/%d")
