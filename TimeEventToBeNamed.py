@@ -26,6 +26,7 @@ PSN_IDS = ["Asher1985",
            "Dino_Roar",
            "diskdocx",
            "Dolken_swe",
+           "ejesbd",
            "Eticket109",
            "Hemming87",
            "Jerry_Appleby",
@@ -157,6 +158,7 @@ class User:
         self.trophies = []
         self.individualProgress = []
         self.individualTimes = []
+        self.completedTrophies = 0
         for i in range(60):
             if i < 10:
                 i = f"0{i}"
@@ -179,7 +181,11 @@ class User:
     def addTrophy(self, trophy):
         self.trophies.append(trophy)
     
+    def setCompletedTrophies(self, num):
+        self.completedTrophies = num
 
+    def getCompletedTrophies(self):
+        return self.completedTrophies
 
     def calculateIndividualGoal(self):
         self.trophies.sort(key=lambda r: r.tRarity)
@@ -188,6 +194,7 @@ class User:
             if cTime in self.individualTimes:
                 self.individualProgress.append([troph.getPSTLogHtml(), troph.getTRarity(), cTime])
                 self.individualTimes.remove(cTime)
+        self.completedTrophies = len(self.individualProgress)
         if len(self.individualProgress) < 60:
             for ip in range(60):
                 if ip < 10:
@@ -359,30 +366,30 @@ try:
                         + "<h2>REMAINING TIMES</h2>\n")
     
     current_file.write("<div id=\"hourly_total_summary\"><table><tbody>\n")
-    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_0')\">Hour 00: {len(HOUR_0)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_1')\">Hour 01: {len(HOUR_1)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_2')\">Hour 02: {len(HOUR_2)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_3')\">Hour 03: {len(HOUR_3)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_4')\">Hour 04: {len(HOUR_4)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_5')\">Hour 05: {len(HOUR_5)}</td></tr>\n")
-    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_6')\">Hour 06: {len(HOUR_6)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_7')\">Hour 07: {len(HOUR_7)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_8')\">Hour 08: {len(HOUR_8)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_9')\">Hour 09: {len(HOUR_9)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_10')\">Hour 10: {len(HOUR_10)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_11')\">Hour 11: {len(HOUR_11)}</td></tr>\n")
-    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_12')\">Hour 12: {len(HOUR_12)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_13')\">Hour 13: {len(HOUR_13)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_14')\">Hour 14: {len(HOUR_14)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_15')\">Hour 15: {len(HOUR_15)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_16')\">Hour 16: {len(HOUR_16)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_17')\">Hour 17: {len(HOUR_17)}</td></tr>\n")
-    current_file.write(f"<tr><td class='sum_cell' onClick=\"showHourSummary(event, 'hour_18')\">Hour 18: {len(HOUR_18)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_19')\">Hour 19: {len(HOUR_19)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_20')\">Hour 20: {len(HOUR_20)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_21')\">Hour 21: {len(HOUR_21)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_22')\">Hour 22: {len(HOUR_22)}</td>\n")
-    current_file.write(f"<td class='sum_cell' onClick=\"showHourSummary(event, 'hour_23')\">Hour 23: {len(HOUR_23)}</td>\n")
+    current_file.write(f"<tr><td class='sum_cell {'complete' if len(HOUR_0) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_0')\">Hour 00: {len(HOUR_0)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_1) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_1')\">Hour 01: {len(HOUR_1)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_2) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_2')\">Hour 02: {len(HOUR_2)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_3) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_3')\">Hour 03: {len(HOUR_3)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_4) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_4')\">Hour 04: {len(HOUR_4)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_5) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_5')\">Hour 05: {len(HOUR_5)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell {'complete' if len(HOUR_6) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_6')\">Hour 06: {len(HOUR_6)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_7) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_7')\">Hour 07: {len(HOUR_7)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_8) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_8')\">Hour 08: {len(HOUR_8)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_9) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_9')\">Hour 09: {len(HOUR_9)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_10) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_10')\">Hour 10: {len(HOUR_10)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_11) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_11')\">Hour 11: {len(HOUR_11)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell {'complete' if len(HOUR_12) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_12')\">Hour 12: {len(HOUR_12)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_13) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_13')\">Hour 13: {len(HOUR_13)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_14) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_14')\">Hour 14: {len(HOUR_14)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_15) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_15')\">Hour 15: {len(HOUR_15)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_16) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_16')\">Hour 16: {len(HOUR_16)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_17) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_17')\">Hour 17: {len(HOUR_17)}</td></tr>\n")
+    current_file.write(f"<tr><td class='sum_cell {'complete' if len(HOUR_18) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_18')\">Hour 18: {len(HOUR_18)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_19) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_19')\">Hour 19: {len(HOUR_19)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_20) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_20')\">Hour 20: {len(HOUR_20)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_21) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_21')\">Hour 21: {len(HOUR_21)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_22) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_22')\">Hour 22: {len(HOUR_22)}</td>\n")
+    current_file.write(f"<td class='sum_cell {'complete' if len(HOUR_23) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_23')\">Hour 23: {len(HOUR_23)}</td>\n")
     current_file.write("</tbody></table></div>\n<br>")
 
     current_file.write("<div id=\"hour_0\" class=\"hour_summary\">\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
@@ -512,7 +519,7 @@ try:
     current_file.write("<div id=\"individual\" class=\"tabcontent\">\n<div class=\"dropdown\">")
     current_file.write("<button class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
     for user in USERS_TROPHIES:
-        current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()}</button><br>\n")
+        current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()} - {user.getCompletedTrophies() if user.getCompletedTrophies() < 60 else '✅'}</button><br>\n")
     current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
     for user in USERS_TROPHIES:
         current_file.write(f"<div id=\"{user.getPSN()}\" class=\"user_table\" style=\"display:none\">\n")
@@ -523,6 +530,7 @@ try:
 
     print("Process complete at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
     driver.quit()
-except:
+except Exception as inst:
     print("Process failed at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
+    print(inst)
     driver.quit()

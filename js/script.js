@@ -7,7 +7,11 @@ $(document).ready(function () {
       "background":    `-moz-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
       "background":     `-ms-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
       "background":      `-o-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
-      "background":      `linear-gradient(to right, blue ${currentVal}, black ${currentVal}`})
+      "background":      `linear-gradient(to right, blue ${currentVal}, black ${currentVal}`});
+
+  $(".complete").each(function() {
+    var txt = $(this).text() + " ✅"
+    $(this).text(txt)});
 });
 
 function openTab(evt, tabName) {
@@ -48,6 +52,7 @@ function showUser(evt, userName) {
   activeRows = thisTable[0].getElementsByTagName('tr')
   for (i = 0; i < activeRows.length; i++){
     columns = activeRows[i].getElementsByTagName('td');
+    console.log(columns[0].innerText);
     if (columns[0].innerText == "MISSING") {
       activeRows[i].style.background = "red";
     }
@@ -72,7 +77,7 @@ function swapTime(evt) {
     date_month = new Date(timestr).getMonth() + 1;
     date_day = new Date(timestr).getDate();
     date_hour = new Date(timestr).getHours();
-    if (date_hour > 13 ) {
+    if (date_hour > 12 ) {
       ampm = "PM";
       date_hour = date_hour - 12;
     } else if (date_hour == 12) { 
@@ -88,7 +93,6 @@ function swapTime(evt) {
     date_second = new Date(timestr).getSeconds();
     
     date = date_year + "/" + String(date_month).padStart(2, "0") + "/" + String(date_day).padStart(2, "0") + " " + String(date_hour).padStart(2, "0") + ":" + String(date_minute).padStart(2, "0") + ":" + String(date_second).padStart(2, "0") + " " + ampm + " " + new Date(timestr).toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2];
-    console.log(date);
     document.getElementsByTagName("h3")[0].innerHTML = "as of " + date;
   } else {
     zone[0].setAttribute("value", "utc");
