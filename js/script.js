@@ -12,6 +12,9 @@ $(document).ready(function () {
   $(".complete").each(function() {
     var txt = $(this).text() + " ✅"
     $(this).text(txt)});
+
+  var hour_now = new Date($.now()).getHours();
+  $('#cell_'+hour_now).click();
 });
 
 function openTab(evt, tabName) {
