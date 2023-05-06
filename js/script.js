@@ -13,7 +13,7 @@ $(document).ready(function () {
     var txt = $(this).text() + " ✅"
     $(this).text(txt)});
 
-  var hour_now = new Date($.now()).getHours();
+  var hour_now = new Date().getUTCHours();
   $('#cell_'+hour_now).click();
 });
 
