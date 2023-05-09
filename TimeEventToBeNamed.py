@@ -199,7 +199,7 @@ class User:
         return self.completedTrophies
 
     def calculateIndividualGoal(self):
-        self.trophies.sort(key=lambda r: r.tRarity)
+        self.trophies.sort(key=lambda r: float(r.tRarity))
         for troph in self.trophies:
             cTime = troph.getTTime().strftime("%S")
             if cTime in self.individualTimes:
@@ -289,7 +289,7 @@ try:
             for x in trophyList:
                 if x.getTTime().strftime('%H:%M') == cTime:
                     TMP_LIST.append(x)
-            TMP_LIST.sort(key=lambda r: r.tRarity)
+            TMP_LIST.sort(key=lambda r: float(r.tRarity))
             #print(f"{cTime},{psid}!")
             psid = TMP_LIST[0].getPSN()
             file_out.write(f"{cTime}|{psid}\n")
