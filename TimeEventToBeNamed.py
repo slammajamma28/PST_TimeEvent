@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from collections import Counter
+import traceback
 import numpy
 
 #startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
@@ -529,7 +530,7 @@ try:
     current_file.write("<div id=\"individual\" class=\"tabcontent\">\n<div class=\"dropdown\">")
     current_file.write("<button class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
     for user in USERS_TROPHIES:
-        current_file.write(f"<button onclick=\"showUser(event, '{user.getPSN()}')\">{user.getPSN()} - {user.getCompletedTrophies() if user.getCompletedTrophies() < 60 else '✅'}</button><br>\n")
+        current_file.write(f"<button class='individualPercentage' value='{round(user.getCompletedTrophies() / 60 * 100,2)}' onclick=\"showUser(event, '{user.getPSN()}', '{user.getCompletedTrophies()}', '{round(user.getCompletedTrophies() / 60 * 100,2)}')\">{user.getPSN()} - {user.getCompletedTrophies() if user.getCompletedTrophies() < 60 else '✅'}</button><br>\n")
     current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
     for user in USERS_TROPHIES:
         current_file.write(f"<div id=\"{user.getPSN()}\" class=\"user_table\" style=\"display:none\">\n")
@@ -543,4 +544,5 @@ try:
 except Exception as inst:
     print("Process failed at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
     print(inst)
+    traceback.print_exc()
     driver.quit()

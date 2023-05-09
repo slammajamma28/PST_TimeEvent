@@ -7,11 +7,24 @@ $(document).ready(function () {
       "background":    `-moz-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
       "background":     `-ms-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
       "background":      `-o-linear-gradient(left, blue ${currentVal}, black ${currentVal})`,
-      "background":      `linear-gradient(to right, blue ${currentVal}, black ${currentVal}`});
+      "background":     `linear-gradient(to right, blue ${currentVal}, black ${currentVal})`});
 
   $(".complete").each(function() {
     var txt = $(this).text() + " ✅"
     $(this).text(txt)});
+  
+  $(".individualPercentage").each(function() {
+    var indiVal = $(this).attr("value")+'%';
+    console.log(indiVal);
+    $(this).css(
+      {"color": "white",
+      "border": "1px solid black",
+      "background": `-webkit-linear-gradient(left, blue ${indiVal}, black ${indiVal})`,
+      "background":    `-moz-linear-gradient(left, blue ${indiVal}, black ${indiVal})`,
+      "background":     `-ms-linear-gradient(left, blue ${indiVal}, black ${indiVal})`,
+      "background":      `-o-linear-gradient(left, blue ${indiVal}, black ${indiVal})`,
+      "background":     `linear-gradient(to right, blue ${indiVal}, black ${indiVal})`});
+  });
 
   var hour_now = new Date().getUTCHours();
   $('#cell_'+hour_now).click();
@@ -38,7 +51,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
   } 
 
-function showUser(evt, userName) {
+function showUser(evt, userName, completedGoal, percentageGoal) {
   // Declare all variables
   var i, user_table, columns, activeTable, activeRows, btn;
   
@@ -63,8 +76,17 @@ function showUser(evt, userName) {
     
   btn = document.getElementsByClassName("dropbtn");
   for (i = 0; i < btn.length; i++) {
-    btn[i].innerHTML = userName;
+    btn[i].innerHTML = userName + ' - ' + completedGoal;
   }
+  
+  $(".dropbtn").css(
+    {"color": "white",
+      "border": "1px solid black",
+      "background": `-webkit-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
+      "background":    `-moz-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
+      "background":     `-ms-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
+      "background":      `-o-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
+      "background":     `linear-gradient(to right, blue ${percentageGoal}%, black ${percentageGoal}%)`});
 }
 
 function swapTime(evt) {
