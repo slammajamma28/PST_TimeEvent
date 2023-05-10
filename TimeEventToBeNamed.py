@@ -361,7 +361,7 @@ try:
         user.calculateIndividualGoal()
 
     current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
-                        + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"banner.png\" alt=\"PST TIME EVENT\">\n"
+                        + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"images\\banner.png\" alt=\"PST TIME EVENT\">\n"
                         + f"<h3 value=\"utc\" onClick=\"swapTime(event)\">as of {startTS}</h3>\n"
                         + f"<h4>as of {startTS}</h3>\n"
                         + "<div>Times are tracked and claimed automatically.<br>"
