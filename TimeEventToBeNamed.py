@@ -118,12 +118,13 @@ HOUR_22 = []
 HOUR_23 = []
 
 class Trophy:
-    def __init__(self, psn, logNum, tDate, tTime, tRarity) -> None:
+    def __init__(self, psn, logNum, tDate, tTime, tRarity, tType) -> None:
         self.psn = psn
         self.logNum = logNum
         self.tDate = tDate
         self.tTime = tTime
         self.tRarity = tRarity
+        self.tType = tType
     
     def setPSN(self, psn):
         self.psn = psn
@@ -154,6 +155,12 @@ class Trophy:
     
     def getTRarity(self):
         return self.tRarity
+
+    def setTType(self, tType):
+        self.tType = tType
+    
+    def getTType(self):
+        return f"<img src='images\{self.tType}.png' alt='{self.tType}' title='{self.tType}' />"
 
     def getPSTLogHtml(self):
         return f'<a href="https://www.playstationtrophies.org/profiles/{self.psn}/log?id={self.logNum}">{self.logNum}</a>'
@@ -265,10 +272,11 @@ try:
                 trophy_date=row_info[5].find("span", "typo-top-date").get_text()
                 trophy_date=datetime.datetime.strptime(trophy_date.replace('st ', ' ').replace('nd ', ' ').replace('rd ', ' ').replace('th ', ' '), '%d %b %Y')
                 trophy_time=datetime.datetime.strptime(row_info[5].find("span", "typo-bottom-date").get_text().strip(), '%I:%M:%S %p' ) # 2:00:59 AM
+                trophy_type=row_info[9].find("img")['title']
                 if trophy_date >= EVENT_END:
                     continue
                 elif trophy_date >= EVENT_START:
-                    trophy = Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity)
+                    trophy = Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity, trophy_type)
                     trophyList.append(trophy)
                     user.addTrophy(trophy)
                 else:
@@ -293,7 +301,7 @@ try:
             #print(f"{cTime},{psid}!")
             psid = TMP_LIST[0].getPSN()
             file_out.write(f"{cTime}|{psid}\n")
-            CLAIMED_TIME.append([cTime, psid, TMP_LIST[0].getPSTLogHtml(), TMP_LIST[0].getTRarity()])
+            CLAIMED_TIME.append([cTime, psid, TMP_LIST[0].getPSTLogHtml(), TMP_LIST[0].getTRarity() + " " + TMP_LIST[0].getTType()])
             LEADERBOARD.append(psid)
             TIME_ARRAY.remove(cTime)
 
@@ -361,7 +369,7 @@ try:
         user.calculateIndividualGoal()
 
     current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
-                        + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"images\\banner.png\" alt=\"PST TIME EVENT\">\n"
+                        + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"images\\banner.png\" alt=\"PST's Wait a Minute Event\" title=\"PST's Wait a Minute Event\">\n"
                         + f"<h3 value=\"utc\" onClick=\"swapTime(event)\">as of {startTS}</h3>\n"
                         + f"<h4>as of {startTS}</h3>\n"
                         + "<div>Times are tracked and claimed automatically.<br>"
