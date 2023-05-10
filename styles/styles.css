@@ -15,6 +15,10 @@ img {
     max-width: 400px;
 }
 
+td img {
+    max-height: 18px;
+}
+
 table {
     border-collapse: collapse;
     margin: auto;
