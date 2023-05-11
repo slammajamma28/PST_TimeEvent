@@ -27,7 +27,8 @@ $(document).ready(function () {
   });
 
   var hour_now = new Date().getUTCHours();
-  $('#cell_'+hour_now).click();
+  document.getElementById('hour_'+hour_now).style.display = "block";
+  $('#cell_'+hour_now).addClass('active');
 });
 
 function openTab(evt, tabName) {
