@@ -8,6 +8,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 from collections import Counter
 import traceback
 import numpy
@@ -26,42 +29,6 @@ data = participants.read()
 PSN_IDS = data.split("\n")
 participants.close()
 
-# PSN_IDS = ["Asher1985",
-#            "Barra333",
-#            "Blood_Velvet",
-#            "clayser",
-#            "Da-Eastside",
-#            "daco_1979",
-#            "danc97-",
-#            "Darth_Krid",
-#            "Dino_Roar",
-#            "diskdocx",
-#            "Dolken_swe",
-#            "ejesbd",
-#            "Eticket109",
-#            "Hemming87",
-#            "Jerry_Appleby",
-#            "Lion_Squid",
-#            "lion1325478",
-#            "Martz4040",
-#            "mattigummi45",
-#            "Meikoro",
-#            "R1p3r_5000",
-#            "Road2unner",
-#            "Ryukori_",
-#            "slammajamma28",
-#            "staytrue1985",
-#            "stgermain",
-#            "stpatty",
-#            "sum1_worsethan_u",
-#            "SWEDISH_PIRATE",
-#            "THE--ALCHEMlST",
-#            "VazzVegas",
-#            "wrestlefanatic77",
-#            "Xemik",
-#            "XxDecieverxX",
-#            "Zetberg"
-#            ]
 #PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
 #PSN_IDS = ["Asher1985"]
 EVENT_START = datetime.datetime.strptime('2023/05/01', "%Y/%m/%d")
@@ -75,7 +42,6 @@ driver = webdriver.Firefox(options=options)
 
 filetime = datetime.datetime.now().strftime("%b-%d-%H%M")
 file_out = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\output\\{filetime}.html', "w", encoding='utf-8')
-current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\tracker.html', "w", encoding='utf-8')
 file_out.write("sep=|\n")
 
 TIME_ARRAY = []
@@ -210,7 +176,7 @@ class User:
         for troph in self.trophies:
             cTime = troph.getTTime().strftime("%S")
             if cTime in self.individualTimes:
-                self.individualProgress.append([troph.getPSTLogHtml(), troph.getTRarity(), cTime])
+                self.individualProgress.append([troph.getPSTLogHtml(), troph.getTRarity() + " " + troph.getTType(), cTime])
                 self.individualTimes.remove(cTime)
         self.completedTrophies = len(self.individualProgress)
         if len(self.individualProgress) < 60:
@@ -241,6 +207,7 @@ try:
         url = f"https://psnprofiles.com/{psn}"
         try:
             driver.get(url)
+            hmm = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "recent-trophies")))
             m = driver.find_element(By.ID, "hidden-trophies")
             #hover over element
             actions = ActionChains(driver)
@@ -248,8 +215,12 @@ try:
             html = driver.page_source
             soup = BeautifulSoup(html, "html.parser")
             hiddenTrophies = int(soup.find("div", id="tiptip_content").find("b").text)
-        except Exception as err:
+        except NoSuchElementException as nsee:
+            print(f"Can't find no hidden trophies for {psn}")
             hiddenTrophies = int(0)
+        except Exception as err:
+            traceback.print_exc()
+            raise ProcessLookupError(f"Had an issue looking up {psn}")
 
         end_of_event = 0
         page = 1
@@ -257,8 +228,8 @@ try:
         while end_of_event < 1:
             ## Get Log
             url = f"https://psnprofiles.com/{psn}/log?page={page}"
+            #print("Now on " + url)
             headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
-            #print(f'Now on {url}')
             html_content = requests.get(url, headers=headers).text
             soup = BeautifulSoup(html_content,"html.parser")
             body = soup.find('tbody')
@@ -368,6 +339,7 @@ try:
         #print(f"{user.getPSN()} has earned {len(user.getTrophies())} trophies")
         user.calculateIndividualGoal()
 
+    current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\tracker.html', "w", encoding='utf-8')
     current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
                         + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"images\\banner.png\" alt=\"PST's Wait a Minute Event\" title=\"PST's Wait a Minute Event\">\n"
                         + f"<h3 value=\"utc\" onClick=\"swapTime(event)\">as of {startTS}</h3>\n"
