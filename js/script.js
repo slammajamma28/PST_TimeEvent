@@ -15,7 +15,6 @@ $(document).ready(function () {
   
   $(".individualPercentage").each(function() {
     var indiVal = $(this).attr("value")+'%';
-    console.log(indiVal);
     $(this).css(
       {"color": "white",
       "border": "1px solid black",
@@ -69,7 +68,6 @@ function showUser(evt, userName, completedGoal, percentageGoal) {
   activeRows = thisTable[0].getElementsByTagName('tr')
   for (i = 0; i < activeRows.length; i++){
     columns = activeRows[i].getElementsByTagName('td');
-    console.log(columns[0].innerText);
     if (columns[0].innerText == "MISSING") {
       activeRows[i].style.background = "red";
     }
