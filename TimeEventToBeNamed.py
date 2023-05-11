@@ -216,7 +216,6 @@ try:
             soup = BeautifulSoup(html, "html.parser")
             hiddenTrophies = int(soup.find("div", id="tiptip_content").find("b").text)
         except NoSuchElementException as nsee:
-            print(f"Can't find no hidden trophies for {psn}")
             hiddenTrophies = int(0)
         except Exception as err:
             traceback.print_exc()
