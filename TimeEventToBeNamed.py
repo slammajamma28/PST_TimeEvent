@@ -15,8 +15,8 @@ from collections import Counter
 import traceback
 import numpy
 
-#startTS = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
+startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %H:%M:%S %Z")
+#startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
 print("Process started at " + startTS)
 
 participants = open("participants", "r")
