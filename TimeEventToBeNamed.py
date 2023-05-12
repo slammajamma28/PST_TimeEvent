@@ -492,7 +492,7 @@ try:
 
     # Most rare trophy - percentage, who earned it, link to trophy
     ALL_TROPHIES.sort(key=lambda r: float(r.tRarity))
-    ALL_TROPHIES_STATS.append(["Rarest trophy earned", ALL_TROPHIES[0].getPSN() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+    ALL_TROPHIES_STATS.append(["Rarest (PSNP rarity) trophy earned", ALL_TROPHIES[0].getPSN() + " #" + ALL_TROPHIES[0].getPSTLogHtml() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
 
     # Count of 100% rarity trophies
     ALL_TROPHIES_STATS.append(["Number of 100% rarity trophies", hundred_percents])
