@@ -13,7 +13,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from collections import Counter
 import traceback
-import numpy
 
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %H:%M:%S %Z")
 #startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
@@ -29,8 +28,6 @@ data = participants.read()
 PSN_IDS = data.split("\n")
 participants.close()
 
-#PSN_IDS = ["Road2unner", "slammajamma28", "Blood_Velvet", "staytrue1985", "XxDecieverxX", "Zetberg"]
-#PSN_IDS = ["Asher1985"]
 EVENT_START = datetime.datetime.strptime('2023/05/01', "%Y/%m/%d")
 EVENT_END = datetime.datetime.strptime('2023/06/01', "%Y/%m/%d")
 
@@ -83,6 +80,11 @@ HOUR_21 = []
 HOUR_22 = []
 HOUR_23 = []
 
+ALL_TROPHIES_STATS = []
+HOUR_BUCKET_STATS = []
+RAIRTY_RANGE_STATS = []
+CLAIMED_TROPHIES_STATS = []
+
 class Trophy:
     def __init__(self, psn, logNum, tDate, tTime, tRarity, tType) -> None:
         self.psn = psn
@@ -124,7 +126,10 @@ class Trophy:
 
     def setTType(self, tType):
         self.tType = tType
-    
+
+    def getTTypeTxt(self):
+        return self.tType
+
     def getTType(self):
         return f"<img src='images\{self.tType}.png' alt='{self.tType}' title='{self.tType}' />"
 
@@ -191,14 +196,13 @@ class User:
             return a[2]
         self.individualProgress.sort(key=sortByThirdIndex)
 
-
 class TimeItem():
     def __init__(self, tHour, tMinute, tTrophy) -> None:
         self.tHour = tHour
         self.tMinute = tMinute
         self.tTtrophy = tTrophy
 
-trophyList = []
+ALL_TROPHIES = []
 
 try:
     for psn in PSN_IDS:
@@ -247,16 +251,16 @@ try:
                     continue
                 elif trophy_date >= EVENT_START:
                     trophy = Trophy(psn, log_num, trophy_date.date(), trophy_time, trophy_rarity, trophy_type)
-                    trophyList.append(trophy)
+                    ALL_TROPHIES.append(trophy)
                     user.addTrophy(trophy)
                 else:
                     end_of_event = 1
             page = page + 1
         USERS_TROPHIES.append(user)
 
-    trophyList.sort(key=lambda r: r.tTime)
+    ALL_TROPHIES.sort(key=lambda r: r.tTime)
 
-    for troph in trophyList:
+    for troph in ALL_TROPHIES:
         #print(troph.printTrophy())
         #print (troph.getPSN() + "," + troph.getTTime().strftime('%H:%M'))
         psid = troph.getPSN()
@@ -264,7 +268,7 @@ try:
         if cTime in TIME_ARRAY:
             # Check the rest of the times for the rarest trophy
             TMP_LIST= []
-            for x in trophyList:
+            for x in ALL_TROPHIES:
                 if x.getTTime().strftime('%H:%M') == cTime:
                     TMP_LIST.append(x)
             TMP_LIST.sort(key=lambda r: float(r.tRarity))
@@ -338,6 +342,243 @@ try:
         #print(f"{user.getPSN()} has earned {len(user.getTrophies())} trophies")
         user.calculateIndividualGoal()
 
+    ######################################################
+    #
+    #   Do some stats stuff
+    #
+    ######################################################
+
+    ###########################
+    # OVERALL, use ALL_TROPHIES
+    ###########################
+    
+    # Total trophies earned
+    ALL_TROPHIES_STATS.append(["Total trophies earned", len(ALL_TROPHIES)])
+    
+    t_sum = 0.0
+    bronze_count = 0
+    silver_count = 0
+    gold_count = 0
+    platinum_count = 0
+    hundred_percents = 0
+    zero_to_ten = 0
+    ten_to_twenty = 0
+    twenty_to_thirty = 0
+    thirty_to_fourty = 0
+    fourty_to_fifty = 0
+    fifty_to_sixty = 0
+    sixty_to_seventy = 0
+    seventy_to_eighty = 0
+    eighty_to_ninety = 0
+    ninety_to_hundred = 0
+    hour_0_total = 0
+    hour_1_total = 0
+    hour_2_total = 0
+    hour_3_total = 0
+    hour_4_total = 0
+    hour_5_total = 0
+    hour_6_total = 0
+    hour_7_total = 0
+    hour_8_total = 0
+    hour_9_total = 0
+    hour_10_total = 0
+    hour_11_total = 0
+    hour_12_total = 0
+    hour_13_total = 0
+    hour_14_total = 0
+    hour_15_total = 0
+    hour_16_total = 0
+    hour_17_total = 0
+    hour_18_total = 0
+    hour_19_total = 0
+    hour_20_total = 0
+    hour_21_total = 0
+    hour_22_total = 0
+    hour_23_total = 0
+
+    for t in ALL_TROPHIES:
+        trarity = float(t.getTRarity())
+        t_sum += trarity
+        if trarity == 100:
+            hundred_percents += 1
+        elif trarity >= 90:
+            ninety_to_hundred += 1
+        elif trarity >= 80:
+            eighty_to_ninety += 1
+        elif trarity >= 70:
+            seventy_to_eighty += 1
+        elif trarity >= 60:
+            sixty_to_seventy += 1
+        elif trarity >= 50:
+            fifty_to_sixty += 1
+        elif trarity >= 40:
+            fourty_to_fifty += 1
+        elif trarity >= 30:
+            thirty_to_fourty += 1
+        elif trarity >= 20:
+            twenty_to_thirty += 1
+        elif trarity >= 10:
+            ten_to_twenty += 1
+        elif trarity >= 0:
+            zero_to_ten += 1
+        else:
+            continue
+
+        if (t.getTTypeTxt() == "Bronze"):
+            bronze_count += 1
+        elif (t.getTTypeTxt() == "Silver"):
+            silver_count += 1
+        elif (t.getTTypeTxt() == "Gold"):
+            gold_count += 1
+        elif (t.getTTypeTxt() == "Platinum"):
+            platinum_count += 1
+        else:
+            continue
+
+        ttime = t.getTTime().strftime("%H:%M")
+        if ttime.startswith("00:"):
+            hour_0_total+= 1
+        elif ttime.startswith("01:"):
+            hour_1_total+= 1
+        elif ttime.startswith("02:"):
+            hour_2_total+= 1
+        elif ttime.startswith("03:"):
+            hour_3_total+= 1
+        elif ttime.startswith("04:"):
+            hour_4_total+= 1
+        elif ttime.startswith("05:"):
+            hour_5_total+= 1
+        elif ttime.startswith("06:"):
+            hour_6_total+= 1
+        elif ttime.startswith("07:"):
+            hour_7_total+= 1
+        elif ttime.startswith("08:"):
+            hour_8_total+= 1
+        elif ttime.startswith("09:"):
+            hour_9_total+= 1
+        elif ttime.startswith("10:"):
+            hour_10_total+= 1
+        elif ttime.startswith("11:"):
+            hour_11_total+= 1
+        elif ttime.startswith("12:"):
+            hour_12_total+= 1
+        elif ttime.startswith("13:"):
+            hour_13_total+= 1
+        elif ttime.startswith("14:"):
+            hour_14_total+= 1
+        elif ttime.startswith("15:"):
+            hour_15_total+= 1
+        elif ttime.startswith("16:"):
+            hour_16_total+= 1
+        elif ttime.startswith("17:"):
+            hour_17_total+= 1
+        elif ttime.startswith("18:"):
+            hour_18_total+= 1
+        elif ttime.startswith("19:"):
+            hour_19_total+= 1
+        elif ttime.startswith("20:"):
+            hour_20_total+= 1
+        elif ttime.startswith("21:"):
+            hour_21_total+= 1
+        elif ttime.startswith("22:"):
+            hour_22_total+= 1
+        elif ttime.startswith("23:"):
+            hour_23_total+= 1
+        else:
+            print("We should not have gotten here, oh dear...")
+
+    # Average rarity
+    ALL_TROPHIES_STATS.append(["Average rarity of all trophies earned", round(t_sum / len(ALL_TROPHIES),2)])
+
+    # Most rare trophy - percentage, who earned it, link to trophy
+    ALL_TROPHIES.sort(key=lambda r: float(r.tRarity))
+    ALL_TROPHIES_STATS.append(["Rarest trophy earned", ALL_TROPHIES[0].getPSN() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+
+    # Count of 100% rarity trophies
+    ALL_TROPHIES_STATS.append(["Number of 100% rarity trophies", hundred_percents])
+
+    # Most contested time slot
+    ALL_TROPHIES_STATS.append(["Most contested hour slot", max(hour_0_total,
+                                                               hour_1_total,
+                                                               hour_2_total,
+                                                               hour_3_total,
+                                                               hour_4_total,
+                                                               hour_5_total,
+                                                               hour_6_total,
+                                                               hour_7_total,
+                                                               hour_8_total,
+                                                               hour_9_total,
+                                                               hour_10_total,
+                                                               hour_11_total,
+                                                               hour_12_total,
+                                                               hour_13_total,
+                                                               hour_14_total,
+                                                               hour_15_total,
+                                                               hour_16_total,
+                                                               hour_17_total,
+                                                               hour_18_total,
+                                                               hour_19_total,
+                                                               hour_20_total,
+                                                               hour_21_total,
+                                                               hour_22_total,
+                                                               hour_23_total) ])
+
+    # Number of each type
+    ALL_TROPHIES_STATS.append(["Number of bronze trophies", bronze_count])
+    ALL_TROPHIES_STATS.append(["Number of silver trophies", silver_count])
+    ALL_TROPHIES_STATS.append(["Number of gold trophies", gold_count])
+    ALL_TROPHIES_STATS.append(["Number of platinum trophies", platinum_count])
+
+    # Rarity range counts
+    RAIRTY_RANGE_STATS.append(["< 10%", zero_to_ten])
+    RAIRTY_RANGE_STATS.append(["10% - 19.9%", ten_to_twenty])
+    RAIRTY_RANGE_STATS.append(["20% - 29.9%", twenty_to_thirty])
+    RAIRTY_RANGE_STATS.append(["30% - 39.9%", thirty_to_fourty])
+    RAIRTY_RANGE_STATS.append(["40% - 49.9%", fourty_to_fifty])
+    RAIRTY_RANGE_STATS.append(["50% - 59.9%", fifty_to_sixty])
+    RAIRTY_RANGE_STATS.append(["60% - 69.9%", sixty_to_seventy])
+    RAIRTY_RANGE_STATS.append(["70% - 79.9%", seventy_to_eighty])
+    RAIRTY_RANGE_STATS.append(["80% - 89.9%", eighty_to_ninety])
+    RAIRTY_RANGE_STATS.append(["90% - 99.9%", ninety_to_hundred])
+
+    # Hour buckets
+    HOUR_BUCKET_STATS.append(["Hour 0", hour_0_total])
+    HOUR_BUCKET_STATS.append(["Hour 1", hour_1_total])
+    HOUR_BUCKET_STATS.append(["Hour 2", hour_2_total])
+    HOUR_BUCKET_STATS.append(["Hour 3", hour_3_total])
+    HOUR_BUCKET_STATS.append(["Hour 4", hour_4_total])
+    HOUR_BUCKET_STATS.append(["Hour 5", hour_5_total])
+    HOUR_BUCKET_STATS.append(["Hour 6", hour_6_total])
+    HOUR_BUCKET_STATS.append(["Hour 7", hour_7_total])
+    HOUR_BUCKET_STATS.append(["Hour 8", hour_8_total])
+    HOUR_BUCKET_STATS.append(["Hour 9", hour_9_total])
+    HOUR_BUCKET_STATS.append(["Hour 10", hour_10_total])
+    HOUR_BUCKET_STATS.append(["Hour 11", hour_11_total])
+    HOUR_BUCKET_STATS.append(["Hour 12", hour_12_total])
+    HOUR_BUCKET_STATS.append(["Hour 13", hour_13_total])
+    HOUR_BUCKET_STATS.append(["Hour 14", hour_14_total])
+    HOUR_BUCKET_STATS.append(["Hour 15", hour_15_total])
+    HOUR_BUCKET_STATS.append(["Hour 16", hour_16_total])
+    HOUR_BUCKET_STATS.append(["Hour 17", hour_17_total])
+    HOUR_BUCKET_STATS.append(["Hour 18", hour_18_total])
+    HOUR_BUCKET_STATS.append(["Hour 19", hour_19_total])
+    HOUR_BUCKET_STATS.append(["Hour 20", hour_20_total])
+    HOUR_BUCKET_STATS.append(["Hour 21", hour_21_total])
+    HOUR_BUCKET_STATS.append(["Hour 22", hour_22_total])
+    HOUR_BUCKET_STATS.append(["Hour 23", hour_23_total])
+
+    ###########################
+    # INDIVIDUALS
+    ###########################
+
+    
+
+    ######################################################
+    #
+    #   Start writing our HTML
+    #
+    ######################################################
+
     current_file = open(f'C:\\Users\\dillo\\Documents\\Python\\PST_TimeEvent\\tracker.html', "w", encoding='utf-8')
     current_file.write("<!DOCTYPE html>\n<head>\n<link rel='stylesheet' href='styles/styles.css'>\n</head>\n"
                         + "<body>\n<script src='js/jquery.js'></script>\n<script src='js/script.js'></script>\n<img src=\"images\\banner.png\" alt=\"PST's Wait a Minute Event\" title=\"PST's Wait a Minute Event\">\n"
@@ -345,14 +586,25 @@ try:
                         + f"<h4>as of {startTS}</h3>\n"
                         + "<div>Times are tracked and claimed automatically.<br>"
                         + "Post in the <a href='https://www.playstationtrophies.org/forum/topic/334336-wait-a-minute-~-discussion/'>discussion thread</a> "
-                        + "if you see any discrepancies and for further rules.</div><br>\n"
-                        + "<div id=\"goal-count\"><table><thead><tr class='percentageFill'><th>Current</th><th>Remaining</th><th>Progress</th></tr></thead>\n"
+                        + "if you see any discrepancies and for further rules.</div><br>\n")
+
+    ###########################
+    # Progress bar and tabs
+    ###########################
+
+    current_file.write("<div id=\"goal-count\"><table><thead><tr class='percentageFill'><th>Current</th><th>Remaining</th><th>Progress</th></tr></thead>\n"
                         + f"<tbody><tr class='percentageFill'><td>{len(CLAIMED_TIME)}</td><td>{1440-len(CLAIMED_TIME)}</td><td id=\"goalPercentage\">{round(len(CLAIMED_TIME)/1440 * 100,2)}%</td></tr></tbody></table></div><br>\n"
                         + "<div class=\"tab\"><button class=\"tablinks active\" onclick=\"openTab(event, 'remaining')\">Remaining</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'claimed')\">Claimed</button>\n"
                         + "<button class=\"tablinks\" onclick=\"openTab(event, 'leaderboard')\">LB</button>\n"
-                        + "<button class=\"tablinks\" onclick=\"openTab(event, 'individual')\">Individual</button></div>\n"
-                        + "<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">\n"
+                        + "<button class=\"tablinks\" onclick=\"openTab(event, 'individual')\">Individual</button>\n"
+                        + "<button class=\"tablinks\" onclick=\"openTab(event, 'stats')\">Stats</button></div>\n")
+
+    ###########################
+    # Overall remaining table cells
+    ###########################                        
+                        
+    current_file.write("<div id=\"remaining\" class=\"tabcontent\" style=\"display:block\">\n"
                         + "<h2>REMAINING TIMES</h2>\n")
     
     current_file.write("<div id=\"hourly_total_summary\"><table><tbody>\n")
@@ -381,6 +633,10 @@ try:
     current_file.write(f"<td id='cell_22' class='sum_cell {'complete' if len(HOUR_22) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_22')\">Hour 22: {len(HOUR_22)}</td>\n")
     current_file.write(f"<td id='cell_23' class='sum_cell {'complete' if len(HOUR_23) == 0 else ''}' onClick=\"showHourSummary(event, 'hour_23')\">Hour 23: {len(HOUR_23)}</td>\n")
     current_file.write("</tbody></table></div>\n<br>")
+
+    ###########################
+    # Remainig hourly tables
+    ###########################
 
     current_file.write("<div id=\"hour_0\" class=\"hour_summary\">\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
     for ttime in HOUR_0:
@@ -499,15 +755,24 @@ try:
     current_file.write("<div id=\"hour_23\" class=\"hour_summary\"><table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
     for ttime in HOUR_23:
         current_file.write(f"<tr><td>{ttime}</tr></td>\n")
-    current_file.write("</tbody>\n</table>\n</div>\n")
+    current_file.write("</tbody>\n</table>\n</div>\n</div>\n")
 
-    current_file.write("\n</div>\n<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
+    ###########################
+    # Claimed times leaderboard
+    ###########################
+
+    current_file.write("<div id=\"claimed\" class=\"tabcontent\">\n<h2>CLAIMED TIMES</h2>\n")
     current_file.write(tabulate(CLAIMED_TIME, headers=["Time","User","Log#","Rarity"], tablefmt='unsafehtml'))
     current_file.write("\n</div>\n<div id=\"leaderboard\" class=\"tabcontent\">\n<h2>LEADERBOARD</h2>\n")
     current_file.write(tabulate(cnt.most_common(), headers=["User","Count"], tablefmt='unsafehtml'))
     current_file.write("\n</div>\n")
+
+    ###########################
+    # Individual goal progress
+    ###########################
+
     current_file.write("<div id=\"individual\" class=\"tabcontent\">\n<div class=\"dropdown\">")
-    current_file.write("<button class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
+    current_file.write("<button id='dropbtn_individual' class=\"dropbtn\">Select a PSN ID</button>\n<div class=\"dropdown-content\">\n")
     for user in USERS_TROPHIES:
         current_file.write(f"<button class='individualPercentage' value='{round(user.getCompletedTrophies() / 60 * 100,2)}' onclick=\"showUser(event, '{user.getPSN()}', '{user.getCompletedTrophies()}', '{round(user.getCompletedTrophies() / 60 * 100,2)}')\">{user.getPSN()} - {user.getCompletedTrophies() if user.getCompletedTrophies() < 60 else '✅'}</button><br>\n")
     current_file.write("</div></div><h2>INDIVIDUAL GOALS</h2>\n")
@@ -515,9 +780,46 @@ try:
         current_file.write(f"<div id=\"{user.getPSN()}\" class=\"user_table\" style=\"display:none\">\n")
         current_file.write(tabulate(user.getIndividualProgress(), headers=["Log#","Rarity","Seconds"], tablefmt='unsafehtml'))
         current_file.write("</div>\n")
+    current_file.write("</div>\n")
 
-    current_file.write("\n</div></body>")
+    ###########################
+    # Stats tab
+    ###########################
+ 
+    current_file.write("<div id='stats' class='tabcontent'>\n"
+                       + "<div class='dropdown'><button id='dropbtn_stat' class='dropbtn'>Overall</button>\n"
+                       + "<div class='dropdown-content'>\n"
+                       + "<button onclick=\"showStat(event, 'Overall')\">Overall</button><br>\n")
+    
+    ###########################
+    # Dropdown menu
+    ###########################
 
+    for psn in PSN_IDS:
+        current_file.write(f"<button onclick=\"showStat(event, '{psn}')\">{psn}</button><br>\n")
+    
+    current_file.write("</div></div>\n")
+    
+    ###########################
+    # General stats
+    ###########################
+
+    current_file.write("<div id='Overall_stats' class='stats_table'>\n")
+    current_file.write("<h2>GENERAL STATS</h2>\n")
+    current_file.write(tabulate(ALL_TROPHIES_STATS, headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
+    current_file.write(tabulate(HOUR_BUCKET_STATS, headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<br><h2>RARITY STATS</h2>\n")
+    current_file.write(tabulate(RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
+
+    ###########################
+    # Individual stats
+    ###########################
+
+    for psn in PSN_IDS:
+        current_file.write(f"\n<div id='{psn}_stats' class='stats_table'><br><br>Coming soon</div>")
+
+    current_file.write("\n</div>\n</body>")
     print("Process complete at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
     driver.quit()
 except Exception as inst:

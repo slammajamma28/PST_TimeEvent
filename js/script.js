@@ -1,3 +1,9 @@
+/******************************************
+/
+/ jQuery run on page load
+/
+******************************************/
+
 $(document).ready(function () {
   const currentVal = document.getElementById("goalPercentage").innerText;
   $(".percentageFill").css(
@@ -30,6 +36,12 @@ $(document).ready(function () {
   $('#cell_'+hour_now).addClass('active');
 });
 
+/******************************************
+/
+/ Show content for different tabs
+/
+******************************************/
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -50,6 +62,12 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
   } 
+
+/******************************************
+/
+/ Swap between individual goal tables
+/
+******************************************/
 
 function showUser(evt, userName, completedGoal, percentageGoal) {
   // Declare all variables
@@ -72,12 +90,9 @@ function showUser(evt, userName, completedGoal, percentageGoal) {
       activeRows[i].style.background = "red";
     }
   }
-    
-  btn = document.getElementsByClassName("dropbtn");
-  for (i = 0; i < btn.length; i++) {
-    btn[i].innerHTML = userName + ' - ' + completedGoal;
-  }
-  
+
+  document.getElementById("dropbtn_individual").innerHTML = userName + ' - ' + completedGoal;
+
   $(".dropbtn").css(
     {"color": "white",
       "border": "1px solid black",
@@ -87,6 +102,35 @@ function showUser(evt, userName, completedGoal, percentageGoal) {
       "background":      `-o-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
       "background":     `linear-gradient(to right, blue ${percentageGoal}%, black ${percentageGoal}%)`});
 }
+
+/******************************************
+/
+/ Table switching to show different stats
+/
+******************************************/
+
+function showStat(evt, stat) {
+  // Declare all variables
+  var i, stats_table, activeTable;
+  
+  // Get all elements with class="user_table" and hide them
+  stats_table = document.getElementsByClassName("stats_table");
+  for (i = 0; i < stats_table.length; i++) {
+    stats_table[i].style.display = "none";
+  }
+
+  document.getElementById("dropbtn_stat").innerHTML = stat;
+
+  // Show the selected table
+  activeTable = document.getElementById(stat+'_stats');
+  activeTable.style.display = "block";
+}
+
+/******************************************
+/
+/ Swap update time between UTC and local
+/
+******************************************/
 
 function swapTime(evt) {
   var time, index, zone, timestr, ampm;
@@ -123,6 +167,12 @@ function swapTime(evt) {
     document.getElementsByTagName("h3")[0].innerHTML = time;
   }
 }
+
+/******************************************
+/
+/ Update overall hourly summary table
+/
+******************************************/
 
 function showHourSummary(evt, hourNum) {
   var tableLinks;
