@@ -93,7 +93,7 @@ function showUser(evt, userName, completedGoal, percentageGoal) {
 
   document.getElementById("dropbtn_individual").innerHTML = userName + ' - ' + completedGoal;
 
-  $(".dropbtn").css(
+  $("#dropbtn_individual").css(
     {"color": "white",
       "border": "1px solid black",
       "background": `-webkit-linear-gradient(left, blue ${percentageGoal}%, black ${percentageGoal}%)`,
