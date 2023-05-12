@@ -16,7 +16,7 @@ import traceback
 
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %H:%M:%S %Z")
 #startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
-print("Process started at " + startTS)
+print("Process started at " + datetime.datetime.now().strftime("%H:%M:%S"))
 
 participants = open("participants", "r")
   
@@ -820,10 +820,10 @@ try:
         current_file.write(f"\n<div id='{psn}_stats' class='stats_table'><br><br>Coming soon</div>")
 
     current_file.write("\n</div>\n</body>")
-    print("Process complete at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
+    print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
     driver.quit()
 except Exception as inst:
-    print("Process failed at " + datetime.datetime.now(timezone.utc).strftime("%H:%M:%S"))
+    print("Process failed at " + datetime.datetime.now().strftime("%H:%M:%S"))
     print(inst)
     traceback.print_exc()
     driver.quit()
