@@ -817,7 +817,7 @@ try:
     ###########################
 
     for psn in PSN_IDS:
-        current_file.write(f"\n<div id='{psn}_stats' class='stats_table'><br><br>Coming soon</div>")
+        current_file.write(f"\n<div id='{psn}_stats' class='stats_table' style=\"display:none\"><br><br>Coming soon</div>")
 
     current_file.write("\n</div>\n</body>")
     print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
