@@ -147,6 +147,11 @@ class User:
         self.trophies = []
         self.individualProgress = []
         self.individualTimes = []
+        self.stats = []
+        self.allTrophiesStats = []
+        self.hourBucketStats = []
+        self.rarityRangeStats = []
+        self.claimedTrophiesStats = []
         self.completedTrophies = 0
         for i in range(60):
             if i < 10:
@@ -175,6 +180,233 @@ class User:
 
     def getCompletedTrophies(self):
         return self.completedTrophies
+
+    def calculateStats(self):
+        t_sum = 0.0
+        bronze_count = 0
+        silver_count = 0
+        gold_count = 0
+        platinum_count = 0
+        hundred_percents = 0
+        zero_to_ten = 0
+        ten_to_twenty = 0
+        twenty_to_thirty = 0
+        thirty_to_fourty = 0
+        fourty_to_fifty = 0
+        fifty_to_sixty = 0
+        sixty_to_seventy = 0
+        seventy_to_eighty = 0
+        eighty_to_ninety = 0
+        ninety_to_hundred = 0
+        hour_0_total = 0
+        hour_1_total = 0
+        hour_2_total = 0
+        hour_3_total = 0
+        hour_4_total = 0
+        hour_5_total = 0
+        hour_6_total = 0
+        hour_7_total = 0
+        hour_8_total = 0
+        hour_9_total = 0
+        hour_10_total = 0
+        hour_11_total = 0
+        hour_12_total = 0
+        hour_13_total = 0
+        hour_14_total = 0
+        hour_15_total = 0
+        hour_16_total = 0
+        hour_17_total = 0
+        hour_18_total = 0
+        hour_19_total = 0
+        hour_20_total = 0
+        hour_21_total = 0
+        hour_22_total = 0
+        hour_23_total = 0
+        for t in user.getTrophies():
+            trarity = float(t.getTRarity())
+            t_sum += trarity
+            if trarity == 100:
+                hundred_percents += 1
+            elif trarity >= 90:
+                ninety_to_hundred += 1
+            elif trarity >= 80:
+                eighty_to_ninety += 1
+            elif trarity >= 70:
+                seventy_to_eighty += 1
+            elif trarity >= 60:
+                sixty_to_seventy += 1
+            elif trarity >= 50:
+                fifty_to_sixty += 1
+            elif trarity >= 40:
+                fourty_to_fifty += 1
+            elif trarity >= 30:
+                thirty_to_fourty += 1
+            elif trarity >= 20:
+                twenty_to_thirty += 1
+            elif trarity >= 10:
+                ten_to_twenty += 1
+            elif trarity >= 0:
+                zero_to_ten += 1
+            else:
+                continue
+
+            if (t.getTTypeTxt() == "Bronze"):
+                bronze_count += 1
+            elif (t.getTTypeTxt() == "Silver"):
+                silver_count += 1
+            elif (t.getTTypeTxt() == "Gold"):
+                gold_count += 1
+            elif (t.getTTypeTxt() == "Platinum"):
+                platinum_count += 1
+            else:
+                continue
+
+            ttime = t.getTTime().strftime("%H:%M")
+            if ttime.startswith("00:"):
+                hour_0_total+= 1
+            elif ttime.startswith("01:"):
+                hour_1_total+= 1
+            elif ttime.startswith("02:"):
+                hour_2_total+= 1
+            elif ttime.startswith("03:"):
+                hour_3_total+= 1
+            elif ttime.startswith("04:"):
+                hour_4_total+= 1
+            elif ttime.startswith("05:"):
+                hour_5_total+= 1
+            elif ttime.startswith("06:"):
+                hour_6_total+= 1
+            elif ttime.startswith("07:"):
+                hour_7_total+= 1
+            elif ttime.startswith("08:"):
+                hour_8_total+= 1
+            elif ttime.startswith("09:"):
+                hour_9_total+= 1
+            elif ttime.startswith("10:"):
+                hour_10_total+= 1
+            elif ttime.startswith("11:"):
+                hour_11_total+= 1
+            elif ttime.startswith("12:"):
+                hour_12_total+= 1
+            elif ttime.startswith("13:"):
+                hour_13_total+= 1
+            elif ttime.startswith("14:"):
+                hour_14_total+= 1
+            elif ttime.startswith("15:"):
+                hour_15_total+= 1
+            elif ttime.startswith("16:"):
+                hour_16_total+= 1
+            elif ttime.startswith("17:"):
+                hour_17_total+= 1
+            elif ttime.startswith("18:"):
+                hour_18_total+= 1
+            elif ttime.startswith("19:"):
+                hour_19_total+= 1
+            elif ttime.startswith("20:"):
+                hour_20_total+= 1
+            elif ttime.startswith("21:"):
+                hour_21_total+= 1
+            elif ttime.startswith("22:"):
+                hour_22_total+= 1
+            elif ttime.startswith("23:"):
+                hour_23_total+= 1
+            else:
+                print("We should not have gotten here, oh dear...")
+
+        # Total trophies
+        self.allTrophiesStats.append(["Total trophies earned", len(user.getTrophies())])
+
+        # Average rarity
+        self.allTrophiesStats.append(["Average rarity of all trophies earned", round(t_sum / len(user.getTrophies()),2)])
+
+        # Most rare trophy - percentage, who earned it, link to trophy
+        user.getTrophies().sort(key=lambda r: float(r.tRarity))
+        self.allTrophiesStats.append(["Rarest (PSNP rarity) trophy earned", user.getTrophies()[0].getPSN() + " #" + user.getTrophies()[0].getPSTLogHtml() + " - " + user.getTrophies()[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+
+        # Count of 100% rarity trophies
+        self.allTrophiesStats.append(["Number of 100% rarity trophies", hundred_percents])
+
+        # Most contested time slot
+        self.allTrophiesStats.append(["Most contested hour slot", max(hour_0_total,
+                                                                hour_1_total,
+                                                                hour_2_total,
+                                                                hour_3_total,
+                                                                hour_4_total,
+                                                                hour_5_total,
+                                                                hour_6_total,
+                                                                hour_7_total,
+                                                                hour_8_total,
+                                                                hour_9_total,
+                                                                hour_10_total,
+                                                                hour_11_total,
+                                                                hour_12_total,
+                                                                hour_13_total,
+                                                                hour_14_total,
+                                                                hour_15_total,
+                                                                hour_16_total,
+                                                                hour_17_total,
+                                                                hour_18_total,
+                                                                hour_19_total,
+                                                                hour_20_total,
+                                                                hour_21_total,
+                                                                hour_22_total,
+                                                                hour_23_total) ])
+
+        # Number of each type
+        self.allTrophiesStats.append(["Number of bronze trophies", bronze_count])
+        self.allTrophiesStats.append(["Number of silver trophies", silver_count])
+        self.allTrophiesStats.append(["Number of gold trophies", gold_count])
+        self.allTrophiesStats.append(["Number of platinum trophies", platinum_count])
+
+        # Rarity range counts
+        self.rarityRangeStats.append(["< 10%", zero_to_ten])
+        self.rarityRangeStats.append(["10% - 19.9%", ten_to_twenty])
+        self.rarityRangeStats.append(["20% - 29.9%", twenty_to_thirty])
+        self.rarityRangeStats.append(["30% - 39.9%", thirty_to_fourty])
+        self.rarityRangeStats.append(["40% - 49.9%", fourty_to_fifty])
+        self.rarityRangeStats.append(["50% - 59.9%", fifty_to_sixty])
+        self.rarityRangeStats.append(["60% - 69.9%", sixty_to_seventy])
+        self.rarityRangeStats.append(["70% - 79.9%", seventy_to_eighty])
+        self.rarityRangeStats.append(["80% - 89.9%", eighty_to_ninety])
+        self.rarityRangeStats.append(["90% - 100%", ninety_to_hundred])
+
+        # Hour buckets
+        self.hourBucketStats.append(["Hour 0", hour_0_total])
+        self.hourBucketStats.append(["Hour 1", hour_1_total])
+        self.hourBucketStats.append(["Hour 2", hour_2_total])
+        self.hourBucketStats.append(["Hour 3", hour_3_total])
+        self.hourBucketStats.append(["Hour 4", hour_4_total])
+        self.hourBucketStats.append(["Hour 5", hour_5_total])
+        self.hourBucketStats.append(["Hour 6", hour_6_total])
+        self.hourBucketStats.append(["Hour 7", hour_7_total])
+        self.hourBucketStats.append(["Hour 8", hour_8_total])
+        self.hourBucketStats.append(["Hour 9", hour_9_total])
+        self.hourBucketStats.append(["Hour 10", hour_10_total])
+        self.hourBucketStats.append(["Hour 11", hour_11_total])
+        self.hourBucketStats.append(["Hour 12", hour_12_total])
+        self.hourBucketStats.append(["Hour 13", hour_13_total])
+        self.hourBucketStats.append(["Hour 14", hour_14_total])
+        self.hourBucketStats.append(["Hour 15", hour_15_total])
+        self.hourBucketStats.append(["Hour 16", hour_16_total])
+        self.hourBucketStats.append(["Hour 17", hour_17_total])
+        self.hourBucketStats.append(["Hour 18", hour_18_total])
+        self.hourBucketStats.append(["Hour 19", hour_19_total])
+        self.hourBucketStats.append(["Hour 20", hour_20_total])
+        self.hourBucketStats.append(["Hour 21", hour_21_total])
+        self.hourBucketStats.append(["Hour 22", hour_22_total])
+        self.hourBucketStats.append(["Hour 23", hour_23_total])
+
+    def getAllTrophiesStats(self):
+        return self.allTrophiesStats
+    
+    def getHourBucketStats(self):
+        return self.hourBucketStats
+    
+    def getRarityRangeStats(self):
+        return self.rarityRangeStats
+    
+    def getClaimedTrophiesStats(self):
+        return self.claimedTrophiesStats
 
     def calculateIndividualGoal(self):
         self.trophies.sort(key=lambda r: float(r.tRarity))
@@ -340,6 +572,7 @@ try:
     USERS_TROPHIES.sort(key=lambda r: r.psn.lower())
     for user in USERS_TROPHIES:
         #print(f"{user.getPSN()} has earned {len(user.getTrophies())} trophies")
+        user.calculateStats()
         user.calculateIndividualGoal()
 
     ######################################################
@@ -816,8 +1049,14 @@ try:
     # Individual stats
     ###########################
 
-    for psn in PSN_IDS:
-        current_file.write(f"\n<div id='{psn}_stats' class='stats_table' style=\"display:none\"><br><br>Coming soon</div>")
+    for user in USERS_TROPHIES:
+        current_file.write(f"\n<div id='{user.getPSN()}_stats' class='stats_table' style=\"display:none\">")
+        current_file.write("<h2>GENERAL STATS</h2>\n")
+        current_file.write(tabulate(user.getAllTrophiesStats(), headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+        current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
+        current_file.write(tabulate(user.getHourBucketStats(), headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+        current_file.write("<br><h2>RARITY STATS</h2>\n")
+        current_file.write(tabulate(user.getRarityRangeStats(), headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
 
     current_file.write("\n</div>\n</body>")
     print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))
