@@ -321,7 +321,7 @@ class User:
 
         # Most rare trophy - percentage, who earned it, link to trophy
         user.getTrophies().sort(key=lambda r: float(r.tRarity))
-        self.allTrophiesStats.append(["Rarest (PSNP rarity) trophy earned", user.getTrophies()[0].getPSN() + " #" + user.getTrophies()[0].getPSTLogHtml() + " - " + user.getTrophies()[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+        self.allTrophiesStats.append(["Rarest (PSNP rarity) trophy earned", user.getTrophies()[0].getPSN() + " #" + user.getTrophies()[0].getPSTLogHtml() + " - " + user.getTrophies()[0].getTRarity() + " " + user.getTrophies()[0].getTType()])
 
         # Count of 100% rarity trophies
         self.allTrophiesStats.append(["Number of 100% rarity trophies", hundred_percents])
