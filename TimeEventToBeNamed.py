@@ -326,8 +326,8 @@ class User:
         # Count of 100% rarity trophies
         self.allTrophiesStats.append(["Number of 100% rarity trophies", hundred_percents])
 
-        # Most contested time slot
-        self.allTrophiesStats.append(["Most contested hour slot", max(hour_0_total,
+        # Most earned time slot
+        self.allTrophiesStats.append(["Most earned hour slot", max(hour_0_total,
                                                                 hour_1_total,
                                                                 hour_2_total,
                                                                 hour_3_total,
@@ -730,8 +730,8 @@ try:
     # Count of 100% rarity trophies
     ALL_TROPHIES_STATS.append(["Number of 100% rarity trophies", hundred_percents])
 
-    # Most contested time slot
-    ALL_TROPHIES_STATS.append(["Most contested hour slot", max(hour_0_total,
+    # Most earned time slot
+    ALL_TROPHIES_STATS.append(["Most earned hour slot", max(hour_0_total,
                                                                hour_1_total,
                                                                hour_2_total,
                                                                hour_3_total,
@@ -772,7 +772,7 @@ try:
     RAIRTY_RANGE_STATS.append(["60% - 69.9%", sixty_to_seventy])
     RAIRTY_RANGE_STATS.append(["70% - 79.9%", seventy_to_eighty])
     RAIRTY_RANGE_STATS.append(["80% - 89.9%", eighty_to_ninety])
-    RAIRTY_RANGE_STATS.append(["90% - 99.9%", ninety_to_hundred])
+    RAIRTY_RANGE_STATS.append(["90% - 100%", ninety_to_hundred])
 
     # Hour buckets
     HOUR_BUCKET_STATS.append(["Hour 0", hour_0_total])
