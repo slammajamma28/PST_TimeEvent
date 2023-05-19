@@ -880,7 +880,7 @@ try:
     CLAIMED_TROPHIES_STATS.append(["Total trophies claimed", len(CLAIMED_TROPHIES)])
 
     # Average rarity
-    CLAIMED_TROPHIES_STATS.append(["Average rarity of all time slots claimed", round(t_sum / len(CLAIMED_TROPHIES),2)])
+    CLAIMED_TROPHIES_STATS.append(["Average rarity of all time slots claimed", round(c_sum / len(CLAIMED_TROPHIES),2)])
 
     # Most rare trophy - percentage, who earned it, link to trophy
     CLAIMED_TROPHIES.sort(key=lambda r: float(r.tRarity))
