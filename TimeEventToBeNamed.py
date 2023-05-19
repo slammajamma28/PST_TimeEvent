@@ -1153,7 +1153,7 @@ try:
     # Claimed stats
     ###########################
     
-    current_file.write("<div id='Claimed_stats' class='stats_table'>\n")
+    current_file.write("<div id='Claimed_stats' class='stats_table' style=\"display:none\">\n")
     current_file.write("<h2>GENERAL STATS</h2>\n")
     current_file.write(tabulate(CLAIMED_TROPHIES_STATS, headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
     current_file.write("<br><h2>RARITY STATS</h2>\n")
