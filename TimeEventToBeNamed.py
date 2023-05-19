@@ -52,6 +52,7 @@ for i in range(24):
         TIME_ARRAY.append(f"{i}:{y}")
 
 CLAIMED_TIME = []
+CLAIMED_TROPHIES = []
 LEADERBOARD = []
 USERS_TROPHIES = []
 HOUR_BREAKDOWN = []
@@ -84,6 +85,7 @@ ALL_TROPHIES_STATS = []
 HOUR_BUCKET_STATS = []
 RAIRTY_RANGE_STATS = []
 CLAIMED_TROPHIES_STATS = []
+CLAIMED_RAIRTY_RANGE_STATS = []
 
 class Trophy:
     def __init__(self, psn, logNum, tDate, tTime, tRarity, tType) -> None:
@@ -508,9 +510,9 @@ try:
             psid = TMP_LIST[0].getPSN()
             file_out.write(f"{cTime}|{psid}\n")
             CLAIMED_TIME.append([cTime, psid, TMP_LIST[0].getPSTLogHtml(), TMP_LIST[0].getTRarity() + " " + TMP_LIST[0].getTType()])
+            CLAIMED_TROPHIES.append(troph)
             LEADERBOARD.append(psid)
             TIME_ARRAY.remove(cTime)
-
 
     # Split apart time array
     for i in TIME_ARRAY:
@@ -568,6 +570,11 @@ try:
     cnt = Counter()
     for lb in LEADERBOARD:
         cnt[lb] += 1
+
+    tcnt = Counter()
+    for et in ALL_TROPHIES:
+        cTime = et.getTTime().strftime("%H:%M")
+        tcnt[cTime] += 1
 
     USERS_TROPHIES.sort(key=lambda r: r.psn.lower())
     for user in USERS_TROPHIES:
@@ -629,6 +636,7 @@ try:
     hour_22_total = 0
     hour_23_total = 0
 
+    # Loop through ALL_TROPHIES to find stats
     for t in ALL_TROPHIES:
         trarity = float(t.getTRarity())
         t_sum += trarity
@@ -657,13 +665,14 @@ try:
         else:
             continue
 
-        if (t.getTTypeTxt() == "Bronze"):
+        ttype = t.getTTypeTxt()
+        if (ttype == "Bronze"):
             bronze_count += 1
-        elif (t.getTTypeTxt() == "Silver"):
+        elif (ttype == "Silver"):
             silver_count += 1
-        elif (t.getTTypeTxt() == "Gold"):
+        elif (ttype == "Gold"):
             gold_count += 1
-        elif (t.getTTypeTxt() == "Platinum"):
+        elif (ttype == "Platinum"):
             platinum_count += 1
         else:
             continue
@@ -756,6 +765,12 @@ try:
                                                                hour_22_total,
                                                                hour_23_total) ])
 
+    mcom1 = str(tcnt.most_common(1)[0][0])
+    mcom2 = str(tcnt.most_common(1)[0][1])
+
+    # Most contested time slot
+    ALL_TROPHIES_STATS.append(["Most contested time slot", mcom1 + " [" + mcom2 + "]"])
+
     # Number of each type
     ALL_TROPHIES_STATS.append(["Number of bronze trophies", bronze_count])
     ALL_TROPHIES_STATS.append(["Number of silver trophies", silver_count])
@@ -801,10 +816,96 @@ try:
     HOUR_BUCKET_STATS.append(["Hour 23", hour_23_total])
 
     ###########################
-    # INDIVIDUALS
+    # CLAIMED, use CLAIMED_TROPHIES
     ###########################
 
+    c_sum = 0.0
+    c_bronze_count = 0
+    c_silver_count = 0
+    c_gold_count = 0
+    c_platinum_count = 0
+    c_hundred_percents = 0
+    c_zero_to_ten = 0
+    c_ten_to_twenty = 0
+    c_twenty_to_thirty = 0
+    c_thirty_to_fourty = 0
+    c_fourty_to_fifty = 0
+    c_fifty_to_sixty = 0
+    c_sixty_to_seventy = 0
+    c_seventy_to_eighty = 0
+    c_eighty_to_ninety = 0
+    c_ninety_to_hundred = 0
     
+    for c in CLAIMED_TROPHIES:
+        crarity = float(c.getTRarity())
+        c_sum += crarity
+
+        if crarity == 100:
+            c_hundred_percents += 1
+        elif crarity >= 90:
+            c_ninety_to_hundred += 1
+        elif crarity >= 80:
+            c_eighty_to_ninety += 1
+        elif crarity >= 70:
+            c_seventy_to_eighty += 1
+        elif crarity >= 60:
+            c_sixty_to_seventy += 1
+        elif crarity >= 50:
+            c_fifty_to_sixty += 1
+        elif crarity >= 40:
+            c_fourty_to_fifty += 1
+        elif crarity >= 30:
+            c_thirty_to_fourty += 1
+        elif crarity >= 20:
+            c_twenty_to_thirty += 1
+        elif crarity >= 10:
+            c_ten_to_twenty += 1
+        elif crarity >= 0:
+            c_zero_to_ten += 1
+        else:
+            continue
+
+        ctype = c.getTTypeTxt()
+        if (ctype == "Bronze"):
+            c_bronze_count += 1
+        elif (ctype == "Silver"):
+            c_silver_count += 1
+        elif (ctype == "Gold"):
+            c_gold_count += 1
+        elif (ctype == "Platinum"):
+            c_platinum_count += 1
+        else:
+            continue
+
+    CLAIMED_TROPHIES_STATS.append(["Total trophies claimed", len(ALL_TROPHIES)])
+
+    # Average rarity
+    CLAIMED_TROPHIES_STATS.append(["Average rarity of all time slots claimed", round(t_sum / len(ALL_TROPHIES),2)])
+
+    # Most rare trophy - percentage, who earned it, link to trophy
+    CLAIMED_TROPHIES.sort(key=lambda r: float(r.tRarity))
+    CLAIMED_TROPHIES_STATS.append(["Rarest (PSNP rarity) time slots claimed", ALL_TROPHIES[0].getPSN() + " #" + ALL_TROPHIES[0].getPSTLogHtml() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+
+    # Count of 100% rarity trophies
+    CLAIMED_TROPHIES_STATS.append(["Number of 100% rarity time slots", hundred_percents])
+
+    # Number of each type
+    CLAIMED_TROPHIES_STATS.append(["Number of bronze trophies", bronze_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of silver trophies", silver_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of gold trophies", gold_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of platinum trophies", platinum_count])
+
+    # Rarity range counts
+    CLAIMED_RAIRTY_RANGE_STATS.append(["< 10%", zero_to_ten])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["10% - 19.9%", ten_to_twenty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["20% - 29.9%", twenty_to_thirty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["30% - 39.9%", thirty_to_fourty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["40% - 49.9%", fourty_to_fifty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["50% - 59.9%", fifty_to_sixty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["60% - 69.9%", sixty_to_seventy])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["70% - 79.9%", seventy_to_eighty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["80% - 89.9%", eighty_to_ninety])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["90% - 100%", ninety_to_hundred])
 
     ######################################################
     #
@@ -868,7 +969,7 @@ try:
     current_file.write("</tbody></table></div>\n<br>")
 
     ###########################
-    # Remainig hourly tables
+    # Remaining hourly tables
     ###########################
 
     current_file.write("<div id=\"hour_0\" class=\"hour_summary\">\n<table>\n<thead>\n<tr><th>Time</th></tr>\n</thead>\n<tbody>\n")
@@ -1022,7 +1123,8 @@ try:
     current_file.write("<div id='stats' class='tabcontent'>\n"
                        + "<div class='dropdown'><button id='dropbtn_stat' class='dropbtn'>Overall</button>\n"
                        + "<div class='dropdown-content'>\n"
-                       + "<button onclick=\"showStat(event, 'Overall')\">Overall</button><br>\n")
+                       + "<button onclick=\"showStat(event, 'Overall')\">Overall</button><br>\n"
+                       + "<button onclick=\"showStat(event, 'Claimed')\">Claimed</button><br>\n")
     
     ###########################
     # Dropdown menu
@@ -1040,10 +1142,22 @@ try:
     current_file.write("<div id='Overall_stats' class='stats_table'>\n")
     current_file.write("<h2>GENERAL STATS</h2>\n")
     current_file.write(tabulate(ALL_TROPHIES_STATS, headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<br><h2>MOST CONTESTED TIME SLOTS</h2>\n")
+    current_file.write(tabulate(tcnt.most_common(25), headers=["Slot","Count"], tablefmt='unsafehtml'))
     current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
     current_file.write(tabulate(HOUR_BUCKET_STATS, headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
     current_file.write("<br><h2>RARITY STATS</h2>\n")
     current_file.write(tabulate(RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
+
+    ###########################
+    # Claimed stats
+    ###########################
+    
+    current_file.write("<div id='Claimed_stats' class='stats_table'>\n")
+    current_file.write("<h2>GENERAL STATS</h2>\n")
+    current_file.write(tabulate(CLAIMED_TROPHIES_STATS, headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<br><h2>RARITY STATS</h2>\n")
+    current_file.write(tabulate(CLAIMED_RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
 
     ###########################
     # Individual stats
