@@ -877,35 +877,35 @@ try:
         else:
             continue
 
-    CLAIMED_TROPHIES_STATS.append(["Total trophies claimed", len(ALL_TROPHIES)])
+    CLAIMED_TROPHIES_STATS.append(["Total trophies claimed", len(CLAIMED_TROPHIES)])
 
     # Average rarity
-    CLAIMED_TROPHIES_STATS.append(["Average rarity of all time slots claimed", round(t_sum / len(ALL_TROPHIES),2)])
+    CLAIMED_TROPHIES_STATS.append(["Average rarity of all time slots claimed", round(t_sum / len(CLAIMED_TROPHIES),2)])
 
     # Most rare trophy - percentage, who earned it, link to trophy
     CLAIMED_TROPHIES.sort(key=lambda r: float(r.tRarity))
-    CLAIMED_TROPHIES_STATS.append(["Rarest (PSNP rarity) time slots claimed", ALL_TROPHIES[0].getPSN() + " #" + ALL_TROPHIES[0].getPSTLogHtml() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+    CLAIMED_TROPHIES_STATS.append(["Rarest (PSNP rarity) time slots claimed", CLAIMED_TROPHIES[0].getPSN() + " #" + CLAIMED_TROPHIES[0].getPSTLogHtml() + " - " + CLAIMED_TROPHIES[0].getTRarity() + " " + CLAIMED_TROPHIES[0].getTType()])
 
     # Count of 100% rarity trophies
-    CLAIMED_TROPHIES_STATS.append(["Number of 100% rarity time slots", hundred_percents])
+    CLAIMED_TROPHIES_STATS.append(["Number of 100% rarity time slots", c_hundred_percents])
 
     # Number of each type
-    CLAIMED_TROPHIES_STATS.append(["Number of bronze trophies", bronze_count])
-    CLAIMED_TROPHIES_STATS.append(["Number of silver trophies", silver_count])
-    CLAIMED_TROPHIES_STATS.append(["Number of gold trophies", gold_count])
-    CLAIMED_TROPHIES_STATS.append(["Number of platinum trophies", platinum_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of bronze trophies", c_bronze_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of silver trophies", c_silver_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of gold trophies", c_gold_count])
+    CLAIMED_TROPHIES_STATS.append(["Number of platinum trophies", c_platinum_count])
 
     # Rarity range counts
     CLAIMED_RAIRTY_RANGE_STATS.append(["< 10%", zero_to_ten])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["10% - 19.9%", ten_to_twenty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["20% - 29.9%", twenty_to_thirty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["30% - 39.9%", thirty_to_fourty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["40% - 49.9%", fourty_to_fifty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["50% - 59.9%", fifty_to_sixty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["60% - 69.9%", sixty_to_seventy])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["70% - 79.9%", seventy_to_eighty])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["80% - 89.9%", eighty_to_ninety])
-    CLAIMED_RAIRTY_RANGE_STATS.append(["90% - 100%", ninety_to_hundred])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["10% - 19.9%", c_ten_to_twenty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["20% - 29.9%", c_twenty_to_thirty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["30% - 39.9%", c_thirty_to_fourty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["40% - 49.9%", c_fourty_to_fifty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["50% - 59.9%", c_fifty_to_sixty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["60% - 69.9%", c_sixty_to_seventy])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["70% - 79.9%", c_seventy_to_eighty])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["80% - 89.9%", c_eighty_to_ninety])
+    CLAIMED_RAIRTY_RANGE_STATS.append(["90% - 100%", c_ninety_to_hundred])
 
     ######################################################
     #
