@@ -83,6 +83,7 @@ HOUR_23 = []
 
 ALL_TROPHIES_STATS = []
 HOUR_BUCKET_STATS = []
+DAY_BUCKET_STATS = []
 RAIRTY_RANGE_STATS = []
 CLAIMED_TROPHIES_STATS = []
 CLAIMED_RAIRTY_RANGE_STATS = []
@@ -136,7 +137,7 @@ class Trophy:
         return f"<img src='images\{self.tType}.png' alt='{self.tType}' title='{self.tType}' />"
 
     def getPSTLogHtml(self):
-        return f'<a href="https://www.playstationtrophies.org/profiles/{self.psn}/log?id={self.logNum}">{self.logNum}</a>'
+        return f'<a href="https://www.playstationtrophies.org/profiles/{self.psn}/log?id={self.logNum}">#{self.logNum}</a>'
 
     def printTrophy(self):
         tString = self.tTime.strftime('%I:%M:%S %p')
@@ -152,6 +153,7 @@ class User:
         self.stats = []
         self.allTrophiesStats = []
         self.hourBucketStats = []
+        self.dayBucketStats = []
         self.rarityRangeStats = []
         self.claimedTrophiesStats = []
         self.completedTrophies = 0
@@ -224,6 +226,27 @@ class User:
         hour_21_total = 0
         hour_22_total = 0
         hour_23_total = 0
+        day_1_total = 0
+        day_2_total = 0
+        day_3_total = 0
+        day_4_total = 0
+        day_5_total = 0
+        day_6_total = 0
+        day_7_total = 0
+        day_8_total = 0
+        day_9_total = 0
+        day_10_total = 0
+        day_11_total = 0
+        day_12_total = 0
+        day_13_total = 0
+        day_14_total = 0
+        day_15_total = 0
+        day_16_total = 0
+        day_17_total = 0
+        day_18_total = 0
+        day_19_total = 0
+        day_20_total = 0
+        day_21_total = 0
         for t in user.getTrophies():
             trarity = float(t.getTRarity())
             t_sum += trarity
@@ -315,44 +338,142 @@ class User:
             else:
                 print("We should not have gotten here, oh dear...")
 
+            tday = t.getTDate().day
+            if tday == 1:
+                day_1_total += 1
+            elif tday == 2:
+                day_2_total += 1
+            elif tday == 3:
+                day_3_total += 1
+            elif tday == 4:
+                day_4_total += 1
+            elif tday == 5:
+                day_5_total += 1
+            elif tday == 6:
+                day_6_total += 1
+            elif tday == 7:
+                day_7_total += 1
+            elif tday == 8:
+                day_8_total += 1
+            elif tday == 9:
+                day_9_total += 1
+            elif tday == 10:
+                day_10_total += 1
+            elif tday == 11:
+                day_11_total += 1
+            elif tday == 12:
+                day_12_total += 1
+            elif tday == 13:
+                day_13_total += 1
+            elif tday == 14:
+                day_14_total += 1
+            elif tday == 15:
+                day_15_total += 1
+            elif tday == 16:
+                day_16_total += 1
+            elif tday == 17:
+                day_17_total += 1
+            elif tday == 18:
+                day_18_total += 1
+            elif tday == 19:
+                day_19_total += 1
+            elif tday == 20:
+                day_20_total += 1
+            elif tday == 21:
+                day_21_total += 1
+            else:
+                print("We should not have gotten here, oh dear...")
+
         # Total trophies
         self.allTrophiesStats.append(["Total trophies earned", len(user.getTrophies())])
 
+        # Trophies earned vs claimed
+        claim_count = 0
+        for claim in CLAIMED_TROPHIES:
+            if claim.getPSN() == self.psn:
+                claim_count += 1
+        self.allTrophiesStats.append(["Time slots claimed", claim_count])
+        self.allTrophiesStats.append(["Percentage of trophies used as claimed", '{:,.2%}'.format(round(claim_count/len(user.getTrophies()), 2))])
+
         # Average rarity
-        self.allTrophiesStats.append(["Average rarity of all trophies earned", round(t_sum / len(user.getTrophies()),2)])
+        self.allTrophiesStats.append(["Average rarity of all trophies earned", round(t_sum / len(user.getTrophies()), 2)])
 
         # Most rare trophy - percentage, who earned it, link to trophy
         user.getTrophies().sort(key=lambda r: float(r.tRarity))
-        self.allTrophiesStats.append(["Rarest (PSNP rarity) trophy earned", user.getTrophies()[0].getPSN() + " #" + user.getTrophies()[0].getPSTLogHtml() + " - " + user.getTrophies()[0].getTRarity() + " " + user.getTrophies()[0].getTType()])
+        self.allTrophiesStats.append(["Rarest (PSNP rarity) trophy earned", user.getTrophies()[0].getPSTLogHtml() + " - " + user.getTrophies()[0].getTRarity() + " " + user.getTrophies()[0].getTType()])
 
         # Count of 100% rarity trophies
         self.allTrophiesStats.append(["Number of 100% rarity trophies", hundred_percents])
 
         # Most earned time slot
-        self.allTrophiesStats.append(["Most earned hour slot", max(hour_0_total,
-                                                                hour_1_total,
-                                                                hour_2_total,
-                                                                hour_3_total,
-                                                                hour_4_total,
-                                                                hour_5_total,
-                                                                hour_6_total,
-                                                                hour_7_total,
-                                                                hour_8_total,
-                                                                hour_9_total,
-                                                                hour_10_total,
-                                                                hour_11_total,
-                                                                hour_12_total,
-                                                                hour_13_total,
-                                                                hour_14_total,
-                                                                hour_15_total,
-                                                                hour_16_total,
-                                                                hour_17_total,
-                                                                hour_18_total,
-                                                                hour_19_total,
-                                                                hour_20_total,
-                                                                hour_21_total,
-                                                                hour_22_total,
-                                                                hour_23_total) ])
+        slots_count = [hour_0_total,
+                        hour_1_total,
+                        hour_2_total,
+                        hour_3_total,
+                        hour_4_total,
+                        hour_5_total,
+                        hour_6_total,
+                        hour_7_total,
+                        hour_8_total,
+                        hour_9_total,
+                        hour_10_total,
+                        hour_11_total,
+                        hour_12_total,
+                        hour_13_total,
+                        hour_14_total,
+                        hour_15_total,
+                        hour_16_total,
+                        hour_17_total,
+                        hour_18_total,
+                        hour_19_total,
+                        hour_20_total,
+                        hour_21_total,
+                        hour_22_total,
+                        hour_23_total]
+        ind = 0    #ind variable to store the index of maximum value in the list
+        max_element = slots_count[0]
+        
+        for i in range (1,len(slots_count)): #iterate over array
+            if slots_count[i] > max_element: #to check max value
+                max_element = slots_count[i]
+                ind = i
+            
+        max_slot_count = max(slots_count)
+        self.allTrophiesStats.append(["Most earned hour slot", "Hour " + str(ind) + " [" + str(max_slot_count) + "]"])
+
+        days_count = [day_1_total,
+                  day_2_total,
+                  day_3_total,
+                  day_4_total,
+                  day_5_total,
+                  day_6_total,
+                  day_7_total,
+                  day_8_total,
+                  day_9_total,
+                  day_10_total,
+                  day_11_total,
+                  day_12_total,
+                  day_13_total,
+                  day_14_total,
+                  day_15_total,
+                  day_16_total,
+                  day_17_total,
+                  day_18_total,
+                  day_19_total,
+                  day_20_total,
+                  day_21_total]
+
+        ind = 0    #ind variable to store the index of maximum value in the list
+        max_element = days_count[0]
+        
+        for i in range (1,len(days_count)): #iterate over array
+            if days_count[i] > max_element: #to check max value
+                max_element = days_count[i]
+                ind = i
+            
+        max_days_count = max(days_count)
+
+        self.allTrophiesStats.append(["Most earned day", "Day " + str(ind) + " [" + str(max_days_count) + "]"])
 
         # Number of each type
         self.allTrophiesStats.append(["Number of bronze trophies", bronze_count])
@@ -398,12 +519,38 @@ class User:
         self.hourBucketStats.append(["Hour 22", hour_22_total])
         self.hourBucketStats.append(["Hour 23", hour_23_total])
 
+        # Day buckets
+        self.dayBucketStats.append(["Day 01", day_1_total])
+        self.dayBucketStats.append(["Day 02", day_2_total])
+        self.dayBucketStats.append(["Day 03", day_3_total])
+        self.dayBucketStats.append(["Day 04", day_4_total])
+        self.dayBucketStats.append(["Day 05", day_5_total])
+        self.dayBucketStats.append(["Day 06", day_6_total])
+        self.dayBucketStats.append(["Day 07", day_7_total])
+        self.dayBucketStats.append(["Day 08", day_8_total])
+        self.dayBucketStats.append(["Day 09", day_9_total])
+        self.dayBucketStats.append(["Day 10", day_10_total])
+        self.dayBucketStats.append(["Day 11", day_11_total])
+        self.dayBucketStats.append(["Day 12", day_12_total])
+        self.dayBucketStats.append(["Day 13", day_13_total])
+        self.dayBucketStats.append(["Day 14", day_14_total])
+        self.dayBucketStats.append(["Day 15", day_15_total])
+        self.dayBucketStats.append(["Day 16", day_16_total])
+        self.dayBucketStats.append(["Day 17", day_17_total])
+        self.dayBucketStats.append(["Day 18", day_18_total])
+        self.dayBucketStats.append(["Day 19", day_19_total])
+        self.dayBucketStats.append(["Day 20", day_20_total])
+        self.dayBucketStats.append(["Day 21", day_21_total])
+
     def getAllTrophiesStats(self):
         return self.allTrophiesStats
     
     def getHourBucketStats(self):
         return self.hourBucketStats
     
+    def getDayBucketStats(self):
+        return self.dayBucketStats
+
     def getRarityRangeStats(self):
         return self.rarityRangeStats
     
@@ -594,6 +741,7 @@ try:
     
     # Total trophies earned
     ALL_TROPHIES_STATS.append(["Total trophies earned", len(ALL_TROPHIES)])
+    ALL_TROPHIES_STATS.append(["Average trophies per person", round(len(ALL_TROPHIES)/len(PSN_IDS), 2)])
     
     t_sum = 0.0
     bronze_count = 0
@@ -635,6 +783,27 @@ try:
     hour_21_total = 0
     hour_22_total = 0
     hour_23_total = 0
+    day_1_total = 0
+    day_2_total = 0
+    day_3_total = 0
+    day_4_total = 0
+    day_5_total = 0
+    day_6_total = 0
+    day_7_total = 0
+    day_8_total = 0
+    day_9_total = 0
+    day_10_total = 0
+    day_11_total = 0
+    day_12_total = 0
+    day_13_total = 0
+    day_14_total = 0
+    day_15_total = 0
+    day_16_total = 0
+    day_17_total = 0
+    day_18_total = 0
+    day_19_total = 0
+    day_20_total = 0
+    day_21_total = 0
 
     # Loop through ALL_TROPHIES to find stats
     for t in ALL_TROPHIES:
@@ -729,47 +898,139 @@ try:
         else:
             print("We should not have gotten here, oh dear...")
 
+        tday = t.getTDate().day
+        if tday == 1:
+            day_1_total += 1
+        elif tday == 2:
+            day_2_total += 1
+        elif tday == 3:
+            day_3_total += 1
+        elif tday == 4:
+            day_4_total += 1
+        elif tday == 5:
+            day_5_total += 1
+        elif tday == 6:
+            day_6_total += 1
+        elif tday == 7:
+            day_7_total += 1
+        elif tday == 8:
+            day_8_total += 1
+        elif tday == 9:
+            day_9_total += 1
+        elif tday == 10:
+            day_10_total += 1
+        elif tday == 11:
+            day_11_total += 1
+        elif tday == 12:
+            day_12_total += 1
+        elif tday == 13:
+            day_13_total += 1
+        elif tday == 14:
+            day_14_total += 1
+        elif tday == 15:
+            day_15_total += 1
+        elif tday == 16:
+            day_16_total += 1
+        elif tday == 17:
+            day_17_total += 1
+        elif tday == 18:
+            day_18_total += 1
+        elif tday == 19:
+            day_19_total += 1
+        elif tday == 20:
+            day_20_total += 1
+        elif tday == 21:
+            day_21_total += 1
+        else:
+            print("We should not have gotten here, oh dear...")
+
     # Average rarity
     ALL_TROPHIES_STATS.append(["Average rarity of all trophies earned", round(t_sum / len(ALL_TROPHIES),2)])
 
     # Most rare trophy - percentage, who earned it, link to trophy
     ALL_TROPHIES.sort(key=lambda r: float(r.tRarity))
-    ALL_TROPHIES_STATS.append(["Rarest (PSNP rarity) trophy earned", ALL_TROPHIES[0].getPSN() + " #" + ALL_TROPHIES[0].getPSTLogHtml() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
+    ALL_TROPHIES_STATS.append(["Rarest (PSNP rarity) trophy earned", ALL_TROPHIES[0].getPSN() + " " + ALL_TROPHIES[0].getPSTLogHtml() + " - " + ALL_TROPHIES[0].getTRarity() + " " + ALL_TROPHIES[0].getTType()])
 
     # Count of 100% rarity trophies
     ALL_TROPHIES_STATS.append(["Number of 100% rarity trophies", hundred_percents])
 
     # Most earned time slot
-    ALL_TROPHIES_STATS.append(["Most earned hour slot", max(hour_0_total,
-                                                               hour_1_total,
-                                                               hour_2_total,
-                                                               hour_3_total,
-                                                               hour_4_total,
-                                                               hour_5_total,
-                                                               hour_6_total,
-                                                               hour_7_total,
-                                                               hour_8_total,
-                                                               hour_9_total,
-                                                               hour_10_total,
-                                                               hour_11_total,
-                                                               hour_12_total,
-                                                               hour_13_total,
-                                                               hour_14_total,
-                                                               hour_15_total,
-                                                               hour_16_total,
-                                                               hour_17_total,
-                                                               hour_18_total,
-                                                               hour_19_total,
-                                                               hour_20_total,
-                                                               hour_21_total,
-                                                               hour_22_total,
-                                                               hour_23_total) ])
+    slots_count = [hour_0_total,
+                    hour_1_total,
+                    hour_2_total,
+                    hour_3_total,
+                    hour_4_total,
+                    hour_5_total,
+                    hour_6_total,
+                    hour_7_total,
+                    hour_8_total,
+                    hour_9_total,
+                    hour_10_total,
+                    hour_11_total,
+                    hour_12_total,
+                    hour_13_total,
+                    hour_14_total,
+                    hour_15_total,
+                    hour_16_total,
+                    hour_17_total,
+                    hour_18_total,
+                    hour_19_total,
+                    hour_20_total,
+                    hour_21_total,
+                    hour_22_total,
+                    hour_23_total]
+    ind = 0    #ind variable to store the index of maximum value in the list
+    max_element = slots_count[0]
+    
+    for i in range (1,len(slots_count)): #iterate over array
+        if slots_count[i] > max_element: #to check max value
+            max_element = slots_count[i]
+            ind = i
+        
+    max_slot_count = max(slots_count)
+    
+    ALL_TROPHIES_STATS.append(["Most earned hour slot", "Hour " + str(ind) + " [" + str(max_slot_count) + "]"])
 
     mcom1 = str(tcnt.most_common(1)[0][0])
     mcom2 = str(tcnt.most_common(1)[0][1])
 
     # Most contested time slot
     ALL_TROPHIES_STATS.append(["Most contested time slot", mcom1 + " [" + mcom2 + "]"])
+
+    days_count = [day_1_total,
+                  day_2_total,
+                  day_3_total,
+                  day_4_total,
+                  day_5_total,
+                  day_6_total,
+                  day_7_total,
+                  day_8_total,
+                  day_9_total,
+                  day_10_total,
+                  day_11_total,
+                  day_12_total,
+                  day_13_total,
+                  day_14_total,
+                  day_15_total,
+                  day_16_total,
+                  day_17_total,
+                  day_18_total,
+                  day_19_total,
+                  day_20_total,
+                  day_21_total]
+
+    ind = 0    #ind variable to store the index of maximum value in the list
+    max_element = days_count[0]
+    
+    for i in range (1,len(days_count)): #iterate over array
+        if days_count[i] > max_element: #to check max value
+            max_element = days_count[i]
+            ind = i
+        
+    max_days_count = max(days_count)
+
+    # Most earned day
+    ALL_TROPHIES_STATS.append(["Most earned day", "Day " + str(ind) + " [" + str(max_days_count) + "]"])
 
     # Number of each type
     ALL_TROPHIES_STATS.append(["Number of bronze trophies", bronze_count])
@@ -814,6 +1075,29 @@ try:
     HOUR_BUCKET_STATS.append(["Hour 21", hour_21_total])
     HOUR_BUCKET_STATS.append(["Hour 22", hour_22_total])
     HOUR_BUCKET_STATS.append(["Hour 23", hour_23_total])
+
+    # Day buckets
+    DAY_BUCKET_STATS.append(["Day 01", day_1_total])
+    DAY_BUCKET_STATS.append(["Day 02", day_2_total])
+    DAY_BUCKET_STATS.append(["Day 03", day_3_total])
+    DAY_BUCKET_STATS.append(["Day 04", day_4_total])
+    DAY_BUCKET_STATS.append(["Day 05", day_5_total])
+    DAY_BUCKET_STATS.append(["Day 06", day_6_total])
+    DAY_BUCKET_STATS.append(["Day 07", day_7_total])
+    DAY_BUCKET_STATS.append(["Day 08", day_8_total])
+    DAY_BUCKET_STATS.append(["Day 09", day_9_total])
+    DAY_BUCKET_STATS.append(["Day 10", day_10_total])
+    DAY_BUCKET_STATS.append(["Day 11", day_11_total])
+    DAY_BUCKET_STATS.append(["Day 12", day_12_total])
+    DAY_BUCKET_STATS.append(["Day 13", day_13_total])
+    DAY_BUCKET_STATS.append(["Day 14", day_14_total])
+    DAY_BUCKET_STATS.append(["Day 15", day_15_total])
+    DAY_BUCKET_STATS.append(["Day 16", day_16_total])
+    DAY_BUCKET_STATS.append(["Day 17", day_17_total])
+    DAY_BUCKET_STATS.append(["Day 18", day_18_total])
+    DAY_BUCKET_STATS.append(["Day 19", day_19_total])
+    DAY_BUCKET_STATS.append(["Day 20", day_20_total])
+    DAY_BUCKET_STATS.append(["Day 21", day_21_total])
 
     ###########################
     # CLAIMED, use CLAIMED_TROPHIES
@@ -884,7 +1168,7 @@ try:
 
     # Most rare trophy - percentage, who earned it, link to trophy
     CLAIMED_TROPHIES.sort(key=lambda r: float(r.tRarity))
-    CLAIMED_TROPHIES_STATS.append(["Rarest (PSNP rarity) time slots claimed", CLAIMED_TROPHIES[0].getPSN() + " #" + CLAIMED_TROPHIES[0].getPSTLogHtml() + " - " + CLAIMED_TROPHIES[0].getTRarity() + " " + CLAIMED_TROPHIES[0].getTType()])
+    CLAIMED_TROPHIES_STATS.append(["Rarest (PSNP rarity) time slots claimed", CLAIMED_TROPHIES[0].getPSN() + " " + CLAIMED_TROPHIES[0].getPSTLogHtml() + " - " + CLAIMED_TROPHIES[0].getTRarity() + " " + CLAIMED_TROPHIES[0].getTType()])
 
     # Count of 100% rarity trophies
     CLAIMED_TROPHIES_STATS.append(["Number of 100% rarity time slots", c_hundred_percents])
@@ -1146,6 +1430,8 @@ try:
     current_file.write(tabulate(tcnt.most_common(25), headers=["Slot","Count"], tablefmt='unsafehtml'))
     current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
     current_file.write(tabulate(HOUR_BUCKET_STATS, headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<br><h2>DAY STATS</h2>\n")
+    current_file.write(tabulate(DAY_BUCKET_STATS, headers=["Day Bucket","Count"], tablefmt='unsafehtml')+"\n")
     current_file.write("<br><h2>RARITY STATS</h2>\n")
     current_file.write(tabulate(RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
 
@@ -1169,6 +1455,8 @@ try:
         current_file.write(tabulate(user.getAllTrophiesStats(), headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
         current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
         current_file.write(tabulate(user.getHourBucketStats(), headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+        current_file.write("<br><h2>DAY STATS</h2>\n")
+        current_file.write(tabulate(user.getDayBucketStats(), headers=["Day Bucket","Count"], tablefmt='unsafehtml')+"\n")
         current_file.write("<br><h2>RARITY STATS</h2>\n")
         current_file.write(tabulate(user.getRarityRangeStats(), headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
 
