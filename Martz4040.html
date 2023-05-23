@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<head>
+<link rel='stylesheet' href='styles/styles.css'>
+</head>
+<body>
+<script src='js/jquery.js'></script>
+<script src='js/script.js'></script>
+<img src="images\banner.png" alt="PST's Wait a Minute Event" title="PST's Wait a Minute Event">
+<h3 value="utc" onClick="swapTime(event)">as of 2023/05/23 13:35:58 UTC</h3>
+<h4>as of 2023/05/23 13:35:58 UTC</h3>
+<div>Times are tracked and claimed automatically.<br>Post in the <a href='https://www.playstationtrophies.org/forum/topic/334336-wait-a-minute-~-discussion/'>discussion thread</a> if you see any discrepancies and for further rules.</div><br>
+<div id="goal-count"><table><thead><tr class='percentageFill'><th>Current</th><th>Remaining</th><th>Progress</th></tr></thead>
+<tbody><tr class='percentageFill'><td>414</td><td>1026</td><td id="goalPercentage">28.75%</td></tr></tbody></table></div><br>
+<div class="tab"><button class="tablinks active" onclick="openTab(event, 'remaining')">Remaining</button>
+<button class="tablinks" onclick="openTab(event, 'claimed')">Claimed</button>
+<button class="tablinks" onclick="openTab(event, 'leaderboard')">LB</button>
+<button class="tablinks" onclick="openTab(event, 'individual')">Individual</button>
+<button class="tablinks" onclick="openTab(event, 'stats')">Stats</button></div>
+<div id="remaining" class="tabcontent" style="display:block">
+<h2>REMAINING TIMES</h2>
+<div id="hourly_total_summary"><table><tbody>
+<tr><td id='cell_0' class='sum_cell ' onClick="showHourSummary(event, 'hour_0')">Hour 00: 42</td>
+<td id='cell_1' class='sum_cell ' onClick="showHourSummary(event, 'hour_1')">Hour 01: 46</td>
+<td id='cell_2' class='sum_cell ' onClick="showHourSummary(event, 'hour_2')">Hour 02: 55</td>
+<td id='cell_3' class='sum_cell ' onClick="showHourSummary(event, 'hour_3')">Hour 03: 35</td>
+<td id='cell_4' class='sum_cell ' onClick="showHourSummary(event, 'hour_4')">Hour 04: 40</td>
+<td id='cell_5' class='sum_cell ' onClick="showHourSummary(event, 'hour_5')">Hour 05: 20</td></tr>
+<tr><td id='cell_6' class='sum_cell ' onClick="showHourSummary(event, 'hour_6')">Hour 06: 22</td>
+<td id='cell_7' class='sum_cell ' onClick="showHourSummary(event, 'hour_7')">Hour 07: 44</td>
+<td id='cell_8' class='sum_cell ' onClick="showHourSummary(event, 'hour_8')">Hour 08: 46</td>
+<td id='cell_9' class='sum_cell ' onClick="showHourSummary(event, 'hour_9')">Hour 09: 28</td>
+<td id='cell_10' class='sum_cell ' onClick="showHourSummary(event, 'hour_10')">Hour 10: 26</td>
+<td id='cell_11' class='sum_cell ' onClick="showHourSummary(event, 'hour_11')">Hour 11: 28</td></tr>
+<tr><td id='cell_12' class='sum_cell ' onClick="showHourSummary(event, 'hour_12')">Hour 12: 40</td>
+<td id='cell_13' class='sum_cell ' onClick="showHourSummary(event, 'hour_13')">Hour 13: 34</td>
+<td id='cell_14' class='sum_cell ' onClick="showHourSummary(event, 'hour_14')">Hour 14: 38</td>
+<td id='cell_15' class='sum_cell ' onClick="showHourSummary(event, 'hour_15')">Hour 15: 44</td>
+<td id='cell_16' class='sum_cell ' onClick="showHourSummary(event, 'hour_16')">Hour 16: 45</td>
+<td id='cell_17' class='sum_cell ' onClick="showHourSummary(event, 'hour_17')">Hour 17: 25</td></tr>
+<tr><td id='cell_18' class='sum_cell ' onClick="showHourSummary(event, 'hour_18')">Hour 18: 19</td>
+<td id='cell_19' class='sum_cell ' onClick="showHourSummary(event, 'hour_19')">Hour 19: 27</td>
+<td id='cell_20' class='sum_cell ' onClick="showHourSummary(event, 'hour_20')">Hour 20: 40</td>
+<td id='cell_21'  class='sum_cell ' onClick="showHourSummary(event, 'hour_21')">Hour 21: 42</td>
+<td id='cell_22' class='sum_cell ' onClick="showHourSummary(event, 'hour_22')">Hour 22: 40</td>
+<td id='cell_23' class='sum_cell ' onClick="showHourSummary(event, 'hour_23')">Hour 23: 46</td>
+</tbody></table></div>
+<br><div id="hour_0" class="hour_summary">
+<table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>00:00</tr></td>
+<tr><td>00:01</tr></td>
+<tr><td>00:02</tr></td>
+<tr><td>00:05</tr></td>
+<tr><td>00:06</tr></td>
+<tr><td>00:08</tr></td>
+<tr><td>00:09</tr></td>
+<tr><td>00:10</tr></td>
+<tr><td>00:13</tr></td>
+<tr><td>00:14</tr></td>
+<tr><td>00:15</tr></td>
+<tr><td>00:16</tr></td>
+<tr><td>00:17</tr></td>
+<tr><td>00:18</tr></td>
+<tr><td>00:20</tr></td>
+<tr><td>00:21</tr></td>
+<tr><td>00:22</tr></td>
+<tr><td>00:23</tr></td>
+<tr><td>00:24</tr></td>
+<tr><td>00:25</tr></td>
+<tr><td>00:29</tr></td>
+<tr><td>00:30</tr></td>
+<tr><td>00:31</tr></td>
+<tr><td>00:34</tr></td>
+<tr><td>00:35</tr></td>
+<tr><td>00:36</tr></td>
+<tr><td>00:37</tr></td>
+<tr><td>00:40</tr></td>
+<tr><td>00:41</tr></td>
+<tr><td>00:42</tr></td>
+<tr><td>00:44</tr></td>
+<tr><td>00:46</tr></td>
+<tr><td>00:47</tr></td>
+<tr><td>00:48</tr></td>
+<tr><td>00:49</tr></td>
+<tr><td>00:52</tr></td>
+<tr><td>00:53</tr></td>
+<tr><td>00:54</tr></td>
+<tr><td>00:55</tr></td>
+<tr><td>00:57</tr></td>
+<tr><td>00:58</tr></td>
+<tr><td>00:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_1" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>01:00</tr></td>
+<tr><td>01:01</tr></td>
+<tr><td>01:02</tr></td>
+<tr><td>01:03</tr></td>
+<tr><td>01:04</tr></td>
+<tr><td>01:05</tr></td>
+<tr><td>01:07</tr></td>
+<tr><td>01:09</tr></td>
+<tr><td>01:10</tr></td>
+<tr><td>01:11</tr></td>
+<tr><td>01:15</tr></td>
+<tr><td>01:18</tr></td>
+<tr><td>01:20</tr></td>
+<tr><td>01:21</tr></td>
+<tr><td>01:23</tr></td>
+<tr><td>01:24</tr></td>
+<tr><td>01:25</tr></td>
+<tr><td>01:26</tr></td>
+<tr><td>01:27</tr></td>
+<tr><td>01:28</tr></td>
+<tr><td>01:30</tr></td>
+<tr><td>01:31</tr></td>
+<tr><td>01:32</tr></td>
+<tr><td>01:33</tr></td>
+<tr><td>01:34</tr></td>
+<tr><td>01:35</tr></td>
+<tr><td>01:36</tr></td>
+<tr><td>01:38</tr></td>
+<tr><td>01:39</tr></td>
+<tr><td>01:41</tr></td>
+<tr><td>01:42</tr></td>
+<tr><td>01:43</tr></td>
+<tr><td>01:44</tr></td>
+<tr><td>01:45</tr></td>
+<tr><td>01:47</tr></td>
+<tr><td>01:48</tr></td>
+<tr><td>01:49</tr></td>
+<tr><td>01:50</tr></td>
+<tr><td>01:51</tr></td>
+<tr><td>01:52</tr></td>
+<tr><td>01:53</tr></td>
+<tr><td>01:55</tr></td>
+<tr><td>01:56</tr></td>
+<tr><td>01:57</tr></td>
+<tr><td>01:58</tr></td>
+<tr><td>01:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_2" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>02:00</tr></td>
+<tr><td>02:01</tr></td>
+<tr><td>02:03</tr></td>
+<tr><td>02:04</tr></td>
+<tr><td>02:05</tr></td>
+<tr><td>02:06</tr></td>
+<tr><td>02:08</tr></td>
+<tr><td>02:09</tr></td>
+<tr><td>02:10</tr></td>
+<tr><td>02:12</tr></td>
+<tr><td>02:13</tr></td>
+<tr><td>02:14</tr></td>
+<tr><td>02:16</tr></td>
+<tr><td>02:17</tr></td>
+<tr><td>02:18</tr></td>
+<tr><td>02:19</tr></td>
+<tr><td>02:20</tr></td>
+<tr><td>02:21</tr></td>
+<tr><td>02:22</tr></td>
+<tr><td>02:23</tr></td>
+<tr><td>02:24</tr></td>
+<tr><td>02:25</tr></td>
+<tr><td>02:26</tr></td>
+<tr><td>02:27</tr></td>
+<tr><td>02:28</tr></td>
+<tr><td>02:29</tr></td>
+<tr><td>02:30</tr></td>
+<tr><td>02:31</tr></td>
+<tr><td>02:32</tr></td>
+<tr><td>02:33</tr></td>
+<tr><td>02:34</tr></td>
+<tr><td>02:35</tr></td>
+<tr><td>02:36</tr></td>
+<tr><td>02:38</tr></td>
+<tr><td>02:39</tr></td>
+<tr><td>02:40</tr></td>
+<tr><td>02:41</tr></td>
+<tr><td>02:42</tr></td>
+<tr><td>02:43</tr></td>
+<tr><td>02:44</tr></td>
+<tr><td>02:45</tr></td>
+<tr><td>02:46</tr></td>
+<tr><td>02:47</tr></td>
+<tr><td>02:48</tr></td>
+<tr><td>02:49</tr></td>
+<tr><td>02:50</tr></td>
+<tr><td>02:51</tr></td>
+<tr><td>02:52</tr></td>
+<tr><td>02:53</tr></td>
+<tr><td>02:54</tr></td>
+<tr><td>02:55</tr></td>
+<tr><td>02:56</tr></td>
+<tr><td>02:57</tr></td>
+<tr><td>02:58</tr></td>
+<tr><td>02:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_3" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>03:00</tr></td>
+<tr><td>03:01</tr></td>
+<tr><td>03:02</tr></td>
+<tr><td>03:03</tr></td>
+<tr><td>03:04</tr></td>
+<tr><td>03:05</tr></td>
+<tr><td>03:06</tr></td>
+<tr><td>03:07</tr></td>
+<tr><td>03:08</tr></td>
+<tr><td>03:09</tr></td>
+<tr><td>03:10</tr></td>
+<tr><td>03:11</tr></td>
+<tr><td>03:12</tr></td>
+<tr><td>03:13</tr></td>
+<tr><td>03:21</tr></td>
+<tr><td>03:22</tr></td>
+<tr><td>03:23</tr></td>
+<tr><td>03:24</tr></td>
+<tr><td>03:25</tr></td>
+<tr><td>03:27</tr></td>
+<tr><td>03:29</tr></td>
+<tr><td>03:31</tr></td>
+<tr><td>03:39</tr></td>
+<tr><td>03:41</tr></td>
+<tr><td>03:42</tr></td>
+<tr><td>03:43</tr></td>
+<tr><td>03:44</tr></td>
+<tr><td>03:46</tr></td>
+<tr><td>03:48</tr></td>
+<tr><td>03:49</tr></td>
+<tr><td>03:50</tr></td>
+<tr><td>03:53</tr></td>
+<tr><td>03:55</tr></td>
+<tr><td>03:56</tr></td>
+<tr><td>03:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_4" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>04:00</tr></td>
+<tr><td>04:01</tr></td>
+<tr><td>04:02</tr></td>
+<tr><td>04:03</tr></td>
+<tr><td>04:04</tr></td>
+<tr><td>04:05</tr></td>
+<tr><td>04:08</tr></td>
+<tr><td>04:09</tr></td>
+<tr><td>04:11</tr></td>
+<tr><td>04:12</tr></td>
+<tr><td>04:13</tr></td>
+<tr><td>04:14</tr></td>
+<tr><td>04:15</tr></td>
+<tr><td>04:16</tr></td>
+<tr><td>04:17</tr></td>
+<tr><td>04:18</tr></td>
+<tr><td>04:19</tr></td>
+<tr><td>04:20</tr></td>
+<tr><td>04:21</tr></td>
+<tr><td>04:22</tr></td>
+<tr><td>04:23</tr></td>
+<tr><td>04:24</tr></td>
+<tr><td>04:27</tr></td>
+<tr><td>04:29</tr></td>
+<tr><td>04:31</tr></td>
+<tr><td>04:32</tr></td>
+<tr><td>04:33</tr></td>
+<tr><td>04:34</tr></td>
+<tr><td>04:36</tr></td>
+<tr><td>04:39</tr></td>
+<tr><td>04:42</tr></td>
+<tr><td>04:43</tr></td>
+<tr><td>04:44</tr></td>
+<tr><td>04:46</tr></td>
+<tr><td>04:48</tr></td>
+<tr><td>04:49</tr></td>
+<tr><td>04:52</tr></td>
+<tr><td>04:55</tr></td>
+<tr><td>04:58</tr></td>
+<tr><td>04:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_5" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>05:02</tr></td>
+<tr><td>05:04</tr></td>
+<tr><td>05:05</tr></td>
+<tr><td>05:06</tr></td>
+<tr><td>05:10</tr></td>
+<tr><td>05:16</tr></td>
+<tr><td>05:18</tr></td>
+<tr><td>05:20</tr></td>
+<tr><td>05:21</tr></td>
+<tr><td>05:22</tr></td>
+<tr><td>05:32</tr></td>
+<tr><td>05:35</tr></td>
+<tr><td>05:36</tr></td>
+<tr><td>05:37</tr></td>
+<tr><td>05:43</tr></td>
+<tr><td>05:50</tr></td>
+<tr><td>05:53</tr></td>
+<tr><td>05:54</tr></td>
+<tr><td>05:57</tr></td>
+<tr><td>05:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_6" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>06:02</tr></td>
+<tr><td>06:05</tr></td>
+<tr><td>06:06</tr></td>
+<tr><td>06:08</tr></td>
+<tr><td>06:14</tr></td>
+<tr><td>06:17</tr></td>
+<tr><td>06:20</tr></td>
+<tr><td>06:21</tr></td>
+<tr><td>06:27</tr></td>
+<tr><td>06:28</tr></td>
+<tr><td>06:33</tr></td>
+<tr><td>06:35</tr></td>
+<tr><td>06:39</tr></td>
+<tr><td>06:40</tr></td>
+<tr><td>06:44</tr></td>
+<tr><td>06:45</tr></td>
+<tr><td>06:48</tr></td>
+<tr><td>06:50</tr></td>
+<tr><td>06:53</tr></td>
+<tr><td>06:56</tr></td>
+<tr><td>06:57</tr></td>
+<tr><td>06:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_7" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>07:03</tr></td>
+<tr><td>07:05</tr></td>
+<tr><td>07:06</tr></td>
+<tr><td>07:07</tr></td>
+<tr><td>07:08</tr></td>
+<tr><td>07:10</tr></td>
+<tr><td>07:11</tr></td>
+<tr><td>07:12</tr></td>
+<tr><td>07:13</tr></td>
+<tr><td>07:15</tr></td>
+<tr><td>07:16</tr></td>
+<tr><td>07:18</tr></td>
+<tr><td>07:19</tr></td>
+<tr><td>07:20</tr></td>
+<tr><td>07:21</tr></td>
+<tr><td>07:23</tr></td>
+<tr><td>07:24</tr></td>
+<tr><td>07:25</tr></td>
+<tr><td>07:26</tr></td>
+<tr><td>07:27</tr></td>
+<tr><td>07:28</tr></td>
+<tr><td>07:29</tr></td>
+<tr><td>07:30</tr></td>
+<tr><td>07:31</tr></td>
+<tr><td>07:32</tr></td>
+<tr><td>07:33</tr></td>
+<tr><td>07:35</tr></td>
+<tr><td>07:36</tr></td>
+<tr><td>07:37</tr></td>
+<tr><td>07:38</tr></td>
+<tr><td>07:40</tr></td>
+<tr><td>07:42</tr></td>
+<tr><td>07:43</tr></td>
+<tr><td>07:45</tr></td>
+<tr><td>07:46</tr></td>
+<tr><td>07:47</tr></td>
+<tr><td>07:48</tr></td>
+<tr><td>07:49</tr></td>
+<tr><td>07:50</tr></td>
+<tr><td>07:53</tr></td>
+<tr><td>07:54</tr></td>
+<tr><td>07:55</tr></td>
+<tr><td>07:56</tr></td>
+<tr><td>07:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_8" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>08:00</tr></td>
+<tr><td>08:01</tr></td>
+<tr><td>08:03</tr></td>
+<tr><td>08:04</tr></td>
+<tr><td>08:05</tr></td>
+<tr><td>08:06</tr></td>
+<tr><td>08:07</tr></td>
+<tr><td>08:08</tr></td>
+<tr><td>08:09</tr></td>
+<tr><td>08:13</tr></td>
+<tr><td>08:14</tr></td>
+<tr><td>08:17</tr></td>
+<tr><td>08:19</tr></td>
+<tr><td>08:20</tr></td>
+<tr><td>08:21</tr></td>
+<tr><td>08:22</tr></td>
+<tr><td>08:25</tr></td>
+<tr><td>08:26</tr></td>
+<tr><td>08:27</tr></td>
+<tr><td>08:28</tr></td>
+<tr><td>08:29</tr></td>
+<tr><td>08:31</tr></td>
+<tr><td>08:33</tr></td>
+<tr><td>08:35</tr></td>
+<tr><td>08:36</tr></td>
+<tr><td>08:37</tr></td>
+<tr><td>08:39</tr></td>
+<tr><td>08:40</tr></td>
+<tr><td>08:41</tr></td>
+<tr><td>08:42</tr></td>
+<tr><td>08:43</tr></td>
+<tr><td>08:44</tr></td>
+<tr><td>08:45</tr></td>
+<tr><td>08:46</tr></td>
+<tr><td>08:47</tr></td>
+<tr><td>08:48</tr></td>
+<tr><td>08:49</tr></td>
+<tr><td>08:50</tr></td>
+<tr><td>08:51</tr></td>
+<tr><td>08:53</tr></td>
+<tr><td>08:54</tr></td>
+<tr><td>08:55</tr></td>
+<tr><td>08:56</tr></td>
+<tr><td>08:57</tr></td>
+<tr><td>08:58</tr></td>
+<tr><td>08:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_9" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>09:00</tr></td>
+<tr><td>09:01</tr></td>
+<tr><td>09:02</tr></td>
+<tr><td>09:06</tr></td>
+<tr><td>09:08</tr></td>
+<tr><td>09:09</tr></td>
+<tr><td>09:10</tr></td>
+<tr><td>09:12</tr></td>
+<tr><td>09:13</tr></td>
+<tr><td>09:14</tr></td>
+<tr><td>09:15</tr></td>
+<tr><td>09:17</tr></td>
+<tr><td>09:20</tr></td>
+<tr><td>09:21</tr></td>
+<tr><td>09:22</tr></td>
+<tr><td>09:26</tr></td>
+<tr><td>09:27</tr></td>
+<tr><td>09:29</tr></td>
+<tr><td>09:30</tr></td>
+<tr><td>09:33</tr></td>
+<tr><td>09:39</tr></td>
+<tr><td>09:40</tr></td>
+<tr><td>09:43</tr></td>
+<tr><td>09:45</tr></td>
+<tr><td>09:50</tr></td>
+<tr><td>09:55</tr></td>
+<tr><td>09:57</tr></td>
+<tr><td>09:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_10" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>10:00</tr></td>
+<tr><td>10:02</tr></td>
+<tr><td>10:05</tr></td>
+<tr><td>10:06</tr></td>
+<tr><td>10:07</tr></td>
+<tr><td>10:08</tr></td>
+<tr><td>10:09</tr></td>
+<tr><td>10:11</tr></td>
+<tr><td>10:14</tr></td>
+<tr><td>10:16</tr></td>
+<tr><td>10:21</tr></td>
+<tr><td>10:23</tr></td>
+<tr><td>10:26</tr></td>
+<tr><td>10:29</tr></td>
+<tr><td>10:30</tr></td>
+<tr><td>10:31</tr></td>
+<tr><td>10:32</tr></td>
+<tr><td>10:35</tr></td>
+<tr><td>10:36</tr></td>
+<tr><td>10:40</tr></td>
+<tr><td>10:43</tr></td>
+<tr><td>10:48</tr></td>
+<tr><td>10:49</tr></td>
+<tr><td>10:50</tr></td>
+<tr><td>10:52</tr></td>
+<tr><td>10:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_11" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>11:00</tr></td>
+<tr><td>11:01</tr></td>
+<tr><td>11:08</tr></td>
+<tr><td>11:10</tr></td>
+<tr><td>11:12</tr></td>
+<tr><td>11:14</tr></td>
+<tr><td>11:15</tr></td>
+<tr><td>11:16</tr></td>
+<tr><td>11:17</tr></td>
+<tr><td>11:19</tr></td>
+<tr><td>11:22</tr></td>
+<tr><td>11:23</tr></td>
+<tr><td>11:25</tr></td>
+<tr><td>11:26</tr></td>
+<tr><td>11:32</tr></td>
+<tr><td>11:33</tr></td>
+<tr><td>11:37</tr></td>
+<tr><td>11:40</tr></td>
+<tr><td>11:41</tr></td>
+<tr><td>11:45</tr></td>
+<tr><td>11:51</tr></td>
+<tr><td>11:53</tr></td>
+<tr><td>11:54</tr></td>
+<tr><td>11:55</tr></td>
+<tr><td>11:56</tr></td>
+<tr><td>11:57</tr></td>
+<tr><td>11:58</tr></td>
+<tr><td>11:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_12" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>12:01</tr></td>
+<tr><td>12:02</tr></td>
+<tr><td>12:03</tr></td>
+<tr><td>12:04</tr></td>
+<tr><td>12:06</tr></td>
+<tr><td>12:08</tr></td>
+<tr><td>12:09</tr></td>
+<tr><td>12:11</tr></td>
+<tr><td>12:13</tr></td>
+<tr><td>12:14</tr></td>
+<tr><td>12:15</tr></td>
+<tr><td>12:16</tr></td>
+<tr><td>12:17</tr></td>
+<tr><td>12:18</tr></td>
+<tr><td>12:19</tr></td>
+<tr><td>12:20</tr></td>
+<tr><td>12:23</tr></td>
+<tr><td>12:24</tr></td>
+<tr><td>12:25</tr></td>
+<tr><td>12:27</tr></td>
+<tr><td>12:28</tr></td>
+<tr><td>12:32</tr></td>
+<tr><td>12:33</tr></td>
+<tr><td>12:35</tr></td>
+<tr><td>12:36</tr></td>
+<tr><td>12:37</tr></td>
+<tr><td>12:39</tr></td>
+<tr><td>12:40</tr></td>
+<tr><td>12:41</tr></td>
+<tr><td>12:42</tr></td>
+<tr><td>12:44</tr></td>
+<tr><td>12:45</tr></td>
+<tr><td>12:46</tr></td>
+<tr><td>12:47</tr></td>
+<tr><td>12:49</tr></td>
+<tr><td>12:50</tr></td>
+<tr><td>12:52</tr></td>
+<tr><td>12:54</tr></td>
+<tr><td>12:56</tr></td>
+<tr><td>12:57</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_13" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>13:00</tr></td>
+<tr><td>13:01</tr></td>
+<tr><td>13:03</tr></td>
+<tr><td>13:04</tr></td>
+<tr><td>13:05</tr></td>
+<tr><td>13:06</tr></td>
+<tr><td>13:07</tr></td>
+<tr><td>13:10</tr></td>
+<tr><td>13:11</tr></td>
+<tr><td>13:12</tr></td>
+<tr><td>13:15</tr></td>
+<tr><td>13:17</tr></td>
+<tr><td>13:18</tr></td>
+<tr><td>13:20</tr></td>
+<tr><td>13:21</tr></td>
+<tr><td>13:22</tr></td>
+<tr><td>13:23</tr></td>
+<tr><td>13:24</tr></td>
+<tr><td>13:25</tr></td>
+<tr><td>13:27</tr></td>
+<tr><td>13:29</tr></td>
+<tr><td>13:30</tr></td>
+<tr><td>13:33</tr></td>
+<tr><td>13:34</tr></td>
+<tr><td>13:36</tr></td>
+<tr><td>13:40</tr></td>
+<tr><td>13:41</tr></td>
+<tr><td>13:42</tr></td>
+<tr><td>13:43</tr></td>
+<tr><td>13:48</tr></td>
+<tr><td>13:49</tr></td>
+<tr><td>13:51</tr></td>
+<tr><td>13:54</tr></td>
+<tr><td>13:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_14" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>14:00</tr></td>
+<tr><td>14:01</tr></td>
+<tr><td>14:03</tr></td>
+<tr><td>14:04</tr></td>
+<tr><td>14:05</tr></td>
+<tr><td>14:06</tr></td>
+<tr><td>14:09</tr></td>
+<tr><td>14:13</tr></td>
+<tr><td>14:14</tr></td>
+<tr><td>14:15</tr></td>
+<tr><td>14:16</tr></td>
+<tr><td>14:17</tr></td>
+<tr><td>14:24</tr></td>
+<tr><td>14:25</tr></td>
+<tr><td>14:27</tr></td>
+<tr><td>14:29</tr></td>
+<tr><td>14:30</tr></td>
+<tr><td>14:31</tr></td>
+<tr><td>14:32</tr></td>
+<tr><td>14:33</tr></td>
+<tr><td>14:34</tr></td>
+<tr><td>14:35</tr></td>
+<tr><td>14:36</tr></td>
+<tr><td>14:37</tr></td>
+<tr><td>14:38</tr></td>
+<tr><td>14:39</tr></td>
+<tr><td>14:40</tr></td>
+<tr><td>14:41</tr></td>
+<tr><td>14:42</tr></td>
+<tr><td>14:43</tr></td>
+<tr><td>14:44</tr></td>
+<tr><td>14:45</tr></td>
+<tr><td>14:46</tr></td>
+<tr><td>14:48</tr></td>
+<tr><td>14:49</tr></td>
+<tr><td>14:52</tr></td>
+<tr><td>14:54</tr></td>
+<tr><td>14:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_15" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>15:00</tr></td>
+<tr><td>15:04</tr></td>
+<tr><td>15:05</tr></td>
+<tr><td>15:06</tr></td>
+<tr><td>15:08</tr></td>
+<tr><td>15:09</tr></td>
+<tr><td>15:10</tr></td>
+<tr><td>15:11</tr></td>
+<tr><td>15:13</tr></td>
+<tr><td>15:14</tr></td>
+<tr><td>15:15</tr></td>
+<tr><td>15:18</tr></td>
+<tr><td>15:20</tr></td>
+<tr><td>15:23</tr></td>
+<tr><td>15:24</tr></td>
+<tr><td>15:27</tr></td>
+<tr><td>15:28</tr></td>
+<tr><td>15:29</tr></td>
+<tr><td>15:30</tr></td>
+<tr><td>15:31</tr></td>
+<tr><td>15:32</tr></td>
+<tr><td>15:33</tr></td>
+<tr><td>15:34</tr></td>
+<tr><td>15:35</tr></td>
+<tr><td>15:37</tr></td>
+<tr><td>15:38</tr></td>
+<tr><td>15:39</tr></td>
+<tr><td>15:40</tr></td>
+<tr><td>15:41</tr></td>
+<tr><td>15:42</tr></td>
+<tr><td>15:43</tr></td>
+<tr><td>15:44</tr></td>
+<tr><td>15:45</tr></td>
+<tr><td>15:46</tr></td>
+<tr><td>15:47</tr></td>
+<tr><td>15:48</tr></td>
+<tr><td>15:51</tr></td>
+<tr><td>15:53</tr></td>
+<tr><td>15:54</tr></td>
+<tr><td>15:55</tr></td>
+<tr><td>15:56</tr></td>
+<tr><td>15:57</tr></td>
+<tr><td>15:58</tr></td>
+<tr><td>15:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_16" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>16:00</tr></td>
+<tr><td>16:01</tr></td>
+<tr><td>16:02</tr></td>
+<tr><td>16:03</tr></td>
+<tr><td>16:04</tr></td>
+<tr><td>16:05</tr></td>
+<tr><td>16:06</tr></td>
+<tr><td>16:07</tr></td>
+<tr><td>16:08</tr></td>
+<tr><td>16:09</tr></td>
+<tr><td>16:11</tr></td>
+<tr><td>16:12</tr></td>
+<tr><td>16:13</tr></td>
+<tr><td>16:14</tr></td>
+<tr><td>16:15</tr></td>
+<tr><td>16:16</tr></td>
+<tr><td>16:17</tr></td>
+<tr><td>16:18</tr></td>
+<tr><td>16:20</tr></td>
+<tr><td>16:21</tr></td>
+<tr><td>16:22</tr></td>
+<tr><td>16:23</tr></td>
+<tr><td>16:24</tr></td>
+<tr><td>16:25</tr></td>
+<tr><td>16:27</tr></td>
+<tr><td>16:28</tr></td>
+<tr><td>16:29</tr></td>
+<tr><td>16:30</tr></td>
+<tr><td>16:31</tr></td>
+<tr><td>16:33</tr></td>
+<tr><td>16:34</tr></td>
+<tr><td>16:35</tr></td>
+<tr><td>16:36</tr></td>
+<tr><td>16:37</tr></td>
+<tr><td>16:38</tr></td>
+<tr><td>16:41</tr></td>
+<tr><td>16:42</tr></td>
+<tr><td>16:44</tr></td>
+<tr><td>16:45</tr></td>
+<tr><td>16:46</tr></td>
+<tr><td>16:48</tr></td>
+<tr><td>16:50</tr></td>
+<tr><td>16:55</tr></td>
+<tr><td>16:56</tr></td>
+<tr><td>16:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_17" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>17:00</tr></td>
+<tr><td>17:01</tr></td>
+<tr><td>17:02</tr></td>
+<tr><td>17:08</tr></td>
+<tr><td>17:09</tr></td>
+<tr><td>17:11</tr></td>
+<tr><td>17:14</tr></td>
+<tr><td>17:19</tr></td>
+<tr><td>17:21</tr></td>
+<tr><td>17:24</tr></td>
+<tr><td>17:28</tr></td>
+<tr><td>17:29</tr></td>
+<tr><td>17:32</tr></td>
+<tr><td>17:37</tr></td>
+<tr><td>17:38</tr></td>
+<tr><td>17:41</tr></td>
+<tr><td>17:42</tr></td>
+<tr><td>17:43</tr></td>
+<tr><td>17:44</tr></td>
+<tr><td>17:47</tr></td>
+<tr><td>17:50</tr></td>
+<tr><td>17:51</tr></td>
+<tr><td>17:53</tr></td>
+<tr><td>17:58</tr></td>
+<tr><td>17:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_18" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>18:01</tr></td>
+<tr><td>18:03</tr></td>
+<tr><td>18:08</tr></td>
+<tr><td>18:09</tr></td>
+<tr><td>18:10</tr></td>
+<tr><td>18:14</tr></td>
+<tr><td>18:19</tr></td>
+<tr><td>18:32</tr></td>
+<tr><td>18:33</tr></td>
+<tr><td>18:34</tr></td>
+<tr><td>18:36</tr></td>
+<tr><td>18:37</tr></td>
+<tr><td>18:43</tr></td>
+<tr><td>18:45</tr></td>
+<tr><td>18:46</tr></td>
+<tr><td>18:49</tr></td>
+<tr><td>18:51</tr></td>
+<tr><td>18:57</tr></td>
+<tr><td>18:58</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_19" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>19:01</tr></td>
+<tr><td>19:04</tr></td>
+<tr><td>19:06</tr></td>
+<tr><td>19:07</tr></td>
+<tr><td>19:11</tr></td>
+<tr><td>19:12</tr></td>
+<tr><td>19:14</tr></td>
+<tr><td>19:16</tr></td>
+<tr><td>19:17</tr></td>
+<tr><td>19:18</tr></td>
+<tr><td>19:20</tr></td>
+<tr><td>19:21</tr></td>
+<tr><td>19:22</tr></td>
+<tr><td>19:24</tr></td>
+<tr><td>19:25</tr></td>
+<tr><td>19:28</tr></td>
+<tr><td>19:30</tr></td>
+<tr><td>19:31</tr></td>
+<tr><td>19:32</tr></td>
+<tr><td>19:33</tr></td>
+<tr><td>19:34</tr></td>
+<tr><td>19:35</tr></td>
+<tr><td>19:36</tr></td>
+<tr><td>19:38</tr></td>
+<tr><td>19:39</tr></td>
+<tr><td>19:55</tr></td>
+<tr><td>19:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_20" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>20:02</tr></td>
+<tr><td>20:04</tr></td>
+<tr><td>20:05</tr></td>
+<tr><td>20:08</tr></td>
+<tr><td>20:09</tr></td>
+<tr><td>20:10</tr></td>
+<tr><td>20:12</tr></td>
+<tr><td>20:13</tr></td>
+<tr><td>20:19</tr></td>
+<tr><td>20:20</tr></td>
+<tr><td>20:22</tr></td>
+<tr><td>20:23</tr></td>
+<tr><td>20:24</tr></td>
+<tr><td>20:25</tr></td>
+<tr><td>20:26</tr></td>
+<tr><td>20:27</tr></td>
+<tr><td>20:30</tr></td>
+<tr><td>20:31</tr></td>
+<tr><td>20:35</tr></td>
+<tr><td>20:36</tr></td>
+<tr><td>20:37</tr></td>
+<tr><td>20:38</tr></td>
+<tr><td>20:39</tr></td>
+<tr><td>20:40</tr></td>
+<tr><td>20:41</tr></td>
+<tr><td>20:42</tr></td>
+<tr><td>20:44</tr></td>
+<tr><td>20:45</tr></td>
+<tr><td>20:46</tr></td>
+<tr><td>20:48</tr></td>
+<tr><td>20:49</tr></td>
+<tr><td>20:50</tr></td>
+<tr><td>20:51</tr></td>
+<tr><td>20:52</tr></td>
+<tr><td>20:53</tr></td>
+<tr><td>20:54</tr></td>
+<tr><td>20:55</tr></td>
+<tr><td>20:56</tr></td>
+<tr><td>20:58</tr></td>
+<tr><td>20:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_21" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>21:02</tr></td>
+<tr><td>21:03</tr></td>
+<tr><td>21:06</tr></td>
+<tr><td>21:07</tr></td>
+<tr><td>21:08</tr></td>
+<tr><td>21:09</tr></td>
+<tr><td>21:10</tr></td>
+<tr><td>21:11</tr></td>
+<tr><td>21:13</tr></td>
+<tr><td>21:14</tr></td>
+<tr><td>21:15</tr></td>
+<tr><td>21:16</tr></td>
+<tr><td>21:17</tr></td>
+<tr><td>21:19</tr></td>
+<tr><td>21:20</tr></td>
+<tr><td>21:21</tr></td>
+<tr><td>21:23</tr></td>
+<tr><td>21:25</tr></td>
+<tr><td>21:26</tr></td>
+<tr><td>21:27</tr></td>
+<tr><td>21:29</tr></td>
+<tr><td>21:30</tr></td>
+<tr><td>21:31</tr></td>
+<tr><td>21:33</tr></td>
+<tr><td>21:34</tr></td>
+<tr><td>21:35</tr></td>
+<tr><td>21:36</tr></td>
+<tr><td>21:38</tr></td>
+<tr><td>21:41</tr></td>
+<tr><td>21:42</tr></td>
+<tr><td>21:44</tr></td>
+<tr><td>21:45</tr></td>
+<tr><td>21:46</tr></td>
+<tr><td>21:47</tr></td>
+<tr><td>21:49</tr></td>
+<tr><td>21:52</tr></td>
+<tr><td>21:53</tr></td>
+<tr><td>21:54</tr></td>
+<tr><td>21:56</tr></td>
+<tr><td>21:57</tr></td>
+<tr><td>21:58</tr></td>
+<tr><td>21:59</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_22" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>22:00</tr></td>
+<tr><td>22:03</tr></td>
+<tr><td>22:04</tr></td>
+<tr><td>22:05</tr></td>
+<tr><td>22:07</tr></td>
+<tr><td>22:09</tr></td>
+<tr><td>22:10</tr></td>
+<tr><td>22:11</tr></td>
+<tr><td>22:12</tr></td>
+<tr><td>22:14</tr></td>
+<tr><td>22:15</tr></td>
+<tr><td>22:16</tr></td>
+<tr><td>22:17</tr></td>
+<tr><td>22:18</tr></td>
+<tr><td>22:19</tr></td>
+<tr><td>22:20</tr></td>
+<tr><td>22:22</tr></td>
+<tr><td>22:23</tr></td>
+<tr><td>22:25</tr></td>
+<tr><td>22:27</tr></td>
+<tr><td>22:28</tr></td>
+<tr><td>22:30</tr></td>
+<tr><td>22:31</tr></td>
+<tr><td>22:32</tr></td>
+<tr><td>22:35</tr></td>
+<tr><td>22:36</tr></td>
+<tr><td>22:37</tr></td>
+<tr><td>22:38</tr></td>
+<tr><td>22:40</tr></td>
+<tr><td>22:41</tr></td>
+<tr><td>22:42</tr></td>
+<tr><td>22:43</tr></td>
+<tr><td>22:45</tr></td>
+<tr><td>22:46</tr></td>
+<tr><td>22:47</tr></td>
+<tr><td>22:48</tr></td>
+<tr><td>22:50</tr></td>
+<tr><td>22:51</tr></td>
+<tr><td>22:52</tr></td>
+<tr><td>22:53</tr></td>
+</tbody>
+</table>
+</div>
+<div id="hour_23" class="hour_summary"><table>
+<thead>
+<tr><th>Time</th></tr>
+</thead>
+<tbody>
+<tr><td>23:00</tr></td>
+<tr><td>23:02</tr></td>
+<tr><td>23:03</tr></td>
+<tr><td>23:05</tr></td>
+<tr><td>23:06</tr></td>
+<tr><td>23:08</tr></td>
+<tr><td>23:09</tr></td>
+<tr><td>23:10</tr></td>
+<tr><td>23:11</tr></td>
+<tr><td>23:12</tr></td>
+<tr><td>23:13</tr></td>
+<tr><td>23:15</tr></td>
+<tr><td>23:16</tr></td>
+<tr><td>23:17</tr></td>
+<tr><td>23:18</tr></td>
+<tr><td>23:20</tr></td>
+<tr><td>23:21</tr></td>
+<tr><td>23:22</tr></td>
+<tr><td>23:23</tr></td>
+<tr><td>23:25</tr></td>
+<tr><td>23:26</tr></td>
+<tr><td>23:27</tr></td>
+<tr><td>23:28</tr></td>
+<tr><td>23:29</tr></td>
+<tr><td>23:30</tr></td>
+<tr><td>23:31</tr></td>
+<tr><td>23:33</tr></td>
+<tr><td>23:34</tr></td>
+<tr><td>23:35</tr></td>
+<tr><td>23:36</tr></td>
+<tr><td>23:37</tr></td>
+<tr><td>23:38</tr></td>
+<tr><td>23:39</tr></td>
+<tr><td>23:40</tr></td>
+<tr><td>23:41</tr></td>
+<tr><td>23:42</tr></td>
+<tr><td>23:44</tr></td>
+<tr><td>23:47</tr></td>
+<tr><td>23:48</tr></td>
+<tr><td>23:49</tr></td>
+<tr><td>23:50</tr></td>
+<tr><td>23:52</tr></td>
+<tr><td>23:53</tr></td>
+<tr><td>23:57</tr></td>
+<tr><td>23:58</tr></td>
+<tr><td>23:59</tr></td>
+</tbody>
+</table>
+</div>
+</div>
+<div id="claimed" class="tabcontent">
+<h2>CLAIMED TIMES</h2>
+<table>
+<thead>
+<tr><th>Time  </th><th>User     </th><th>Log#                                                                                   </th><th>Rarity                                                                 </th></tr>
+</thead>
+<tbody>
+<tr><td>00:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13514">13514</a></td><td>96.90 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>00:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13538">13538</a></td><td>77.26 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>00:27 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13539">13539</a></td><td>77.26 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>00:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13541">13541</a></td><td>76.98 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>00:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13542">13542</a></td><td>76.76 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>01:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13353">13353</a></td><td>99.15 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>03:14 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13580">13580</a></td><td>100.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />     </td></tr>
+<tr><td>03:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13582">13582</a></td><td>97.14 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13583">13583</a></td><td>95.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13584">13584</a></td><td>92.14 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13585">13585</a></td><td>90.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13586">13586</a></td><td>90.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:20 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13589">13589</a></td><td>89.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13590">13590</a></td><td>87.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13591">13591</a></td><td>86.43 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13592">13592</a></td><td>86.43 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13594">13594</a></td><td>84.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:33 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13595">13595</a></td><td>84.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13596">13596</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:35 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13597">13597</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:36 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13598">13598</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13599">13599</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13600">13600</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:40 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13601">13601</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13602">13602</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13603">13603</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13604">13604</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13605">13605</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13606">13606</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:58 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13607">13607</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>03:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13608">13608</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:06 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13609">13609</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13610">13610</a></td><td>80.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13611">13611</a></td><td>80.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13559">13559</a></td><td>85.96 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13561">13561</a></td><td>85.96 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>04:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13613">13613</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13614">13614</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:35 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13615">13615</a></td><td>98.21 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>04:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13616">13616</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13617">13617</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:40 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13618">13618</a></td><td>98.21 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>04:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13619">13619</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13620">13620</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13468">13468</a></td><td>91.75 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:50 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13621">13621</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>04:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13469">13469</a></td><td>90.05 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13622">13622</a></td><td>80.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13623">13623</a></td><td>80.71 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>04:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13624">13624</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>04:57 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13625">13625</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13626">13626</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13627">13627</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13628">13628</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13629">13629</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:08 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13630">13630</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:09 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13631">13631</a></td><td>100.00 <img src='images\Gold.png' alt='Gold' title='Gold' />           </td></tr>
+<tr><td>05:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13632">13632</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13633">13633</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13470">13470</a></td><td>74.79 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:14 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13634">13634</a></td><td>95.16 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13635">13635</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13636">13636</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13637">13637</a></td><td>95.16 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13638">13638</a></td><td>97.60 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13639">13639</a></td><td>96.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13640">13640</a></td><td>96.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13455">13455</a></td><td>99.73 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:27 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13471">13471</a></td><td>57.90 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13233">13233</a></td><td>94.50 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:29 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13254">13254</a></td><td>98.02 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13641">13641</a></td><td>96.00 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13457">13457</a></td><td>99.73 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:33 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13642">13642</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13255">13255</a></td><td>95.60 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13459">13459</a></td><td>99.73 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13460">13460</a></td><td>99.64 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:40 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13461">13461</a></td><td>99.73 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13462">13462</a></td><td>99.69 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13463">13463</a></td><td>99.64 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13464">13464</a></td><td>99.64 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13465">13465</a></td><td>99.64 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13256">13256</a></td><td>97.67 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13466">13466</a></td><td>99.64 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13467">13467</a></td><td>99.64 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>05:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13257">13257</a></td><td>97.09 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13472">13472</a></td><td>74.93 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13258">13258</a></td><td>96.33 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:55 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13259">13259</a></td><td>96.29 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>05:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13643">13643</a></td><td>96.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>05:58 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13473">13473</a></td><td>65.07 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13260">13260</a></td><td>96.29 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13474">13474</a></td><td>77.47 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13261">13261</a></td><td>96.15 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13644">13644</a></td><td>25.48 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13645">13645</a></td><td>95.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:09 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13262">13262</a></td><td>95.89 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13646">13646</a></td><td>95.20 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13647">13647</a></td><td>95.20 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13648">13648</a></td><td>94.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13649">13649</a></td><td>94.40 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13650">13650</a></td><td>95.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13263">13263</a></td><td>95.93 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13651">13651</a></td><td>94.40 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13264">13264</a></td><td>95.80 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13652">13652</a></td><td>95.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13653">13653</a></td><td>95.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13265">13265</a></td><td>95.53 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13475">13475</a></td><td>16.18 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13654">13654</a></td><td>94.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:29 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13655">13655</a></td><td>95.20 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13266">13266</a></td><td>95.53 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13656">13656</a></td><td>95.20 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13657">13657</a></td><td>95.20 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13267">13267</a></td><td>95.62 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:36 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13476">13476</a></td><td>86.00 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13658">13658</a></td><td>95.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13659">13659</a></td><td>95.20 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13660">13660</a></td><td>94.40 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13661">13661</a></td><td>94.40 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13662">13662</a></td><td>94.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>06:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13268">13268</a></td><td>95.62 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13663">13663</a></td><td>95.20 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13477">13477</a></td><td>85.83 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13269">13269</a></td><td>95.48 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13664">13664</a></td><td>95.20 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13665">13665</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>06:55 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13270">13270</a></td><td>95.26 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>06:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13271">13271</a></td><td>95.17 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>07:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13478">13478</a></td><td>86.26 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13666">13666</a></td><td>95.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:02 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13479">13479</a></td><td>86.11 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13667">13667</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>07:09 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13668">13668</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>07:14 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13669">13669</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>07:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13670">13670</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>07:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13480">13480</a></td><td>93.73 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13481">13481</a></td><td>91.82 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13482">13482</a></td><td>91.85 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13671">13671</a></td><td>93.55 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13672">13672</a></td><td>93.55 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13673">13673</a></td><td>93.55 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13675">13675</a></td><td>93.55 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>07:58 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13676">13676</a></td><td>98.21 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>07:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13679">13679</a></td><td>98.21 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>08:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13532">13532</a></td><td>38.96 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>08:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13234">13234</a></td><td>96.44 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>08:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13235">13235</a></td><td>96.32 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>08:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13236">13236</a></td><td>96.15 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>08:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13680">13680</a></td><td>99.14 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>08:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13683">13683</a></td><td>98.04 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>08:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13684">13684</a></td><td>98.04 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>08:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13685">13685</a></td><td>98.04 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>08:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13686">13686</a></td><td>97.42 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>08:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13483">13483</a></td><td>89.83 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13484">13484</a></td><td>92.38 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13515">13515</a></td><td>41.64 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:05 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13687">13687</a></td><td>99.34 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13690">13690</a></td><td>98.12 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13516">13516</a></td><td>93.32 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13485">13485</a></td><td>89.09 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13543">13543</a></td><td>23.04 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13533">13533</a></td><td>35.67 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13304">13304</a></td><td>99.33 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13272">13272</a></td><td>94.61 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13518">13518</a></td><td>91.77 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13544">13544</a></td><td>21.52 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13519">13519</a></td><td>92.84 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:35 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13520">13520</a></td><td>93.08 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:36 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13521">13521</a></td><td>92.96 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13522">13522</a></td><td>90.69 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13691">13691</a></td><td>10.91 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13545">13545</a></td><td>48.79 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13307">13307</a></td><td>96.28 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13523">13523</a></td><td>92.96 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13319">13319</a></td><td>77.73 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13546">13546</a></td><td>56.63 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13486">13486</a></td><td>29.53 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13525">13525</a></td><td>90.45 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13320">13320</a></td><td>97.74 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13526">13526</a></td><td>91.41 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>09:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13692">13692</a></td><td>29.57 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13355">13355</a></td><td>98.12 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>09:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13547">13547</a></td><td>39.56 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>09:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13274">13274</a></td><td>94.28 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13357">13357</a></td><td>96.81 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13358">13358</a></td><td>95.70 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13321">13321</a></td><td>96.64 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13549">13549</a></td><td>37.83 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13322">13322</a></td><td>96.79 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13488">13488</a></td><td>95.58 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13359">13359</a></td><td>87.91 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13550">13550</a></td><td>18.88 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:20 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13489">13489</a></td><td>93.79 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13490">13490</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13693">13693</a></td><td>21.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13361">13361</a></td><td>95.93 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:27 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13694">13694</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13527">13527</a></td><td>90.10 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:33 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13528">13528</a></td><td>89.26 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13551">13551</a></td><td>30.56 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13491">13491</a></td><td>88.46 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13695">13695</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13529">13529</a></td><td>89.62 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13530">13530</a></td><td>89.86 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13494">13494</a></td><td>90.35 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13495">13495</a></td><td>90.16 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>10:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13696">13696</a></td><td>12.00 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>10:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13366">13366</a></td><td>95.70 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13368">13368</a></td><td>95.50 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>10:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13531">13531</a></td><td>89.74 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>10:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13498">13498</a></td><td>88.32 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td></tr>
+<tr><td>10:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13554">13554</a></td><td>8.62 <img src='images\Gold.png' alt='Gold' title='Gold' />             </td></tr>
+<tr><td>10:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13534">13534</a></td><td>32.23 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13369">13369</a></td><td>98.91 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13370">13370</a></td><td>98.88 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:05 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13276">13276</a></td><td>93.65 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:06 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13371">13371</a></td><td>98.85 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13372">13372</a></td><td>98.88 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:09 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13373">13373</a></td><td>98.44 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13374">13374</a></td><td>97.95 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13375">13375</a></td><td>98.10 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:20 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13377">13377</a></td><td>98.10 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:21 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13378">13378</a></td><td>98.23 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13379">13379</a></td><td>97.95 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13381">13381</a></td><td>97.85 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13383">13383</a></td><td>97.51 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13384">13384</a></td><td>97.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:36 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13323">13323</a></td><td>93.07 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13385">13385</a></td><td>97.60 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13386">13386</a></td><td>97.35 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13387">13387</a></td><td>97.39 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13388">13388</a></td><td>97.01 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13389">13389</a></td><td>96.17 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13697">13697</a></td><td>9.25 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />       </td></tr>
+<tr><td>11:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13391">13391</a></td><td>97.42 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13392">13392</a></td><td>95.74 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13393">13393</a></td><td>94.80 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>11:50 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13394">13394</a></td><td>95.61 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>11:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13395">13395</a></td><td>91.88 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13552">13552</a></td><td>86.11 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>12:05 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13396">13396</a></td><td>91.94 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13397">13397</a></td><td>95.92 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>12:21 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13499">13499</a></td><td>60.36 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13399">13399</a></td><td>92.78 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>12:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13500">13500</a></td><td>59.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:29 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13535">13535</a></td><td>29.04 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>12:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13501">13501</a></td><td>31.19 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13502">13502</a></td><td>26.14 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13536">13536</a></td><td>23.61 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13400">13400</a></td><td>83.02 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>12:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13401">13401</a></td><td>87.54 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>12:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13402">13402</a></td><td>87.27 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>12:55 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13403">13403</a></td><td>87.46 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>12:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13404">13404</a></td><td>87.31 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:02 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13503">13503</a></td><td>14.95 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>13:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13698">13698</a></td><td>24.05 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:14 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13405">13405</a></td><td>96.83 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13504">13504</a></td><td>17.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>13:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13406">13406</a></td><td>96.75 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13324">13324</a></td><td>92.66 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13505">13505</a></td><td>97.07 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13506">13506</a></td><td>96.90 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>13:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13408">13408</a></td><td>86.90 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>13:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13507">13507</a></td><td>51.89 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>13:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13409">13409</a></td><td>86.14 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>13:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13508">13508</a></td><td>31.39 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>14:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13410">13410</a></td><td>86.82 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13411">13411</a></td><td>86.82 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>14:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13412">13412</a></td><td>86.78 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>14:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13413">13413</a></td><td>91.16 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:20 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13414">13414</a></td><td>90.25 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13415">13415</a></td><td>89.89 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13416">13416</a></td><td>98.11 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>14:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13563">13563</a></td><td>25.32 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>14:50 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13418">13418</a></td><td>97.80 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>14:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13419">13419</a></td><td>97.43 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>14:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13420">13420</a></td><td>97.43 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:57 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13423">13423</a></td><td>95.70 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>14:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13424">13424</a></td><td>95.60 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>15:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13425">13425</a></td><td>95.23 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>15:02 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13565">13565</a></td><td>5.51 <img src='images\Gold.png' alt='Gold' title='Gold' />             </td></tr>
+<tr><td>15:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13427">13427</a></td><td>95.08 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>15:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13428">13428</a></td><td>93.66 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>15:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13556">13556</a></td><td>20.08 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13566">13566</a></td><td>24.94 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13277">13277</a></td><td>93.18 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>15:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13567">13567</a></td><td>12.46 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:21 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13557">13557</a></td><td>28.36 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13568">13568</a></td><td>18.10 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13569">13569</a></td><td>23.09 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>15:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13431">13431</a></td><td>88.31 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>16:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13509">13509</a></td><td>24.97 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>16:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13278">13278</a></td><td>95.13 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>16:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13570">13570</a></td><td>22.68 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>16:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13571">13571</a></td><td>19.33 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>16:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13432">13432</a></td><td>96.32 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>16:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13433">13433</a></td><td>96.28 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>16:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13279">13279</a></td><td>94.99 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>16:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13434">13434</a></td><td>96.24 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>16:57 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13280">13280</a></td><td>94.99 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>16:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13572">13572</a></td><td>7.25 <img src='images\Silver.png' alt='Silver' title='Silver' />       </td></tr>
+<tr><td>17:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13281">13281</a></td><td>94.95 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:04 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13699">13699</a></td><td>2.74 <img src='images\Silver.png' alt='Silver' title='Silver' />       </td></tr>
+<tr><td>17:05 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13309">13309</a></td><td>97.69 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:06 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13573">13573</a></td><td>11.13 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13311">13311</a></td><td>95.99 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13312">13312</a></td><td>93.88 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13510">13510</a></td><td>46.36 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13325">13325</a></td><td>96.13 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13283">13283</a></td><td>94.81 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13326">13326</a></td><td>96.04 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13574">13574</a></td><td>59.47 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:20 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13327">13327</a></td><td>95.95 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13454">13454</a></td><td>48.47 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13436">13436</a></td><td>95.69 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>17:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13284">13284</a></td><td>94.68 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13329">13329</a></td><td>87.78 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13438">13438</a></td><td>98.35 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:33 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13439">13439</a></td><td>98.05 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:34 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13575">13575</a></td><td>20.47 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13511">13511</a></td><td>22.05 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:40 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13287">13287</a></td><td>94.68 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13576">13576</a></td><td>21.21 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13314">13314</a></td><td>86.06 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>17:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13330">13330</a></td><td>81.77 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13331">13331</a></td><td>85.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13332">13332</a></td><td>84.59 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:55 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13333">13333</a></td><td>83.08 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>17:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13288">13288</a></td><td>94.81 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>17:57 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13437">13437</a></td><td>95.61 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>18:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13334">13334</a></td><td>82.52 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>18:02 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13443">13443</a></td><td>98.15 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:06 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13315">13315</a></td><td>82.32 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13444">13444</a></td><td>97.50 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13316">13316</a></td><td>79.26 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13446">13446</a></td><td>98.20 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:13 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13447">13447</a></td><td>97.50 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13318">13318</a></td><td>82.51 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13448">13448</a></td><td>97.45 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13449">13449</a></td><td>97.30 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13338">13338</a></td><td>98.08 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:21 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13210">13210</a></td><td>98.76 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:22 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13211">13211</a></td><td>98.10 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13701">13701</a></td><td>24.09 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:24 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13450">13450</a></td><td>97.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:25 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13451">13451</a></td><td>96.85 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13452">13452</a></td><td>97.15 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:27 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13214">13214</a></td><td>97.68 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13215">13215</a></td><td>97.57 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:29 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13216">13216</a></td><td>97.54 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:30 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13289">13289</a></td><td>94.86 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:31 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13217">13217</a></td><td>97.49 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:35 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13290">13290</a></td><td>94.72 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:38 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13218">13218</a></td><td>97.49 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:39 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13577">13577</a></td><td>6.35 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />       </td></tr>
+<tr><td>18:40 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13220">13220</a></td><td>97.38 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13221">13221</a></td><td>97.35 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13222">13222</a></td><td>97.32 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13453">13453</a></td><td>99.78 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>18:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13223">13223</a></td><td>97.32 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:48 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13224">13224</a></td><td>97.30 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:50 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13225">13225</a></td><td>97.27 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:52 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13237">13237</a></td><td>95.92 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13226">13226</a></td><td>97.27 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13227">13227</a></td><td>97.27 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>18:59 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13238">13238</a></td><td>95.80 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13340">13340</a></td><td>97.70 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>19:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13229">13229</a></td><td>97.27 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:05 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13239">13239</a></td><td>95.75 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:08 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13579">13579</a></td><td>6.24 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /> </td></tr>
+<tr><td>19:09 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13231">13231</a></td><td>97.24 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:10 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13232">13232</a></td><td>97.24 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13241">13241</a></td><td>95.23 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:19 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13242">13242</a></td><td>95.23 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:23 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13243">13243</a></td><td>95.23 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:26 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13244">13244</a></td><td>95.17 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13245">13245</a></td><td>95.06 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:41 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13246">13246</a></td><td>95.06 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:42 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13555">13555</a></td><td>56.25 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13247">13247</a></td><td>94.89 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:44 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13198">13198</a></td><td>93.47 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>19:45 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13291">13291</a></td><td>92.84 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:46 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13292">13292</a></td><td>92.77 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:47 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13201">13201</a></td><td>94.34 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>19:49 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13203">13203</a></td><td>95.18 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>19:50 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13293">13293</a></td><td>92.77 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:51 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13558">13558</a></td><td>13.22 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>19:53 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13295">13295</a></td><td>92.77 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13296">13296</a></td><td>92.62 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:56 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13297">13297</a></td><td>92.62 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:57 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13298">13298</a></td><td>92.62 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>19:58 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13299">13299</a></td><td>92.62 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>20:00 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13300">13300</a></td><td>92.99 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>20:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13301">13301</a></td><td>93.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>20:03 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13204">13204</a></td><td>94.08 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>20:07 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13205">13205</a></td><td>98.74 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:11 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13251">13251</a></td><td>94.83 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:15 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13252">13252</a></td><td>94.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:16 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13207">13207</a></td><td>97.64 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:17 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13253">13253</a></td><td>94.66 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13302">13302</a></td><td>96.57 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>20:21 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13208">13208</a></td><td>97.18 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>21:12 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13341">13341</a></td><td>92.06 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>21:18 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13342">13342</a></td><td>90.25 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>21:28 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13344">13344</a></td><td>86.41 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>21:32 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13345">13345</a></td><td>84.38 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>21:37 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13348">13348</a></td><td>89.19 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>21:43 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13349">13349</a></td><td>89.12 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>21:55 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13350">13350</a></td><td>88.06 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td></tr>
+<tr><td>22:02 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13351">13351</a></td><td>88.44 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+<tr><td>22:29 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13352">13352</a></td><td>88.33 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>23:01 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13553">13553</a></td><td>86.11 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td></tr>
+<tr><td>23:54 </td><td>Martz4040</td><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13512">13512</a></td><td>82.97 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td></tr>
+</tbody>
+</table>
+</div>
+<div id="leaderboard" class="tabcontent">
+<h2>LEADERBOARD</h2>
+<table>
+<thead>
+<tr><th>User     </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>Martz4040</td><td style="text-align: right;">    414</td></tr>
+</tbody>
+</table>
+</div>
+<div id="individual" class="tabcontent">
+<div class="dropdown"><button id='dropbtn_individual' class="dropbtn">Select a PSN ID</button>
+<div class="dropdown-content">
+<button class='individualPercentage' value='100.0' onclick="showUser(event, 'Martz4040', '60', '100.0')">Martz4040 - ✅</button><br>
+</div></div><h2>INDIVIDUAL GOALS</h2>
+<div id="Martz4040" class="user_table" style="display:none">
+<table>
+<thead>
+<tr><th>Log#                                                                                   </th><th>Rarity                                                                 </th><th style="text-align: right;">  Seconds</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13237">13237</a></td><td>95.92 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       00</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13563">13563</a></td><td>25.32 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       01</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13603">13603</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       02</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13693">13693</a></td><td>21.40 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       03</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13551">13551</a></td><td>30.56 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       04</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13549">13549</a></td><td>37.83 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       05</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13511">13511</a></td><td>22.05 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       06</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13534">13534</a></td><td>32.23 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       07</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13555">13555</a></td><td>56.25 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       08</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13539">13539</a></td><td>77.26 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       09</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13504">13504</a></td><td>17.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       10</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13574">13574</a></td><td>59.47 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       11</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13701">13701</a></td><td>24.09 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       12</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13697">13697</a></td><td>9.25 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />       </td><td style="text-align: right;">       13</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13566">13566</a></td><td>24.94 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       14</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13644">13644</a></td><td>25.48 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       15</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13626">13626</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       16</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13573">13573</a></td><td>11.13 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       17</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13503">13503</a></td><td>14.95 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       18</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13698">13698</a></td><td>24.05 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       19</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13507">13507</a></td><td>51.89 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       20</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13598">13598</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       21</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13556">13556</a></td><td>20.08 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       22</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13518">13518</a></td><td>91.77 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       23</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13576">13576</a></td><td>21.21 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       24</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13699">13699</a></td><td>2.74 <img src='images\Silver.png' alt='Silver' title='Silver' />       </td><td style="text-align: right;">       25</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13557">13557</a></td><td>28.36 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       26</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13691">13691</a></td><td>10.91 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       27</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13600">13600</a></td><td>83.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       28</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13579">13579</a></td><td>6.24 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /> </td><td style="text-align: right;">       29</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13541">13541</a></td><td>76.98 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       30</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13543">13543</a></td><td>23.04 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       31</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13572">13572</a></td><td>7.25 <img src='images\Silver.png' alt='Silver' title='Silver' />       </td><td style="text-align: right;">       32</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13473">13473</a></td><td>65.07 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       33</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13500">13500</a></td><td>59.57 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       34</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13595">13595</a></td><td>84.29 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       35</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13692">13692</a></td><td>29.57 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       36</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13624">13624</a></td><td>80.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       37</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13495">13495</a></td><td>90.16 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       38</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13568">13568</a></td><td>18.10 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       39</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13565">13565</a></td><td>5.51 <img src='images\Gold.png' alt='Gold' title='Gold' />             </td><td style="text-align: right;">       40</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13314">13314</a></td><td>86.06 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       41</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13331">13331</a></td><td>85.71 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       42</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13547">13547</a></td><td>39.56 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       43</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13536">13536</a></td><td>23.61 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       44</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13527">13527</a></td><td>90.10 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       45</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13570">13570</a></td><td>22.68 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       46</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13558">13558</a></td><td>13.22 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       47</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13535">13535</a></td><td>29.04 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       48</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13269">13269</a></td><td>95.48 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       49</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13673">13673</a></td><td>93.55 <img src='images\Gold.png' alt='Gold' title='Gold' />            </td><td style="text-align: right;">       50</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13575">13575</a></td><td>20.47 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       51</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13564">13564</a></td><td>67.48 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       52</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13409">13409</a></td><td>86.14 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       53</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13577">13577</a></td><td>6.35 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />       </td><td style="text-align: right;">       54</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13571">13571</a></td><td>19.33 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       55</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13608">13608</a></td><td>82.86 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       56</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13402">13402</a></td><td>87.27 <img src='images\Bronze.png' alt='Bronze' title='Bronze' />      </td><td style="text-align: right;">       57</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13700">13700</a></td><td>11.99 <img src='images\Silver.png' alt='Silver' title='Silver' />      </td><td style="text-align: right;">       58</td></tr>
+<tr><td><a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13498">13498</a></td><td>88.32 <img src='images\Platinum.png' alt='Platinum' title='Platinum' /></td><td style="text-align: right;">       59</td></tr>
+</tbody>
+</table></div>
+</div>
+<div id='stats' class='tabcontent'>
+<div class='dropdown'><button id='dropbtn_stat' class='dropbtn'>Overall</button>
+<div class='dropdown-content'>
+<button onclick="showStat(event, 'Overall')">Overall</button><br>
+<button onclick="showStat(event, 'Claimed')">Claimed</button><br>
+<button onclick="showStat(event, 'mattigummi45')">mattigummi45</button><br>
+<button onclick="showStat(event, 'Martz4040')">Martz4040</button><br>
+</div></div>
+<div id='Overall_stats' class='stats_table'>
+<h2>GENERAL STATS</h2>
+<table>
+<thead>
+<tr><th>Info                                 </th><th>Stat                                                                                                                                                                 </th></tr>
+</thead>
+<tbody>
+<tr><td>Total trophies earned                </td><td>504                                                                                                                                                                  </td></tr>
+<tr><td>Average rarity of all trophies earned</td><td>84.84                                                                                                                                                                </td></tr>
+<tr><td>Rarest (PSNP rarity) trophy earned   </td><td>Martz4040 #<a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13699">13699</a> - 2.74 <img src='images\Silver.png' alt='Silver' title='Silver' /></td></tr>
+<tr><td>Number of 100% rarity trophies       </td><td>3                                                                                                                                                                    </td></tr>
+<tr><td>Most earned hour slot                </td><td>48                                                                                                                                                                   </td></tr>
+<tr><td>Most contested time slot             </td><td>10:54 [4]                                                                                                                                                            </td></tr>
+<tr><td>Number of bronze trophies            </td><td>183                                                                                                                                                                  </td></tr>
+<tr><td>Number of silver trophies            </td><td>167                                                                                                                                                                  </td></tr>
+<tr><td>Number of gold trophies              </td><td>146                                                                                                                                                                  </td></tr>
+<tr><td>Number of platinum trophies          </td><td>8                                                                                                                                                                    </td></tr>
+</tbody>
+</table>
+<br><h2>MOST CONTESTED TIME SLOTS</h2>
+<table>
+<thead>
+<tr><th>Slot  </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>10:54 </td><td style="text-align: right;">      4</td></tr>
+<tr><td>18:11 </td><td style="text-align: right;">      4</td></tr>
+<tr><td>04:26 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>09:11 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>09:23 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>10:37 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>10:39 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>15:16 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>19:08 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>19:44 </td><td style="text-align: right;">      3</td></tr>
+<tr><td>00:04 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>00:32 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>03:15 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>03:19 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>03:20 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>03:32 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>05:29 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>05:34 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>07:52 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>07:58 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>07:59 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>08:30 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>09:37 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>09:41 </td><td style="text-align: right;">      2</td></tr>
+<tr><td>09:42 </td><td style="text-align: right;">      2</td></tr>
+</tbody>
+</table><br><h2>TIME SLOT STATS</h2>
+<table>
+<thead>
+<tr><th>Hour Bucket  </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>Hour 0       </td><td style="text-align: right;">      8</td></tr>
+<tr><td>Hour 1       </td><td style="text-align: right;">      2</td></tr>
+<tr><td>Hour 2       </td><td style="text-align: right;">      0</td></tr>
+<tr><td>Hour 3       </td><td style="text-align: right;">     29</td></tr>
+<tr><td>Hour 4       </td><td style="text-align: right;">     22</td></tr>
+<tr><td>Hour 5       </td><td style="text-align: right;">     42</td></tr>
+<tr><td>Hour 6       </td><td style="text-align: right;">     38</td></tr>
+<tr><td>Hour 7       </td><td style="text-align: right;">     19</td></tr>
+<tr><td>Hour 8       </td><td style="text-align: right;">     12</td></tr>
+<tr><td>Hour 9       </td><td style="text-align: right;">     41</td></tr>
+<tr><td>Hour 10      </td><td style="text-align: right;">     41</td></tr>
+<tr><td>Hour 11      </td><td style="text-align: right;">     30</td></tr>
+<tr><td>Hour 12      </td><td style="text-align: right;">     16</td></tr>
+<tr><td>Hour 13      </td><td style="text-align: right;">     13</td></tr>
+<tr><td>Hour 14      </td><td style="text-align: right;">     18</td></tr>
+<tr><td>Hour 15      </td><td style="text-align: right;">     15</td></tr>
+<tr><td>Hour 16      </td><td style="text-align: right;">     11</td></tr>
+<tr><td>Hour 17      </td><td style="text-align: right;">     37</td></tr>
+<tr><td>Hour 18      </td><td style="text-align: right;">     48</td></tr>
+<tr><td>Hour 19      </td><td style="text-align: right;">     34</td></tr>
+<tr><td>Hour 20      </td><td style="text-align: right;">     14</td></tr>
+<tr><td>Hour 21      </td><td style="text-align: right;">     10</td></tr>
+<tr><td>Hour 22      </td><td style="text-align: right;">      2</td></tr>
+<tr><td>Hour 23      </td><td style="text-align: right;">      2</td></tr>
+</tbody>
+</table>
+<br><h2>RARITY STATS</h2>
+<table>
+<thead>
+<tr><th>Rarity     </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>< 10%      </td><td style="text-align: right;">      8</td></tr>
+<tr><td>10% - 19.9%</td><td style="text-align: right;">     12</td></tr>
+<tr><td>20% - 29.9%</td><td style="text-align: right;">     22</td></tr>
+<tr><td>30% - 39.9%</td><td style="text-align: right;">      9</td></tr>
+<tr><td>40% - 49.9%</td><td style="text-align: right;">      4</td></tr>
+<tr><td>50% - 59.9%</td><td style="text-align: right;">      6</td></tr>
+<tr><td>60% - 69.9%</td><td style="text-align: right;">      4</td></tr>
+<tr><td>70% - 79.9%</td><td style="text-align: right;">     11</td></tr>
+<tr><td>80% - 89.9%</td><td style="text-align: right;">     94</td></tr>
+<tr><td>90% - 100% </td><td style="text-align: right;">    331</td></tr>
+</tbody>
+</table>
+</div><div id='Claimed_stats' class='stats_table' style="display:none">
+<h2>GENERAL STATS</h2>
+<table>
+<thead>
+<tr><th>Info                                    </th><th>Stat                                                                                                                                                                 </th></tr>
+</thead>
+<tbody>
+<tr><td>Total trophies claimed                  </td><td>414                                                                                                                                                                  </td></tr>
+<tr><td>Average rarity of all time slots claimed</td><td>84.95                                                                                                                                                                </td></tr>
+<tr><td>Rarest (PSNP rarity) time slots claimed </td><td>Martz4040 #<a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13699">13699</a> - 2.74 <img src='images\Silver.png' alt='Silver' title='Silver' /></td></tr>
+<tr><td>Number of 100% rarity time slots        </td><td>2                                                                                                                                                                    </td></tr>
+<tr><td>Number of bronze trophies               </td><td>153                                                                                                                                                                  </td></tr>
+<tr><td>Number of silver trophies               </td><td>143                                                                                                                                                                  </td></tr>
+<tr><td>Number of gold trophies                 </td><td>112                                                                                                                                                                  </td></tr>
+<tr><td>Number of platinum trophies             </td><td>6                                                                                                                                                                    </td></tr>
+</tbody>
+</table>
+<br><h2>RARITY STATS</h2>
+<table>
+<thead>
+<tr><th>Rarity     </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>< 10%      </td><td style="text-align: right;">      8</td></tr>
+<tr><td>10% - 19.9%</td><td style="text-align: right;">     11</td></tr>
+<tr><td>20% - 29.9%</td><td style="text-align: right;">     19</td></tr>
+<tr><td>30% - 39.9%</td><td style="text-align: right;">      7</td></tr>
+<tr><td>40% - 49.9%</td><td style="text-align: right;">      2</td></tr>
+<tr><td>50% - 59.9%</td><td style="text-align: right;">      6</td></tr>
+<tr><td>60% - 69.9%</td><td style="text-align: right;">      3</td></tr>
+<tr><td>70% - 79.9%</td><td style="text-align: right;">      8</td></tr>
+<tr><td>80% - 89.9%</td><td style="text-align: right;">     83</td></tr>
+<tr><td>90% - 100% </td><td style="text-align: right;">    269</td></tr>
+</tbody>
+</table>
+</div>
+<div id='Martz4040_stats' class='stats_table' style="display:none"><h2>GENERAL STATS</h2>
+<table>
+<thead>
+<tr><th>Info                                 </th><th>Stat                                                                                                                                                                 </th></tr>
+</thead>
+<tbody>
+<tr><td>Total trophies earned                </td><td>504                                                                                                                                                                  </td></tr>
+<tr><td>Average rarity of all trophies earned</td><td>84.84                                                                                                                                                                </td></tr>
+<tr><td>Rarest (PSNP rarity) trophy earned   </td><td>Martz4040 #<a href="https://www.playstationtrophies.org/profiles/Martz4040/log?id=13699">13699</a> - 2.74 <img src='images\Silver.png' alt='Silver' title='Silver' /></td></tr>
+<tr><td>Number of 100% rarity trophies       </td><td>3                                                                                                                                                                    </td></tr>
+<tr><td>Most earned hour slot                </td><td>48                                                                                                                                                                   </td></tr>
+<tr><td>Number of bronze trophies            </td><td>183                                                                                                                                                                  </td></tr>
+<tr><td>Number of silver trophies            </td><td>167                                                                                                                                                                  </td></tr>
+<tr><td>Number of gold trophies              </td><td>146                                                                                                                                                                  </td></tr>
+<tr><td>Number of platinum trophies          </td><td>8                                                                                                                                                                    </td></tr>
+</tbody>
+</table>
+<br><h2>TIME SLOT STATS</h2>
+<table>
+<thead>
+<tr><th>Hour Bucket  </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>Hour 0       </td><td style="text-align: right;">      8</td></tr>
+<tr><td>Hour 1       </td><td style="text-align: right;">      2</td></tr>
+<tr><td>Hour 2       </td><td style="text-align: right;">      0</td></tr>
+<tr><td>Hour 3       </td><td style="text-align: right;">     29</td></tr>
+<tr><td>Hour 4       </td><td style="text-align: right;">     22</td></tr>
+<tr><td>Hour 5       </td><td style="text-align: right;">     42</td></tr>
+<tr><td>Hour 6       </td><td style="text-align: right;">     38</td></tr>
+<tr><td>Hour 7       </td><td style="text-align: right;">     19</td></tr>
+<tr><td>Hour 8       </td><td style="text-align: right;">     12</td></tr>
+<tr><td>Hour 9       </td><td style="text-align: right;">     41</td></tr>
+<tr><td>Hour 10      </td><td style="text-align: right;">     41</td></tr>
+<tr><td>Hour 11      </td><td style="text-align: right;">     30</td></tr>
+<tr><td>Hour 12      </td><td style="text-align: right;">     16</td></tr>
+<tr><td>Hour 13      </td><td style="text-align: right;">     13</td></tr>
+<tr><td>Hour 14      </td><td style="text-align: right;">     18</td></tr>
+<tr><td>Hour 15      </td><td style="text-align: right;">     15</td></tr>
+<tr><td>Hour 16      </td><td style="text-align: right;">     11</td></tr>
+<tr><td>Hour 17      </td><td style="text-align: right;">     37</td></tr>
+<tr><td>Hour 18      </td><td style="text-align: right;">     48</td></tr>
+<tr><td>Hour 19      </td><td style="text-align: right;">     34</td></tr>
+<tr><td>Hour 20      </td><td style="text-align: right;">     14</td></tr>
+<tr><td>Hour 21      </td><td style="text-align: right;">     10</td></tr>
+<tr><td>Hour 22      </td><td style="text-align: right;">      2</td></tr>
+<tr><td>Hour 23      </td><td style="text-align: right;">      2</td></tr>
+</tbody>
+</table>
+<br><h2>RARITY STATS</h2>
+<table>
+<thead>
+<tr><th>Rarity     </th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td>< 10%      </td><td style="text-align: right;">      8</td></tr>
+<tr><td>10% - 19.9%</td><td style="text-align: right;">     12</td></tr>
+<tr><td>20% - 29.9%</td><td style="text-align: right;">     22</td></tr>
+<tr><td>30% - 39.9%</td><td style="text-align: right;">      9</td></tr>
+<tr><td>40% - 49.9%</td><td style="text-align: right;">      4</td></tr>
+<tr><td>50% - 59.9%</td><td style="text-align: right;">      6</td></tr>
+<tr><td>60% - 69.9%</td><td style="text-align: right;">      4</td></tr>
+<tr><td>70% - 79.9%</td><td style="text-align: right;">     11</td></tr>
+<tr><td>80% - 89.9%</td><td style="text-align: right;">     94</td></tr>
+<tr><td>90% - 100% </td><td style="text-align: right;">    331</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
