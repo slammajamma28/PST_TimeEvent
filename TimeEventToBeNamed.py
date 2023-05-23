@@ -29,7 +29,7 @@ PSN_IDS = data.split("\n")
 participants.close()
 
 EVENT_START = datetime.datetime.strptime('2023/05/01', "%Y/%m/%d")
-EVENT_END = datetime.datetime.strptime('2023/06/01', "%Y/%m/%d")
+EVENT_END = datetime.datetime.strptime('2023/05/22', "%Y/%m/%d")
 
 ff_profile = "C:\\Users\\dillo\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\8lk0om2z.default"
 options = Options()
