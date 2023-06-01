@@ -13,6 +13,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from collections import Counter
 import traceback
+import matplotlib.pyplot as plt
+import os
+import numpy as np
+
+plt.style.use('dark_background')
 
 startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %H:%M:%S %Z")
 #startTS = datetime.datetime.now(timezone.utc).strftime("%Y/%m/%d %I:%M:%S %p %Z")
@@ -22,7 +27,7 @@ participants = open("participants", "r")
   
 # reading the file
 data = participants.read()
-  
+
 # replacing end splitting the text 
 # when newline ('\n') is seen.
 PSN_IDS = data.split("\n")
@@ -542,6 +547,61 @@ class User:
         self.dayBucketStats.append(["Day 20", day_20_total])
         self.dayBucketStats.append(["Day 21", day_21_total])
 
+        #######################
+        # PLOTS
+        #######################
+        
+        # Trophy Type
+        labels = 'Bronze', 'Silver', 'Gold', 'Platinum'
+        plot_types = [bronze_count, silver_count, gold_count, platinum_count]
+        
+        fig, ax = plt.subplots()
+        ax.pie(plot_types, labels=labels, autopct='%1.1f%%',
+               colors = ['peru', 'silver', 'gold', 'deepskyblue'])
+        ax.set_title('Overall Trophy Types')
+        fig.savefig(f'images/{self.psn}/overall_trophy_types.png')
+        plt.close()
+
+        # Hour Buckets
+        labels = '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'
+        plot_types = [hour_0_total, hour_1_total, hour_2_total, hour_3_total, hour_4_total, hour_5_total, hour_6_total, hour_7_total, hour_8_total, hour_9_total,
+                      hour_10_total, hour_11_total, hour_12_total, hour_13_total, hour_14_total, hour_15_total, hour_16_total, hour_17_total, hour_18_total,
+                      hour_19_total, hour_20_total, hour_21_total, hour_22_total, hour_23_total]
+        fig, ax = plt.subplots()
+        ax.bar(labels, plot_types, label=labels, color='blue')
+        ax.set_title('Overall Trophies Earned During Each Hour')
+        ax.set_xlabel("Hour")
+        ax.set_ylabel("Trophies")
+        fig.savefig(f'images/{self.psn}/overall_hour_buckets.png')
+        plt.close()
+
+        # Day Buckets
+        labels = '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'
+        plot_types = [day_1_total, day_2_total, day_3_total, day_4_total, day_5_total, day_6_total, day_7_total, day_8_total, day_9_total,
+                      day_10_total, day_11_total, day_12_total, day_13_total, day_14_total, day_15_total, day_16_total, day_17_total, day_18_total,
+                      day_19_total, day_20_total, day_21_total]
+        fig, ax = plt.subplots()
+        ax.bar(labels, plot_types, label=labels, color='blue')
+        ax.set_title('Overall Trophies Earned Per Day')
+        ax.set_xlabel("Day")
+        ax.set_ylabel("Trophies")
+        fig.savefig(f'images/{self.psn}/overall_day_buckets.png')
+        plt.close()
+
+        # Rarity
+        labels = "< 10%", "10% - 19.9%", "20% - 29.9%", "30% - 39.9%", "40% - 49.9%", "50% - 59.9%", "60% - 69.9%", "70% - 79.9%", "80% - 89.9%", "90% - 100%"
+        plot_types = [ zero_to_ten, ten_to_twenty, twenty_to_thirty, thirty_to_fourty, fourty_to_fifty, 
+                      fifty_to_sixty, sixty_to_seventy, seventy_to_eighty, eighty_to_ninety, ninety_to_hundred]
+        fig, ax = plt.subplots()
+        ax.bar(labels, plot_types, label=labels, color='blue')
+        ax.set_title('Overall Rarities')
+        ax.set_xlabel("Rarity Range",)
+        ax.set_ylabel("Trophies")
+        plt.xticks(rotation=90)
+        plt.subplots_adjust(bottom=0.25)
+        fig.savefig(f'images/{self.psn}/overall_rarity_buckets.png')
+        plt.close()
+
     def getAllTrophiesStats(self):
         return self.allTrophiesStats
     
@@ -585,8 +645,15 @@ class TimeItem():
 
 ALL_TROPHIES = []
 
+foldername= f'./images/Overall'
+os.makedirs(foldername, exist_ok=True)
+foldername= f'./images/Claimed'
+os.makedirs(foldername, exist_ok=True)
+
 try:
     for psn in PSN_IDS:
+        foldername= f'./images/{psn}'
+        os.makedirs(foldername, exist_ok=True)
         user = User(psn)
         ## Get Hidden Trophy count
         url = f"https://psnprofiles.com/{psn}"
@@ -1193,6 +1260,63 @@ try:
 
     ######################################################
     #
+    #   Create charts n stuff
+    #
+    ######################################################
+        
+    # Trophy Type
+    labels = 'Bronze', 'Silver', 'Gold', 'Platinum'
+    plot_types = [bronze_count, silver_count, gold_count, platinum_count]
+    
+    fig, ax = plt.subplots()
+    ax.pie(plot_types, labels=labels, autopct='%1.1f%%',
+            colors = ['peru', 'silver', 'gold', 'deepskyblue'])
+    ax.set_title('Overall Trophy Types')
+    fig.savefig(f'images/Overall/overall_trophy_types.png', dpi=500)
+    plt.close()
+
+    # Hour Buckets
+    labels = '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'
+    plot_types = [hour_0_total, hour_1_total, hour_2_total, hour_3_total, hour_4_total, hour_5_total, hour_6_total, hour_7_total, hour_8_total, hour_9_total,
+                    hour_10_total, hour_11_total, hour_12_total, hour_13_total, hour_14_total, hour_15_total, hour_16_total, hour_17_total, hour_18_total,
+                    hour_19_total, hour_20_total, hour_21_total, hour_22_total, hour_23_total]
+    fig, ax = plt.subplots()
+    ax.bar(labels, plot_types, label=labels, color='blue')
+    ax.set_title('Overall Trophies Earned During Each Hour')
+    ax.set_xlabel("Hour")
+    ax.set_ylabel("Trophies")
+    fig.savefig(f'images/Overall/overall_hour_buckets.png')
+    plt.close()
+
+    # Day Buckets
+    labels = '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'
+    plot_types = [day_1_total, day_2_total, day_3_total, day_4_total, day_5_total, day_6_total, day_7_total, day_8_total, day_9_total,
+                    day_10_total, day_11_total, day_12_total, day_13_total, day_14_total, day_15_total, day_16_total, day_17_total, day_18_total,
+                    day_19_total, day_20_total, day_21_total]
+    fig, ax = plt.subplots()
+    ax.bar(labels, plot_types, label=labels, color='blue')
+    ax.set_title('Overall Trophies Earned Per Day')
+    ax.set_xlabel("Day")
+    ax.set_ylabel("Trophies")
+    fig.savefig(f'images/Overall/overall_day_buckets.png')
+    plt.close()
+
+    # Rarity
+    labels = "< 10%", "10% - 19.9%", "20% - 29.9%", "30% - 39.9%", "40% - 49.9%", "50% - 59.9%", "60% - 69.9%", "70% - 79.9%", "80% - 89.9%", "90% - 100%"
+    plot_types = [ zero_to_ten, ten_to_twenty, twenty_to_thirty, thirty_to_fourty, fourty_to_fifty, 
+                    fifty_to_sixty, sixty_to_seventy, seventy_to_eighty, eighty_to_ninety, ninety_to_hundred]
+    fig, ax = plt.subplots()
+    ax.bar(labels, plot_types, label=labels, color='blue')
+    ax.set_title('Overall Rarities')
+    ax.set_xlabel("Rarity Range",)
+    ax.set_ylabel("Trophies")
+    plt.xticks(rotation=90)
+    plt.subplots_adjust(bottom=0.25)
+    fig.savefig(f'images/Overall/overall_rarity_buckets.png')
+    plt.close()
+
+    ######################################################
+    #
     #   Start writing our HTML
     #
     ######################################################
@@ -1426,14 +1550,19 @@ try:
     current_file.write("<div id='Overall_stats' class='stats_table'>\n")
     current_file.write("<h2>GENERAL STATS</h2>\n")
     current_file.write(tabulate(ALL_TROPHIES_STATS, headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<img class='stats-graph' src='images/Overall/overall_trophy_types.png' />\n")
     current_file.write("<br><h2>MOST CONTESTED TIME SLOTS</h2>\n")
     current_file.write(tabulate(tcnt.most_common(25), headers=["Slot","Count"], tablefmt='unsafehtml'))
     current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
     current_file.write(tabulate(HOUR_BUCKET_STATS, headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<img class='stats-graph' src='images/Overall/overall_hour_buckets.png' />\n")
     current_file.write("<br><h2>DAY STATS</h2>\n")
     current_file.write(tabulate(DAY_BUCKET_STATS, headers=["Day Bucket","Count"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<img class='stats-graph' src='images/Overall/overall_day_buckets.png' />\n")
     current_file.write("<br><h2>RARITY STATS</h2>\n")
-    current_file.write(tabulate(RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
+    current_file.write(tabulate(RAIRTY_RANGE_STATS, headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n")
+    current_file.write("<img class='stats-graph' src='images/Overall/overall_rarity_buckets.png' />\n")
+    current_file.write("</div>")
 
     ###########################
     # Claimed stats
@@ -1453,12 +1582,17 @@ try:
         current_file.write(f"\n<div id='{user.getPSN()}_stats' class='stats_table' style=\"display:none\">")
         current_file.write("<h2>GENERAL STATS</h2>\n")
         current_file.write(tabulate(user.getAllTrophiesStats(), headers=["Info","Stat"], tablefmt='unsafehtml')+"\n")
+        current_file.write(f"<img class='stats-graph' src='images/{user.getPSN()}/overall_trophy_types.png' />\n")
         current_file.write("<br><h2>TIME SLOT STATS</h2>\n")
         current_file.write(tabulate(user.getHourBucketStats(), headers=["Hour Bucket","Count"], tablefmt='unsafehtml')+"\n")
+        current_file.write(f"<img class='stats-graph' src='images/{user.getPSN()}/overall_hour_buckets.png' />\n")
         current_file.write("<br><h2>DAY STATS</h2>\n")
         current_file.write(tabulate(user.getDayBucketStats(), headers=["Day Bucket","Count"], tablefmt='unsafehtml')+"\n")
+        current_file.write(f"<img class='stats-graph' src='images/{user.getPSN()}/overall_day_buckets.png' />\n")
         current_file.write("<br><h2>RARITY STATS</h2>\n")
-        current_file.write(tabulate(user.getRarityRangeStats(), headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n</div>")
+        current_file.write(tabulate(user.getRarityRangeStats(), headers=["Rarity","Count"], tablefmt='unsafehtml')+"\n")
+        current_file.write(f"<img class='stats-graph' src='images/{user.getPSN()}/overall_rarity_buckets.png' />\n")
+        current_file.write("</div>")
 
     current_file.write("\n</div>\n</body>")
     print("Process complete at " + datetime.datetime.now().strftime("%H:%M:%S"))

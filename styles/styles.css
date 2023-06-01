@@ -15,6 +15,10 @@ img {
     max-width: 400px;
 }
 
+.stats-graph {
+    max-width: 600px;
+}
+
 td img {
     max-height: 18px;
 }
